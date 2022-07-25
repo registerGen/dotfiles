@@ -77,6 +77,20 @@ require('packer').startup(function(use)
       }
     end,
   }
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      local null_ls = require 'null-ls'
+      null_ls.setup {
+        sources = {
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.code_actions.gitsigns,
+          null_ls.builtins.diagnostics.zsh,
+        },
+      }
+    end,
+  }
 
   -- Completion {{{1
   use {
@@ -346,8 +360,8 @@ require('packer').startup(function(use)
         startinsert = true,
         filetype = {
           cpp = 'cd $dir && '
-            .. vim.fn.stdpath 'config'
-            .. '/utils/run_cpp.sh $fileName $fileNameWithoutExt',
+              .. vim.fn.stdpath 'config'
+              .. '/utils/run_cpp.sh $fileName $fileNameWithoutExt',
           python = 'cd $dir && python $fileName',
           tex = 'cd $dir && latexmk $fileName && latexmk -c && evince -f $fileNameWithoutExt.pdf',
         },
