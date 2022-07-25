@@ -12,7 +12,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           args: .
-          version: 0.14.1
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
