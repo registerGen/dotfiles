@@ -27,7 +27,7 @@ M.config = function()
         before = function(entry, item)
           item.menu = '[' .. entry.source.name .. ']'
           return item
-        end
+        end,
       },
     },
     window = {
