@@ -45,9 +45,14 @@ local function on_attach(client, bufnr)
   require('aerial').on_attach(client, bufnr)
 end
 
+local clangd_cap = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+clangd_cap.offsetEncoding = { 'utf-16' }
+
 local server_config = {
   bashls = {},
-  clangd = {},
+  clangd = {
+    capabilities = clangd_cap,
+  },
   cssls = {},
   html = {},
   jedi_language_server = {},
