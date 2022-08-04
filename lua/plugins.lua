@@ -371,8 +371,8 @@ require('packer').startup(function(use)
         startinsert = true,
         filetype = {
           cpp = 'cd $dir && '
-            .. vim.fn.stdpath 'config'
-            .. '/utils/run_cpp.sh $fileName $fileNameWithoutExt',
+              .. vim.fn.stdpath 'config'
+              .. '/utils/run_cpp.sh $fileName $fileNameWithoutExt',
           python = 'cd $dir && python $fileName',
           tex = 'cd $dir && latexmk $fileName && latexmk -c && evince -f $fileNameWithoutExt.pdf',
         },
@@ -416,7 +416,12 @@ require('packer').startup(function(use)
       require('keymaps').register_prefix 'visualmulti'
     end,
   }
-  use 'matze/vim-move'
+  use {
+    'booperlv/nvim-gomove',
+    config = function()
+      require('gomove').setup()
+    end,
+  }
   use 'RRethy/nvim-treesitter-endwise'
 
   -- Formatting {{{1
