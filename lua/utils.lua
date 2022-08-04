@@ -1,7 +1,5 @@
 local M = {}
 
-local aerial = require 'aerial'
-
 local tobool = function(x)
   if x ~= 0 then
     return true
