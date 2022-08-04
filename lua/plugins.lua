@@ -87,7 +87,11 @@ require('packer').startup(function(use)
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.code_actions.gitsigns.with {
             condition = function(utils)
-              for dir in vim.fs.parents(vim.api.nvim_buf_get_name(0)) do
+              local bufname = vim.api.nvim_buf_get_name(0)
+              if vim.fn.isdirectory(bufname .. '/.git') == 1 then
+                return true
+              end
+              for dir in vim.fs.parents(bufname) do
                 if vim.fn.isdirectory(dir .. '/.git') == 1 then
                   return true
                 end
