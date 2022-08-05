@@ -21,12 +21,6 @@ require('packer').startup(function(use)
       require('plugincfg.sonokai').config()
     end,
   }
-  use {
-    'olimorris/onedarkpro.nvim',
-    config = function()
-      require('plugincfg.onedarkpro').config()
-    end,
-  }
 
   -- LSP {{{1
   use {
