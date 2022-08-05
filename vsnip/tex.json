@@ -363,6 +363,34 @@
     ],
     "description": "OI paper - big sample"
   },
+  "scoring": {
+    "prefix": ["scoring"],
+    "body": [
+      "\\noindent {\\fontsize{13pt}{0}\\textbf{\\quad【评分方式】}} \\indent",
+      "\\phantomsection",
+      "\\addcontentsline{toc}{subsection}{评分方式}",
+      "\\vspace{0.5\\baselineskip}",
+      "",
+      "",
+      "",
+      "\\vspace{1\\baselineskip}"
+    ],
+    "description": "OI paper - scoring"
+  },
+  "hint": {
+    "prefix": ["hint"],
+    "body": [
+      "\\noindent {\\fontsize{13pt}{0}\\textbf{\\quad【提示】}} \\indent",
+      "\\phantomsection",
+      "\\addcontentsline{toc}{subsection}{提示}",
+      "\\vspace{0.5\\baselineskip}",
+      "",
+      "",
+      "",
+      "\\vspace{1\\baselineskip}"
+    ],
+    "description": "OI paper - hint"
+  },
   "section": {
     "prefix": ["section"],
     "body": [
