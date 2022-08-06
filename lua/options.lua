@@ -29,14 +29,6 @@ opt.wrap = false
 
 vim.g.tex_flavor = 'latex'
 
-if vim.fn.exists 'g:neovide' then
-  opt.guifont = 'Delugia:h14'
-  vim.g.neovide_cursor_vfx_mode = 'railgun'
-  vim.g.neovide_floating_blur_amount_x = 2.0
-  vim.g.neovide_floating_blur_amount_y = 2.0
-  vim.g.neovide_transparency = 0.7
-end
-
 local disabled_builtins = {
   '2html_plugin',
   'getscript',
@@ -60,4 +52,12 @@ local disabled_builtins = {
 
 for _, plugin in ipairs(disabled_builtins) do
   vim.g['loaded_' .. plugin] = 1
+end
+
+if vim.fn.exists 'g:neovide' then
+  opt.guifont = 'Delugia:h14'
+  vim.g.neovide_cursor_vfx_mode = 'railgun'
+  vim.g.neovide_floating_blur_amount_x = 2.0
+  vim.g.neovide_floating_blur_amount_y = 2.0
+  vim.g.neovide_transparency = 0.7
 end
