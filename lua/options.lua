@@ -2,7 +2,6 @@ local opt = vim.opt
 
 opt.background = 'dark'
 opt.backup = false
-opt.cmdheight = 0
 opt.completeopt = { 'menu', 'menuone', 'noselect' }
 opt.cursorline = true
 opt.expandtab = true
@@ -26,12 +25,17 @@ opt.tabstop = 2
 opt.termguicolors = true
 opt.timeoutlen = 500
 opt.updatetime = 500
-opt.winbar = '%{%v:lua.require(\'utils\').winbar()%}'
 opt.wrap = false
 
 vim.g.tex_flavor = 'latex'
-vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 0
+
+if vim.fn.exists 'g:neovide' then
+  opt.guifont = 'Delugia:h14'
+  vim.g.neovide_cursor_vfx_mode = 'railgun'
+  vim.g.neovide_floating_blur_amount_x = 2.0
+  vim.g.neovide_floating_blur_amount_y = 2.0
+  vim.g.neovide_transparency = 0.7
+end
 
 local disabled_builtins = {
   '2html_plugin',

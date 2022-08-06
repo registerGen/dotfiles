@@ -21,12 +21,6 @@ require('packer').startup(function(use)
       require('plugincfg.sonokai').config()
     end,
   }
-  use {
-    'olimorris/onedarkpro.nvim',
-    config = function()
-      require('plugincfg.onedarkpro').config()
-    end,
-  }
 
   -- LSP {{{1
   use {
@@ -74,6 +68,33 @@ require('packer').startup(function(use)
     config = function()
       require('aerial').setup {
         backends = { 'lsp', 'treesitter', 'markdown' },
+      }
+    end,
+  }
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      local null_ls = require 'null-ls'
+      null_ls.setup {
+        sources = {
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.code_actions.gitsigns.with {
+            condition = function(utils)
+              local bufname = vim.api.nvim_buf_get_name(0)
+              if vim.fn.isdirectory(bufname .. '/.git') == 1 then
+                return true
+              end
+              for dir in vim.fs.parents(bufname) do
+                if vim.fn.isdirectory(dir .. '/.git') == 1 then
+                  return true
+                end
+              end
+              return false
+            end,
+          },
+          null_ls.builtins.diagnostics.zsh,
+        },
       }
     end,
   }
@@ -195,6 +216,7 @@ require('packer').startup(function(use)
     config = function()
       require('telescope').load_extension 'fzf'
       require('telescope').load_extension 'aerial'
+      require('telescope').load_extension 'notify'
     end,
   }
 
@@ -216,7 +238,6 @@ require('packer').startup(function(use)
           WARN = '',
         },
       }
-
       vim.notify = require 'notify'
     end,
   }
@@ -310,7 +331,13 @@ require('packer').startup(function(use)
       require('gitsigns').setup()
     end,
   }
-  use 'f-person/git-blame.nvim'
+  use {
+    'APZelos/blamer.nvim',
+    config = function()
+      vim.g.blamer_enabled = 1
+      vim.g.blamer_delay = 200
+    end,
+  }
 
   -- Comment {{{1
   use {
@@ -383,7 +410,12 @@ require('packer').startup(function(use)
       require('keymaps').register_prefix 'visualmulti'
     end,
   }
-  use 'matze/vim-move'
+  use {
+    'booperlv/nvim-gomove',
+    config = function()
+      require('gomove').setup()
+    end,
+  }
   use 'RRethy/nvim-treesitter-endwise'
 
   -- Formatting {{{1
@@ -399,22 +431,6 @@ require('packer').startup(function(use)
     'folke/which-key.nvim',
     config = function()
       require('which-key').setup()
-
-      -- TODO: Remove this when #301 is merged
-      local wk_view = require 'which-key.view'
-      wk_view.hide = function()
-        vim.api.nvim_echo({ { '' } }, false, {})
-        vim.cmd 'redraw'
-        wk_view.hide_cursor()
-        if wk_view.buf and vim.api.nvim_buf_is_valid(wk_view.buf) then
-          vim.api.nvim_buf_delete(wk_view.buf, { force = true })
-          wk_view.buf = nil
-        end
-        if wk_view.win and vim.api.nvim_win_is_valid(wk_view.win) then
-          vim.api.nvim_win_close(wk_view.win, { force = true })
-          wk_view.win = nil
-        end
-      end
     end,
   }
 

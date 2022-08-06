@@ -2,14 +2,13 @@ local M = {}
 
 M.config = function()
   for _, config in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
-    config.install_info.url = config.install_info.url:gsub(
-      'https://github.com/',
-      'https://ghproxy.com/github.com/'
-    )
+    config.install_info.url =
+      config.install_info.url:gsub('https://github.com/', 'https://ghproxy.com/github.com/')
   end
 
   require('nvim-treesitter.configs').setup {
     ensure_installed = 'all',
+    auto_install = true,
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false,
