@@ -1,11 +1,10 @@
--- stylua: ignore start
-
 local u = require 'utils'
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- LSP
+-- stylua: ignore start
 local preview = require 'goto-preview'
 u.set_map_prefix '<leader>l'
 u.nmap('d', function() preview.goto_preview_definition() end, { desc = 'Go to definition' })
@@ -16,6 +15,6 @@ u.nmap('c', function() vim.lsp.buf.code_action() end, { desc = 'Code action' })
 u.nmap('n', function() vim.lsp.buf.rename() end, { desc = 'Rename' })
 u.nmap('f', function() vim.lsp.buf.format { async = true } end, { desc = 'Format' })
 u.nmap('D', function() vim.diagnostic.open_float { focus = false, scope = 'l' } end, { desc = 'Show line diagnostics' })
-u.nmap('<S-D>', function() vim.diagnostic.open_float { focus = false, scope = 'b' } end, { desc = 'Show buffer diagnostics' })
+u.nmap('<C-D>', function() vim.diagnostic.open_float { focus = false, scope = 'b' } end, { desc = 'Show buffer diagnostics' })
 
 -- stylua: ignore end

@@ -76,11 +76,6 @@ M.config = function()
       enable = true,
     },
   }
-
-  require('keymaps').register_prefix 'playground'
-  local rk = require('keymaps').register_keymap
-  rk('playground', 'n', 't', '<cmd>TSPlaygroundToggle<CR>', 'Toggle treesitter playground')
-  rk('playground', 'n', 'h', '<cmd>TSHighlightCapturesUnderCursor<CR>', 'Show highlight group')
 end
 
 return M

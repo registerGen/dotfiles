@@ -315,10 +315,6 @@ require('packer').startup(function(use)
           },
         },
       }
-
-      require('keymaps').register_prefix 'nvimtree'
-      local rk = require('keymaps').register_keymap
-      rk('nvimtree', 'n', 't', '<cmd>NvimTreeToggle<CR>', 'Toggle nvim-tree')
     end,
   }
 
@@ -371,10 +367,6 @@ require('packer').startup(function(use)
           tex = 'cd $dir && latexmk $fileName && latexmk -c && evince -f $fileNameWithoutExt.pdf',
         },
       }
-
-      require('keymaps').register_prefix 'coderunner'
-      local rk = require('keymaps').register_keymap
-      rk('coderunner', 'n', 'r', '<cmd>RunCode<CR>', 'Run code')
     end,
   }
 
@@ -405,9 +397,7 @@ require('packer').startup(function(use)
   use {
     'mg979/vim-visual-multi',
     config = function()
-      vim.g.VM_leader = require('keymaps').prefix['visualmulti']
-
-      require('keymaps').register_prefix 'visualmulti'
+      vim.g.VM_leader = '<leader>v'
     end,
   }
   use {
