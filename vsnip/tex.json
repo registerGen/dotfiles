@@ -76,8 +76,8 @@
     ],
     "description": "OI paper - heading"
   },
-  "cover3": {
-    "prefix": ["cover3"],
+  "abstract3": {
+    "prefix": ["abstract3"],
     "body": [
       "\\thispagestyle{empty}",
       "\\begin{center}",
@@ -161,10 +161,10 @@
       "  \\item 评测在 qfoj 下进行，各语言的编译器版本以此为准。",
       "\\end{enumerate}"
     ],
-    "description": "OI paper - cover page (3 problems)"
+    "description": "OI paper - abstract page (3 problems)"
   },
-  "cover4": {
-    "prefix": "cover4",
+  "abstract4": {
+    "prefix": "abstract4",
     "body": [
       "\\newgeometry{left=0.7in,right=0.7in,top=1in,bottom=1in}",
       "",
@@ -252,7 +252,7 @@
       "",
       "\\restoregeometry"
     ],
-    "description": "OI paper - cover page (4 problems)"
+    "description": "OI paper - abstract page (4 problems)"
   },
   "problem": {
     "prefix": "problem",
