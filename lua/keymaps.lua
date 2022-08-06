@@ -4,7 +4,6 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- LSP
--- stylua: ignore start
 local preview = require 'goto-preview'
 u.set_map_prefix '<leader>l'
 u.nmap('d', function() preview.goto_preview_definition() end, { desc = 'Go to definition' })
@@ -17,4 +16,12 @@ u.nmap('f', function() vim.lsp.buf.format { async = true } end, { desc = 'Format
 u.nmap('D', function() vim.diagnostic.open_float { focus = false, scope = 'l' } end, { desc = 'Show line diagnostics' })
 u.nmap('<C-D>', function() vim.diagnostic.open_float { focus = false, scope = 'b' } end, { desc = 'Show buffer diagnostics' })
 
--- stylua: ignore end
+-- code runner
+u.set_map_prefix ''
+u.nmap('<C-M-N>', '<cmd>RunCode<CR>', { desc = 'Run code' })
+
+-- vsnip
+u.imap('<C-j>', 'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'', { expr = true })
+u.smap('<C-j>', 'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'', { expr = true })
+u.imap('<C-k>', 'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-k>\'', { expr = true })
+u.smap('<C-k>', 'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-k>\'', { expr = true })
