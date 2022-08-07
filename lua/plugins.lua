@@ -352,7 +352,7 @@ require('packer').startup(function(use)
             .. vim.fn.stdpath 'config'
             .. '/utils/run_cpp.sh $fileName $fileNameWithoutExt',
           python = 'cd $dir && python $fileName',
-          tex = 'cd $dir && latexmk $fileName && latexmk -c && evince -f $fileNameWithoutExt.pdf',
+          tex = 'cd $dir && latexmk $fileName && latexmk -c',
         },
       }
     end,
