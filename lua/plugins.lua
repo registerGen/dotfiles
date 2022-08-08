@@ -362,6 +362,14 @@ require('packer').startup(function(use)
     end,
   }
 
+  -- Scrollbar {{{1
+  use {
+    'lewis6991/satellite.nvim',
+    config = function()
+      require('satellite').setup()
+    end
+  }
+
   -- Editing Support {{{1
   use {
     'windwp/nvim-autopairs',
