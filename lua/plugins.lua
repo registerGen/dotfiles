@@ -367,7 +367,7 @@ require('packer').startup(function(use)
     'lewis6991/satellite.nvim',
     config = function()
       require('satellite').setup()
-    end
+    end,
   }
 
   -- Editing Support {{{1
