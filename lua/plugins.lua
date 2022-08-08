@@ -210,9 +210,13 @@ require('packer').startup(function(use)
 
   -- Color {{{1
   use {
-    'norcalli/nvim-colorizer.lua',
+    'NvChad/nvim-colorizer.lua',
     config = function()
-      require('colorizer').setup()
+      require('colorizer').setup({
+        '*',
+      }, {
+        mode = 'virtualtext',
+      })
     end,
   }
 
