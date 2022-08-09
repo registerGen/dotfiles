@@ -80,7 +80,7 @@ require('packer').startup(function(use)
         sources = {
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.code_actions.gitsigns.with {
-            condition = function(utils)
+            condition = function(_)
               local bufname = vim.api.nvim_buf_get_name(0)
               local exclude_dirs = { os.getenv 'HOME' .. '/oi/prob' }
               if vim.fn.isdirectory(bufname .. '/.git') == 1 then
