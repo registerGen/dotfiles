@@ -82,7 +82,7 @@ require('packer').startup(function(use)
           null_ls.builtins.code_actions.gitsigns.with {
             condition = function(utils)
               local bufname = vim.api.nvim_buf_get_name(0)
-              local exclude_dirs = { os.getenv('HOME') .. '/oi/prob' }
+              local exclude_dirs = { os.getenv 'HOME' .. '/oi/prob' }
               if vim.fn.isdirectory(bufname .. '/.git') == 1 then
                 return not vim.tbl_contains(exclude_dirs, bufname)
               end
