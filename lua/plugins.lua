@@ -239,7 +239,6 @@ require('packer').startup(function(use)
 
   -- Neovim Lua Development {{{1
   use '~/dev/lua-dev.nvim'
-  use 'milisims/nvim-luaref'
 
   -- Tabline {{{1
   use {
