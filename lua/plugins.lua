@@ -203,6 +203,12 @@ require('packer').startup(function(use)
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
     config = function()
+      require('telescope').setup {
+        defaults = {
+          prompt_prefix = ' ',
+          selection_caret = '► '
+        },
+      }
       require('telescope').load_extension 'fzf'
       require('telescope').load_extension 'aerial'
       require('telescope').load_extension 'notify'
