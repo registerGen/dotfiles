@@ -48,7 +48,7 @@
       "  rulecolor=\\color{blue},",
       "  numbers=left,",
       "  frame=single,",
-      "  xleftmargin=1em",
+      "  xleftmargin=1em,",
       "  breaklines=true",
       "}",
       "",
