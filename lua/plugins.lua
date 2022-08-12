@@ -206,7 +206,7 @@ require('packer').startup(function(use)
       require('telescope').setup {
         defaults = {
           prompt_prefix = ' ',
-          selection_caret = '► '
+          selection_caret = '► ',
         },
       }
       require('telescope').load_extension 'fzf'
