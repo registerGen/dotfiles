@@ -413,6 +413,14 @@ require('packer').startup(function(use)
     end,
   }
   use 'RRethy/nvim-treesitter-endwise'
+  use {
+    'mizlan/iswap.nvim',
+    config = function()
+      require('iswap').setup {
+        autoswap = true,
+      }
+    end,
+  }
 
   -- Formatting {{{1
   use {

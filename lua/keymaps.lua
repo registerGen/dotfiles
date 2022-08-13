@@ -26,3 +26,7 @@ u.imap('<C-j>', 'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'', 
 u.smap('<C-j>', 'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'', { expr = true })
 u.imap('<C-k>', 'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-k>\'', { expr = true })
 u.smap('<C-k>', 'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-k>\'', { expr = true })
+
+-- iswap.nvim
+u.set_map_prefix '<leader>s'
+u.nmap('', '<cmd>ISwap<CR>', { desc = 'Swap nodes'})
