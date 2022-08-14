@@ -130,8 +130,8 @@ require('packer').startup(function(use)
         group = id,
         command = 'MarkdownPreview',
       })
-      vim.g.mkdp_highlight_css = vim.fn.stdpath 'config' .. '/utils/solarized_dark.css'
-      vim.g.mkdp_markdown_css = vim.fn.stdpath 'config' .. '/utils/github.css'
+      vim.g.mkdp_highlight_css = vim.fn.stdpath 'config' .. '/styles/solarized_dark.css'
+      vim.g.mkdp_markdown_css = vim.fn.stdpath 'config' .. '/styles/github.css'
       vim.g.mkdp_theme = 'dark'
     end,
   }
@@ -360,7 +360,7 @@ require('packer').startup(function(use)
         filetype = {
           cpp = 'cd $dir && '
             .. vim.fn.stdpath 'config'
-            .. '/utils/run_cpp.sh $fileName $fileNameWithoutExt',
+            .. '/scripts/run_cpp.sh $fileName $fileNameWithoutExt',
           python = 'cd $dir && python $fileName',
           tex = 'cd $dir && latexmk $fileName && latexmk -c',
         },
