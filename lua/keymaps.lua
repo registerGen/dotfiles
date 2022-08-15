@@ -21,11 +21,10 @@ u.set_map_prefix ''
 u.nmap('<C-M-N>', '<cmd>RunCode<CR>', { desc = 'Run code' })
 
 -- vsnip
-u.set_map_prefix ''
-u.imap('<C-j>', 'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'', { expr = true })
-u.smap('<C-j>', 'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'', { expr = true })
-u.imap('<C-k>', 'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-k>\'', { expr = true })
-u.smap('<C-k>', 'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-k>\'', { expr = true })
+vim.api.nvim_set_keymap('i', '<C-j>', 'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'', { expr = true })
+vim.api.nvim_set_keymap('s', '<C-j>', 'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'', { expr = true })
+vim.api.nvim_set_keymap('i', '<C-k>', 'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-k>\'', { expr = true })
+vim.api.nvim_set_keymap('s', '<C-k>', 'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-k>\'', { expr = true })
 
 -- iswap.nvim
 u.set_map_prefix '<leader>s'

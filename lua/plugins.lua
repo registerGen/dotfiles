@@ -167,31 +167,6 @@ require('packer').startup(function(use)
     'hrsh7th/vim-vsnip',
     config = function()
       vim.g.vsnip_snippet_dir = vim.fn.stdpath 'config' .. '/vsnip'
-
-      vim.api.nvim_set_keymap(
-        'i',
-        '<C-j>',
-        'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'',
-        { expr = true }
-      )
-      vim.api.nvim_set_keymap(
-        's',
-        '<C-j>',
-        'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'',
-        { expr = true }
-      )
-      vim.api.nvim_set_keymap(
-        'i',
-        '<C-k>',
-        'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-j>\'',
-        { expr = true }
-      )
-      vim.api.nvim_set_keymap(
-        's',
-        '<C-k>',
-        'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-j>\'',
-        { expr = true }
-      )
     end,
   }
 
