@@ -28,14 +28,13 @@ M.config = function()
       lualine_x = { 'filesize', 'encoding', 'fileformat', 'filetype' },
       lualine_z = { 'location', '%{strftime(\'%X\')}' },
     },
-    -- TODO: Uncomment this when neovim/neovim#19458 is closed
-    -- winbar = {
-    --   lualine_b = { { 'filetype', icon_only = true }, { 'filename', path = 3 } },
-    --   lualine_c = { { 'aerial', sep = ' ❯ ' } },
-    -- },
-    -- inactive_winbar = {
-    --   lualine_b = { { 'filetype', icon_only = true }, { 'filename', path = 3 } },
-    -- },
+    winbar = {
+      lualine_b = { { 'filetype', icon_only = true }, { 'filename', path = 3 } },
+      lualine_c = { { 'aerial', sep = ' ❯ ' } },
+    },
+    inactive_winbar = {
+      lualine_b = { { 'filetype', icon_only = true }, { 'filename', path = 3 } },
+    },
     extensions = { 'nvim-tree', 'fugitive', 'aerial' },
   }
 end
