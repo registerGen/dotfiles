@@ -9,7 +9,7 @@ end
 
 local function create_map_func(mode)
   return function(lhs, rhs, opts)
-    opts = vim.tbl_deep_extend('keep', {}, { noremap = true, silent = true }, opts)
+    opts = vim.tbl_deep_extend('force', {}, { noremap = true, silent = true }, opts)
     vim.keymap.set(mode, map_prefix .. lhs, rhs, opts)
   end
 end
