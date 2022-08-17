@@ -75,28 +75,7 @@ require('packer').startup(function(use)
     'jose-elias-alvarez/null-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
-      local null_ls = require 'null-ls'
-      null_ls.setup {
-        sources = {
-          null_ls.builtins.formatting.stylua,
-          null_ls.builtins.code_actions.gitsigns.with {
-            condition = function(_)
-              local bufname = vim.api.nvim_buf_get_name(0)
-              local exclude_dirs = { os.getenv 'HOME' .. '/oi/prob' }
-              if vim.fn.isdirectory(bufname .. '/.git') == 1 then
-                return not vim.tbl_contains(exclude_dirs, bufname)
-              end
-              for dir in vim.fs.parents(bufname) do
-                if vim.fn.isdirectory(dir .. '/.git') == 1 then
-                  return not vim.tbl_contains(exclude_dirs, dir)
-                end
-              end
-              return false
-            end,
-          },
-          null_ls.builtins.diagnostics.zsh,
-        },
-      }
+      require('plugincfg.null_ls').config()
     end,
   }
 
@@ -334,8 +313,8 @@ require('packer').startup(function(use)
         startinsert = true,
         filetype = {
           cpp = 'cd $dir && '
-            .. vim.fn.stdpath 'config'
-            .. '/scripts/run_cpp.sh $fileName $fileNameWithoutExt',
+              .. vim.fn.stdpath 'config'
+              .. '/scripts/run_cpp.sh $fileName $fileNameWithoutExt',
           python = 'cd $dir && python $fileName',
           tex = 'cd $dir && latexmk $fileName && latexmk -c',
         },
