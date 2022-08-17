@@ -155,15 +155,16 @@ require('packer').startup(function(use)
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
     config = function()
-      require('telescope').setup {
+      local telescope = require 'telescope'
+      telescope.setup {
         defaults = {
           prompt_prefix = ' ',
           selection_caret = '► ',
         },
       }
-      require('telescope').load_extension 'fzf'
-      require('telescope').load_extension 'aerial'
-      require('telescope').load_extension 'notify'
+      telescope.load_extension 'fzf'
+      telescope.load_extension 'aerial'
+      telescope.load_extension 'notify'
     end,
   }
 
