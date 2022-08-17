@@ -58,9 +58,7 @@ require('packer').startup(function(use)
   use {
     'rmagatti/goto-preview',
     config = function()
-      require('goto-preview').setup {
-        border = { '🢄', '─', '╮', '│', '╯', '─', '╰', '│' },
-      }
+      require('goto-preview').setup()
     end,
   }
   use {
