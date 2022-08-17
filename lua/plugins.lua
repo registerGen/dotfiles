@@ -313,8 +313,8 @@ require('packer').startup(function(use)
         startinsert = true,
         filetype = {
           cpp = 'cd $dir && '
-              .. vim.fn.stdpath 'config'
-              .. '/scripts/run_cpp.sh $fileName $fileNameWithoutExt',
+            .. vim.fn.stdpath 'config'
+            .. '/scripts/run_cpp.sh $fileName $fileNameWithoutExt',
           python = 'cd $dir && python $fileName',
           tex = 'cd $dir && latexmk $fileName && latexmk -c',
         },
