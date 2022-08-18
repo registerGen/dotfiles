@@ -3,6 +3,7 @@ local opt = vim.opt
 opt.background = 'dark'
 opt.backup = false
 opt.completeopt = { 'menu', 'menuone', 'noselect' }
+opt.conceallevel = 2
 opt.cursorline = true
 opt.expandtab = true
 opt.foldexpr = 'nvim_treesitter#foldexpr()'
