@@ -11,8 +11,6 @@ opt.foldlevel = 100000
 opt.foldmethod = 'expr'
 opt.ignorecase = true
 opt.laststatus = 3
-opt.list = true
-opt.listchars:append 'eol:↴'
 opt.mouse = 'a'
 opt.number = true
 opt.relativenumber = true
