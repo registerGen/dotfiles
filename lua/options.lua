@@ -15,6 +15,7 @@ opt.mouse = 'a'
 opt.number = true
 opt.relativenumber = true
 opt.shiftwidth = 2
+opt.showmode = false
 opt.signcolumn = 'number'
 opt.smartcase = true
 opt.splitbelow = true
