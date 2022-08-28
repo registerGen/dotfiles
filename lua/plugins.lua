@@ -24,14 +24,30 @@ require('packer').startup(function(use)
 
   -- LSP {{{1
   use {
-    'williamboman/nvim-lsp-installer',
-    config = function()
-      require('nvim-lsp-installer').setup {
-        github = {
-          download_url_template = 'https://ghproxy.com/https://github.com/%s/releases/download/%s/%s',
-        },
-      }
-    end,
+    {
+      'williamboman/mason.nvim',
+      config = function()
+        require('mason').setup {
+          github = {
+            download_url_template = 'https://ghproxy.com/https://github.com/%s/releases/download/%s/%s',
+          },
+        }
+      end,
+    },
+    {
+      'williamboman/mason-lspconfig.nvim',
+      config = function()
+        local servers = {}
+        for server, _ in pairs(require('plugincfg.lsp').server_config) do
+          if server ~= 'clangd' then
+            table.insert(servers, server)
+          end
+        end
+        require('mason-lspconfig').setup {
+          ensure_installed = servers,
+        }
+      end,
+    },
   }
   use {
     'neovim/nvim-lspconfig',
