@@ -8,6 +8,7 @@ M.config = function()
 
   require('nvim-treesitter.configs').setup {
     ensure_installed = 'all',
+    auto_install = true,
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false,
@@ -75,11 +76,6 @@ M.config = function()
       enable = true,
     },
   }
-
-  require('keymaps').register_prefix 'playground'
-  local rk = require('keymaps').register_keymap
-  rk('playground', 'n', 't', '<cmd>TSPlaygroundToggle<CR>', 'Toggle treesitter playground')
-  rk('playground', 'n', 'h', '<cmd>TSHighlightCapturesUnderCursor<CR>', 'Show highlight group')
 end
 
 return M

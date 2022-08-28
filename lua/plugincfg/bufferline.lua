@@ -34,17 +34,6 @@ M.config = function()
       },
     },
   }
-
-  require('keymaps').register_prefix 'bufferline'
-  require('keymaps').register_prefix('bufferline', 'c', 'Cycle')
-  require('keymaps').register_prefix('bufferline', 'm', 'Move')
-  local rk = require('keymaps').register_keymap
-  rk('bufferline', 'n', 'mn', '<cmd>BufferLineMoveNext<CR>', 'Move next')
-  rk('bufferline', 'n', 'mN', '<cmd>BufferLineMovePrev<CR>', 'Move previous')
-  rk('bufferline', 'n', 'mp', '<cmd>BufferLineMovePrev<CR>', 'Move previous')
-  rk('bufferline', 'n', 'cn', '<cmd>BufferLineCycleNext<CR>', 'Cycle next')
-  rk('bufferline', 'n', 'cN', '<cmd>BufferLineCyclePrev<CR>', 'Cycle previous')
-  rk('bufferline', 'n', 'cp', '<cmd>BufferLineCyclePrev<CR>', 'Cycle previous')
 end
 
 return M

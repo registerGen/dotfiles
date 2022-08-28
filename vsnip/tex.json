@@ -41,10 +41,15 @@
       "    \\fontspec{Consolas}",
       "    \\normalsize",
       "  },",
+      "  commentstyle={",
+      "    \\color[RGB]{0,255,0}",
+      "    \\fontspec{Consolas Italic}",
+      "  },",
       "  rulecolor=\\color{blue},",
       "  numbers=left,",
       "  frame=single,",
-      "  xleftmargin=1em",
+      "  xleftmargin=1em,",
+      "  breaklines=true",
       "}",
       "",
       "% \\SetWatermarkText{\\textsf{registerGen}}",
@@ -76,8 +81,8 @@
     ],
     "description": "OI paper - heading"
   },
-  "cover3": {
-    "prefix": ["cover3"],
+  "abstract3": {
+    "prefix": ["abstract3"],
     "body": [
       "\\thispagestyle{empty}",
       "\\begin{center}",
@@ -161,10 +166,10 @@
       "  \\item 评测在 qfoj 下进行，各语言的编译器版本以此为准。",
       "\\end{enumerate}"
     ],
-    "description": "OI paper - cover page (3 problems)"
+    "description": "OI paper - abstract page (3 problems)"
   },
-  "cover4": {
-    "prefix": "cover4",
+  "abstract4": {
+    "prefix": "abstract4",
     "body": [
       "\\newgeometry{left=0.7in,right=0.7in,top=1in,bottom=1in}",
       "",
@@ -252,7 +257,7 @@
       "",
       "\\restoregeometry"
     ],
-    "description": "OI paper - cover page (4 problems)"
+    "description": "OI paper - abstract page (4 problems)"
   },
   "problem": {
     "prefix": "problem",
@@ -362,6 +367,34 @@
       "\\vspace{1\\baselineskip}"
     ],
     "description": "OI paper - big sample"
+  },
+  "scoring": {
+    "prefix": ["scoring"],
+    "body": [
+      "\\noindent {\\fontsize{13pt}{0}\\textbf{\\quad【评分方式】}} \\indent",
+      "\\phantomsection",
+      "\\addcontentsline{toc}{subsection}{评分方式}",
+      "\\vspace{0.5\\baselineskip}",
+      "",
+      "",
+      "",
+      "\\vspace{1\\baselineskip}"
+    ],
+    "description": "OI paper - scoring"
+  },
+  "hint": {
+    "prefix": ["hint"],
+    "body": [
+      "\\noindent {\\fontsize{13pt}{0}\\textbf{\\quad【提示】}} \\indent",
+      "\\phantomsection",
+      "\\addcontentsline{toc}{subsection}{提示}",
+      "\\vspace{0.5\\baselineskip}",
+      "",
+      "",
+      "",
+      "\\vspace{1\\baselineskip}"
+    ],
+    "description": "OI paper - hint"
   },
   "section": {
     "prefix": ["section"],

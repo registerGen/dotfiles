@@ -21,23 +21,33 @@ require('packer').startup(function(use)
       require('plugincfg.sonokai').config()
     end,
   }
-  use {
-    'olimorris/onedarkpro.nvim',
-    config = function()
-      require('plugincfg.onedarkpro').config()
-    end,
-  }
 
   -- LSP {{{1
   use {
-    'williamboman/nvim-lsp-installer',
-    config = function()
-      require('nvim-lsp-installer').setup {
-        github = {
-          download_url_template = 'https://ghproxy.com/https://github.com/%s/releases/download/%s/%s',
-        },
-      }
-    end,
+    {
+      'williamboman/mason.nvim',
+      config = function()
+        require('mason').setup {
+          github = {
+            download_url_template = 'https://ghproxy.com/https://github.com/%s/releases/download/%s/%s',
+          },
+        }
+      end,
+    },
+    {
+      'williamboman/mason-lspconfig.nvim',
+      config = function()
+        local servers = {}
+        for server, _ in pairs(require('plugincfg.lsp').server_config) do
+          if server ~= 'clangd' then
+            table.insert(servers, server)
+          end
+        end
+        require('mason-lspconfig').setup {
+          ensure_installed = servers,
+        }
+      end,
+    },
   }
   use {
     'neovim/nvim-lspconfig',
@@ -64,9 +74,7 @@ require('packer').startup(function(use)
   use {
     'rmagatti/goto-preview',
     config = function()
-      require('goto-preview').setup {
-        border = { '🢄', '─', '╮', '│', '╯', '─', '╰', '│' },
-      }
+      require('goto-preview').setup()
     end,
   }
   use {
@@ -75,6 +83,13 @@ require('packer').startup(function(use)
       require('aerial').setup {
         backends = { 'lsp', 'treesitter', 'markdown' },
       }
+    end,
+  }
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('plugincfg.null_ls').config()
     end,
   }
 
@@ -108,8 +123,8 @@ require('packer').startup(function(use)
         group = id,
         command = 'MarkdownPreview',
       })
-      vim.g.mkdp_highlight_css = vim.fn.stdpath 'config' .. '/utils/solarized_dark.css'
-      vim.g.mkdp_markdown_css = vim.fn.stdpath 'config' .. '/utils/github.css'
+      vim.g.mkdp_highlight_css = vim.fn.stdpath 'config' .. '/styles/solarized_dark.css'
+      vim.g.mkdp_markdown_css = vim.fn.stdpath 'config' .. '/styles/github.css'
       vim.g.mkdp_theme = 'dark'
     end,
   }
@@ -139,49 +154,12 @@ require('packer').startup(function(use)
       }
     end,
   }
-  use {
-    'drybalka/tree-climber.nvim',
-    config = function()
-      local keyopts = { noremap = true, silent = true }
-      vim.keymap.set({ 'n', 'v', 'o' }, '<leader>h', require('tree-climber').goto_parent)
-      vim.keymap.set({ 'n', 'v', 'o' }, '<leader>l', require('tree-climber').goto_child, keyopts)
-      vim.keymap.set({ 'n', 'v', 'o' }, '<leader>j', require('tree-climber').goto_next, keyopts)
-      vim.keymap.set({ 'n', 'v', 'o' }, '<leader>k', require('tree-climber').goto_prev, keyopts)
-      vim.keymap.set('n', '<C-k>', require('tree-climber').swap_prev, keyopts)
-      vim.keymap.set('n', '<C-j>', require('tree-climber').swap_next, keyopts)
-    end,
-  }
 
   -- Snippet {{{1
   use {
     'hrsh7th/vim-vsnip',
     config = function()
       vim.g.vsnip_snippet_dir = vim.fn.stdpath 'config' .. '/vsnip'
-
-      vim.api.nvim_set_keymap(
-        'i',
-        '<C-j>',
-        'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'',
-        { expr = true }
-      )
-      vim.api.nvim_set_keymap(
-        's',
-        '<C-j>',
-        'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'',
-        { expr = true }
-      )
-      vim.api.nvim_set_keymap(
-        'i',
-        '<C-k>',
-        'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-j>\'',
-        { expr = true }
-      )
-      vim.api.nvim_set_keymap(
-        's',
-        '<C-k>',
-        'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-j>\'',
-        { expr = true }
-      )
     end,
   }
 
@@ -193,16 +171,28 @@ require('packer').startup(function(use)
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
     config = function()
-      require('telescope').load_extension 'fzf'
-      require('telescope').load_extension 'aerial'
+      local telescope = require 'telescope'
+      telescope.setup {
+        defaults = {
+          prompt_prefix = ' ',
+          selection_caret = '► ',
+        },
+      }
+      telescope.load_extension 'fzf'
+      telescope.load_extension 'aerial'
+      telescope.load_extension 'notify'
     end,
   }
 
   -- Color {{{1
   use {
-    'norcalli/nvim-colorizer.lua',
+    'NvChad/nvim-colorizer.lua',
     config = function()
-      require('colorizer').setup()
+      require('colorizer').setup({
+        '*',
+      }, {
+        mode = 'virtualtext',
+      })
     end,
   }
 
@@ -216,7 +206,6 @@ require('packer').startup(function(use)
           WARN = '',
         },
       }
-
       vim.notify = require 'notify'
     end,
   }
@@ -225,7 +214,6 @@ require('packer').startup(function(use)
 
   -- Neovim Lua Development {{{1
   use '~/dev/lua-dev.nvim'
-  use 'milisims/nvim-luaref'
 
   -- Tabline {{{1
   use {
@@ -294,10 +282,6 @@ require('packer').startup(function(use)
           },
         },
       }
-
-      require('keymaps').register_prefix 'nvimtree'
-      local rk = require('keymaps').register_keymap
-      rk('nvimtree', 'n', 't', '<cmd>NvimTreeToggle<CR>', 'Toggle nvim-tree')
     end,
   }
 
@@ -310,7 +294,13 @@ require('packer').startup(function(use)
       require('gitsigns').setup()
     end,
   }
-  use 'f-person/git-blame.nvim'
+  use {
+    'APZelos/blamer.nvim',
+    config = function()
+      vim.g.blamer_enabled = 1
+      vim.g.blamer_delay = 200
+    end,
+  }
 
   -- Comment {{{1
   use {
@@ -339,15 +329,19 @@ require('packer').startup(function(use)
         filetype = {
           cpp = 'cd $dir && '
             .. vim.fn.stdpath 'config'
-            .. '/utils/run_cpp.sh $fileName $fileNameWithoutExt',
+            .. '/scripts/run_cpp.sh $fileName $fileNameWithoutExt',
           python = 'cd $dir && python $fileName',
-          tex = 'cd $dir && latexmk $fileName && latexmk -c && evince -f $fileNameWithoutExt.pdf',
+          tex = 'cd $dir && latexmk $fileName && latexmk -c',
         },
       }
+    end,
+  }
 
-      require('keymaps').register_prefix 'coderunner'
-      local rk = require('keymaps').register_keymap
-      rk('coderunner', 'n', 'r', '<cmd>RunCode<CR>', 'Run code')
+  -- Scrollbar {{{1
+  use {
+    'lewis6991/satellite.nvim',
+    config = function()
+      require('satellite').setup()
     end,
   }
 
@@ -378,13 +372,24 @@ require('packer').startup(function(use)
   use {
     'mg979/vim-visual-multi',
     config = function()
-      vim.g.VM_leader = require('keymaps').prefix['visualmulti']
-
-      require('keymaps').register_prefix 'visualmulti'
+      vim.g.VM_leader = '<leader>v'
     end,
   }
-  use 'matze/vim-move'
+  use {
+    'booperlv/nvim-gomove',
+    config = function()
+      require('gomove').setup()
+    end,
+  }
   use 'RRethy/nvim-treesitter-endwise'
+  use {
+    'mizlan/iswap.nvim',
+    config = function()
+      require('iswap').setup {
+        autoswap = true,
+      }
+    end,
+  }
 
   -- Formatting {{{1
   use {

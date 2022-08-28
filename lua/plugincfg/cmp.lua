@@ -23,7 +23,11 @@ M.config = function()
     formatting = {
       format = require('lspkind').cmp_format {
         mode = 'symbol_text',
-        maxwidth = 60,
+        maxwidth = 50,
+        before = function(entry, item)
+          item.menu = '[' .. entry.source.name .. ']'
+          return item
+        end,
       },
     },
     window = {

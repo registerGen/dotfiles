@@ -4,13 +4,16 @@
 interactive_indicator="// interactive"
 interactive_flag=0
 
+CXX=clang++
+CXXFLAGS="-Wall -Wextra -Wconversion -Wshadow -O2 -std=c++14"
+
 while read line; do
   if [ "$line" == "$interactive_indicator" ]; then
     interactive_flag=1
   fi
 done < $1
 
-if ! clang++ -Wall -Wextra -Wconversion -Wshadow -O2 -std=c++14 -o $2 $1; then
+if ! $CXX $CXXFLAGS -o $2 $1; then
   echo -e "\033[1;4;31mCompilation failed\033[0m"
   exit
 else

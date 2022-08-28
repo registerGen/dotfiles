@@ -3,6 +3,7 @@ local opt = vim.opt
 opt.background = 'dark'
 opt.backup = false
 opt.completeopt = { 'menu', 'menuone', 'noselect' }
+opt.conceallevel = 2
 opt.cursorline = true
 opt.expandtab = true
 opt.foldexpr = 'nvim_treesitter#foldexpr()'
@@ -10,12 +11,11 @@ opt.foldlevel = 100000
 opt.foldmethod = 'expr'
 opt.ignorecase = true
 opt.laststatus = 3
-opt.list = true
-opt.listchars:append 'eol:↴'
 opt.mouse = 'a'
 opt.number = true
 opt.relativenumber = true
 opt.shiftwidth = 2
+opt.showmode = false
 opt.signcolumn = 'number'
 opt.smartcase = true
 opt.splitbelow = true
@@ -25,12 +25,9 @@ opt.tabstop = 2
 opt.termguicolors = true
 opt.timeoutlen = 500
 opt.updatetime = 500
-opt.winbar = '%{%v:lua.require(\'utils\').winbar()%}'
 opt.wrap = false
 
 vim.g.tex_flavor = 'latex'
-vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 0
 
 local disabled_builtins = {
   '2html_plugin',
@@ -55,4 +52,13 @@ local disabled_builtins = {
 
 for _, plugin in ipairs(disabled_builtins) do
   vim.g['loaded_' .. plugin] = 1
+end
+
+if vim.fn.exists 'g:neovide' ~= 0 then
+  opt.cursorline = false
+  opt.guifont = 'Delugia:h14'
+  vim.g.neovide_cursor_vfx_mode = 'railgun'
+  vim.g.neovide_floating_blur_amount_x = 2.0
+  vim.g.neovide_floating_blur_amount_y = 2.0
+  vim.g.neovide_transparency = 0.7
 end
