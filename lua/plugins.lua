@@ -1,3 +1,9 @@
+vim.api.nvim_create_autocmd('BufWritePost', {
+  group = vim.api.nvim_create_augroup('Packer', { clear = true }),
+  pattern = 'plugins.lua',
+  command = 'source <afile> | PackerCompile',
+})
+
 require('packer').init {
   display = {
     open_fn = function()
@@ -39,7 +45,8 @@ require('packer').startup(function(use)
   }
   use {
     'neovim/nvim-lspconfig',
-    event = 'BufRead',
+    event = 'BufReadPre',
+    after = 'cmp-nvim-lsp',
     config = function()
       require('plugincfg.lsp').config()
     end,
@@ -82,12 +89,11 @@ require('packer').startup(function(use)
   }
   use {
     'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-nvim-lsp-signature-help',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-vsnip',
-    after = 'nvim-cmp',
+    { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
+    { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+    { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+    { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
+    { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
   }
   use 'onsails/lspkind-nvim'
 
@@ -121,6 +127,7 @@ require('packer').startup(function(use)
   -- Snippet {{{1
   use {
     'hrsh7th/vim-vsnip',
+    event = 'InsertEnter',
     config = function()
       vim.g.vsnip_snippet_dir = vim.fn.stdpath 'config' .. '/vsnip'
     end,
