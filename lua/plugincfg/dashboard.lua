@@ -34,8 +34,8 @@ M.config = function()
       action = 'Telescope live_grep',
     },
   }
-  board.hide_statusline = false
-  board.hide_tabline = false
+  board.hide_statusline = true
+  board.hide_tabline = true
 end
 
 return M

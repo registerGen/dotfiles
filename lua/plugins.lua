@@ -27,67 +27,49 @@ require('packer').startup(function(use)
     {
       'williamboman/mason.nvim',
       config = function()
-        require('mason').setup {
-          github = {
-            download_url_template = 'https://ghproxy.com/https://github.com/%s/releases/download/%s/%s',
-          },
-        }
+        require('plugincfg.mason').config()
       end,
     },
     {
       'williamboman/mason-lspconfig.nvim',
       config = function()
-        local servers = {}
-        for server, _ in pairs(require('plugincfg.lsp').server_config) do
-          if server ~= 'clangd' then
-            table.insert(servers, server)
-          end
-        end
-        require('mason-lspconfig').setup {
-          ensure_installed = servers,
-        }
+        require('plugincfg.mason_lspconfig').config()
       end,
     },
   }
   use {
     'neovim/nvim-lspconfig',
+    event = 'BufReadPre',
+    after = 'cmp-nvim-lsp',
     config = function()
       require('plugincfg.lsp').config()
     end,
   }
   use {
     'kosayoda/nvim-lightbulb',
+    event = 'CursorHold',
     config = function()
-      require('nvim-lightbulb').setup {
-        sign = {
-          priority = 100,
-        },
-      }
-
-      vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-        callback = function()
-          require('nvim-lightbulb').update_lightbulb()
-        end,
-      })
+      require('plugincfg.lightbulb').config()
     end,
   }
   use {
     'rmagatti/goto-preview',
+    event = 'InsertLeave',
     config = function()
       require('goto-preview').setup()
     end,
   }
   use {
     'stevearc/aerial.nvim',
+    event = 'BufReadPre',
     config = function()
-      require('aerial').setup {
-        backends = { 'lsp', 'treesitter', 'markdown' },
-      }
+      require('plugincfg.aerial').config()
     end,
   }
   use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
+    event = 'BufRead',
     config = function()
       require('plugincfg.null_ls').config()
     end,
@@ -96,18 +78,18 @@ require('packer').startup(function(use)
   -- Completion {{{1
   use {
     'hrsh7th/nvim-cmp',
+    event = { 'InsertEnter', 'CmdlineEnter' },
     config = function()
       require('plugincfg.cmp').config()
     end,
   }
   use {
     'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-nvim-lsp-signature-help',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-vsnip',
-    after = 'nvim-cmp',
+    { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
+    { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+    { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+    { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
+    { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
   }
   use 'onsails/lspkind-nvim'
 
@@ -117,15 +99,7 @@ require('packer').startup(function(use)
     run = 'cd app && yarn install',
     ft = 'markdown',
     config = function()
-      local id = vim.api.nvim_create_augroup('MarkdownPreview', { clear = true })
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = 'markdown',
-        group = id,
-        command = 'MarkdownPreview',
-      })
-      vim.g.mkdp_highlight_css = vim.fn.stdpath 'config' .. '/styles/solarized_dark.css'
-      vim.g.mkdp_markdown_css = vim.fn.stdpath 'config' .. '/styles/github.css'
-      vim.g.mkdp_theme = 'dark'
+      require('plugincfg.markdown_preview').config()
     end,
   }
 
@@ -133,6 +107,7 @@ require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+    event = 'BufRead',
     config = function()
       require('plugincfg.treesitter').config()
     end,
@@ -140,24 +115,26 @@ require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
+    event = 'BufRead',
   }
   use {
     'nvim-treesitter/playground',
     after = 'nvim-treesitter',
+    event = 'BufRead',
   }
   use {
     'm-demare/hlargs.nvim',
     after = 'nvim-treesitter',
+    event = 'BufRead',
     config = function()
-      require('hlargs').setup {
-        highlight = { link = 'TSParameter' },
-      }
+      require('plugincfg.hlargs').config()
     end,
   }
 
   -- Snippet {{{1
   use {
     'hrsh7th/vim-vsnip',
+    event = 'InsertEnter',
     config = function()
       vim.g.vsnip_snippet_dir = vim.fn.stdpath 'config' .. '/vsnip'
     end,
@@ -170,29 +147,18 @@ require('packer').startup(function(use)
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
+    event = 'CursorHold',
     config = function()
-      local telescope = require 'telescope'
-      telescope.setup {
-        defaults = {
-          prompt_prefix = ' ',
-          selection_caret = '► ',
-        },
-      }
-      telescope.load_extension 'fzf'
-      telescope.load_extension 'aerial'
-      telescope.load_extension 'notify'
+      require('plugincfg.telescope').config()
     end,
   }
 
   -- Color {{{1
   use {
     'NvChad/nvim-colorizer.lua',
+    event = 'CursorHold',
     config = function()
-      require('colorizer').setup({
-        '*',
-      }, {
-        mode = 'virtualtext',
-      })
+      require('plugincfg.colorizer').config()
     end,
   }
 
@@ -200,13 +166,7 @@ require('packer').startup(function(use)
   use {
     'rcarriga/nvim-notify',
     config = function()
-      require('notify').setup {
-        stages = 'fade',
-        icons = {
-          WARN = '',
-        },
-      }
-      vim.notify = require 'notify'
+      require('plugincfg.notify').config()
     end,
   }
   use 'stevearc/dressing.nvim'
@@ -214,11 +174,20 @@ require('packer').startup(function(use)
 
   -- Neovim Lua Development {{{1
   use '~/dev/lua-dev.nvim'
+  use {
+    'nvim-lua/plenary.nvim',
+    module = 'plenary',
+  }
+  use {
+    'kyazdani42/nvim-web-devicons',
+    module = 'nvim-web-devicons',
+  }
 
   -- Tabline {{{1
   use {
     'akinsho/bufferline.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
+    event = 'BufReadPre',
     config = function()
       require('plugincfg.bufferline').config()
     end,
@@ -228,13 +197,17 @@ require('packer').startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
+    event = 'BufReadPre',
     config = function()
       require('plugincfg.lualine').config()
     end,
   }
 
   -- Startup {{{1
-  use 'dstein64/vim-startuptime'
+  use {
+    'dstein64/vim-startuptime',
+    cmd = 'StartupTime',
+  }
   use {
     'glepnir/dashboard-nvim',
     config = function()
@@ -246,23 +219,10 @@ require('packer').startup(function(use)
   -- Indent {{{1
   use {
     'lukas-reineke/indent-blankline.nvim',
+    after = 'nvim-treesitter',
+    event = 'BufRead',
     config = function()
-      require('indent_blankline').setup {
-        char = '▏',
-        show_current_context = true,
-        show_current_context_start = true,
-        context_char = '▎',
-        filetype_exclude = {
-          'lspinfo',
-          'packer',
-          'checkhealth',
-          'help',
-          'lsp-installer',
-          'dashboard',
-          '',
-        },
-        buftype_exclude = { 'nofile', 'terminal' },
-      }
+      require('plugincfg.indent_blankline').config()
     end,
   }
 
@@ -270,41 +230,36 @@ require('packer').startup(function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
+    event = 'CursorHold',
     config = function()
-      require('nvim-tree').setup {
-        diagnostics = {
-          enable = true,
-        },
-        renderer = {
-          highlight_git = true,
-          indent_markers = {
-            enable = true,
-          },
-        },
-      }
+      require('plugincfg.nvim_tree').config()
     end,
   }
 
   -- Git {{{1
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'
+  use {
+    'tpope/vim-fugitive',
+    cmd = 'G',
+  }
   use {
     'lewis6991/gitsigns.nvim',
+    event = 'BufRead',
     config = function()
       require('gitsigns').setup()
     end,
   }
   use {
     'APZelos/blamer.nvim',
+    event = 'CursorHold',
     config = function()
-      vim.g.blamer_enabled = 1
-      vim.g.blamer_delay = 200
+      require('plugincfg.blamer').config()
     end,
   }
 
   -- Comment {{{1
   use {
     'numToStr/Comment.nvim',
+    keys = { 'gc', 'gcc', 'gbc' },
     config = function()
       require('Comment').setup()
     end,
@@ -313,6 +268,7 @@ require('packer').startup(function(use)
   -- Motion {{{1
   use {
     'ggandor/leap.nvim',
+    keys = { 's', 'S' },
     requires = { 'tpope/vim-repeat' },
     config = function()
       require('leap').set_default_keymaps()
@@ -324,16 +280,7 @@ require('packer').startup(function(use)
     'CRAG666/code_runner.nvim',
     requires = 'nvim-lua/plenary.nvim',
     config = function()
-      require('code_runner').setup {
-        startinsert = true,
-        filetype = {
-          cpp = 'cd $dir && '
-            .. vim.fn.stdpath 'config'
-            .. '/scripts/run_cpp.sh $fileName $fileNameWithoutExt',
-          python = 'cd $dir && python $fileName',
-          tex = 'cd $dir && latexmk $fileName && latexmk -c',
-        },
-      }
+      require('plugincfg.code_runner').config()
     end,
   }
 
@@ -348,12 +295,15 @@ require('packer').startup(function(use)
   -- Editing Support {{{1
   use {
     'windwp/nvim-autopairs',
+    event = 'InsertCharPre',
     config = function()
       require('nvim-autopairs').setup()
     end,
   }
   use {
     'windwp/nvim-ts-autotag',
+    after = 'nvim-treesitter',
+    event = 'BufRead',
     config = function()
       require('nvim-ts-autotag').setup()
     end,
@@ -361,10 +311,12 @@ require('packer').startup(function(use)
   use {
     'p00f/nvim-ts-rainbow',
     after = 'nvim-treesitter',
+    event = 'BufRead',
   }
   use {
     'nvim-treesitter/nvim-treesitter-context',
     after = 'nvim-treesitter',
+    event = 'BufRead',
     config = function()
       require('treesitter-context').setup()
     end,
@@ -381,19 +333,24 @@ require('packer').startup(function(use)
       require('gomove').setup()
     end,
   }
-  use 'RRethy/nvim-treesitter-endwise'
+  use {
+    'RRethy/nvim-treesitter-endwise',
+    after = 'nvim-treesitter',
+    event = 'BufRead',
+  }
   use {
     'mizlan/iswap.nvim',
+    after = 'nvim-treesitter',
+    event = 'BufRead',
     config = function()
-      require('iswap').setup {
-        autoswap = true,
-      }
+      require('plugincfg.iswap').config()
     end,
   }
 
   -- Formatting {{{1
   use {
     'cappyzawa/trim.nvim',
+    event = 'BufWritePre',
     config = function()
       require('trim').setup()
     end,
