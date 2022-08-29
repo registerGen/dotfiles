@@ -60,12 +60,14 @@ require('packer').startup(function(use)
   }
   use {
     'rmagatti/goto-preview',
+    event = 'InsertLeave',
     config = function()
       require('goto-preview').setup()
     end,
   }
   use {
     'stevearc/aerial.nvim',
+    event = 'BufRead',
     config = function()
       require('plugincfg.aerial').config()
     end,
@@ -82,7 +84,7 @@ require('packer').startup(function(use)
   -- Completion {{{1
   use {
     'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+    event = { 'InsertEnter', 'CmdlineEnter' },
     config = function()
       require('plugincfg.cmp').config()
     end,

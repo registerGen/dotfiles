@@ -8,9 +8,8 @@ M.config = function()
   vim.g.sonokai_enable_italic = 1
   vim.g.sonokai_show_eob = 0
 
-  local id = vim.api.nvim_create_augroup('Sonokai', { clear = true })
   vim.api.nvim_create_autocmd('ColorScheme', {
-    group = id,
+    group = vim.api.nvim_create_augroup('Sonokai', { clear = true }),
     pattern = 'sonokai',
     callback = function()
       local configuration = vim.fn['sonokai#get_configuration']()
