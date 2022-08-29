@@ -2,6 +2,7 @@
   "generator": {
     "prefix": ["generator"],
     "body": [
+      "// interactive",
       "#include \"testlib.h\"",
       "using namespace std;",
       "",
