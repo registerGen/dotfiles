@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd('InsertLeave', {
     u.nmap('f', function() vim.lsp.buf.format { async = true } end, { desc = 'Format' })
     u.nmap('D', function() vim.diagnostic.open_float { focus = false, scope = 'l' } end, { desc = 'Show line diagnostics' })
     u.nmap('<C-D>', function() vim.diagnostic.open_float { focus = false, scope = 'b' } end, { desc = 'Show buffer diagnostics' })
-  end
+  end,
 })
 
 -- code runner
@@ -33,4 +33,4 @@ vim.api.nvim_set_keymap('s', '<C-k>', 'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-
 
 -- iswap.nvim
 u.set_map_prefix '<leader>s'
-u.nmap('', '<cmd>ISwap<CR>', { desc = 'Swap nodes'})
+u.nmap('', '<cmd>ISwap<CR>', { desc = 'Swap nodes' })
