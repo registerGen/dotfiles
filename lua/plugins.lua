@@ -39,12 +39,14 @@ require('packer').startup(function(use)
   }
   use {
     'neovim/nvim-lspconfig',
+    event = 'BufRead',
     config = function()
       require('plugincfg.lsp').config()
     end,
   }
   use {
     'kosayoda/nvim-lightbulb',
+    event = 'CursorHold',
     config = function()
       require('plugincfg.lightbulb').config()
     end,
@@ -64,6 +66,7 @@ require('packer').startup(function(use)
   use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
+    event = 'BufRead',
     config = function()
       require('plugincfg.null_ls').config()
     end,
@@ -72,6 +75,7 @@ require('packer').startup(function(use)
   -- Completion {{{1
   use {
     'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
     config = function()
       require('plugincfg.cmp').config()
     end,
