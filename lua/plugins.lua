@@ -1,9 +1,3 @@
-vim.api.nvim_create_autocmd('BufWritePost', {
-  group = vim.api.nvim_create_augroup('Packer', { clear = true }),
-  pattern = 'plugins.lua',
-  command = 'source <afile> | PackerCompile',
-})
-
 require('packer').init {
   display = {
     open_fn = function()
@@ -67,7 +61,7 @@ require('packer').startup(function(use)
   }
   use {
     'stevearc/aerial.nvim',
-    event = 'BufRead',
+    event = 'BufReadPre',
     config = function()
       require('plugincfg.aerial').config()
     end,
@@ -113,14 +107,25 @@ require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+    event = 'BufRead',
     config = function()
       require('plugincfg.treesitter').config()
     end,
   }
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'nvim-treesitter/playground'
+  use {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+    event = 'BufRead',
+  }
+  use {
+    'nvim-treesitter/playground',
+    after = 'nvim-treesitter',
+    event = 'BufRead',
+  }
   use {
     'm-demare/hlargs.nvim',
+    after = 'nvim-treesitter',
+    event = 'BufRead',
     config = function()
       require('plugincfg.hlargs').config()
     end,
@@ -142,6 +147,7 @@ require('packer').startup(function(use)
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
+    event = 'CursorHold',
     config = function()
       require('plugincfg.telescope').config()
     end,
@@ -150,6 +156,7 @@ require('packer').startup(function(use)
   -- Color {{{1
   use {
     'NvChad/nvim-colorizer.lua',
+    event = 'CursorHold',
     config = function()
       require('plugincfg.colorizer').config()
     end,
@@ -167,11 +174,20 @@ require('packer').startup(function(use)
 
   -- Neovim Lua Development {{{1
   use '~/dev/lua-dev.nvim'
+  use {
+    'nvim-lua/plenary.nvim',
+    module = 'plenary',
+  }
+  use {
+    'kyazdani42/nvim-web-devicons',
+    module = 'nvim-web-devicons',
+  }
 
   -- Tabline {{{1
   use {
     'akinsho/bufferline.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
+    event = 'BufReadPre',
     config = function()
       require('plugincfg.bufferline').config()
     end,
@@ -181,13 +197,17 @@ require('packer').startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
+    event = 'BufReadPre',
     config = function()
       require('plugincfg.lualine').config()
     end,
   }
 
   -- Startup {{{1
-  use 'dstein64/vim-startuptime'
+  use {
+    'dstein64/vim-startuptime',
+    cmd = 'StartupTime',
+  }
   use {
     'glepnir/dashboard-nvim',
     config = function()
@@ -199,6 +219,8 @@ require('packer').startup(function(use)
   -- Indent {{{1
   use {
     'lukas-reineke/indent-blankline.nvim',
+    after = 'nvim-treesitter',
+    event = 'BufRead',
     config = function()
       require('plugincfg.indent_blankline').config()
     end,
@@ -215,16 +237,20 @@ require('packer').startup(function(use)
   }
 
   -- Git {{{1
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'
+  use {
+    'tpope/vim-fugitive',
+    cmd = 'G',
+  }
   use {
     'lewis6991/gitsigns.nvim',
+    event = 'BufRead',
     config = function()
       require('gitsigns').setup()
     end,
   }
   use {
     'APZelos/blamer.nvim',
+    event = 'CursorHold',
     config = function()
       require('plugincfg.blamer').config()
     end,
@@ -233,6 +259,7 @@ require('packer').startup(function(use)
   -- Comment {{{1
   use {
     'numToStr/Comment.nvim',
+    keys = { 'gc', 'gcc', 'gbc' },
     config = function()
       require('Comment').setup()
     end,
@@ -241,6 +268,7 @@ require('packer').startup(function(use)
   -- Motion {{{1
   use {
     'ggandor/leap.nvim',
+    keys = { 's', 'S' },
     requires = { 'tpope/vim-repeat' },
     config = function()
       require('leap').set_default_keymaps()
@@ -267,21 +295,28 @@ require('packer').startup(function(use)
   -- Editing Support {{{1
   use {
     'windwp/nvim-autopairs',
+    event = 'InsertCharPre',
     config = function()
       require('nvim-autopairs').setup()
     end,
   }
   use {
     'windwp/nvim-ts-autotag',
+    after = 'nvim-treesitter',
+    event = 'BufRead',
     config = function()
       require('nvim-ts-autotag').setup()
     end,
   }
   use {
     'p00f/nvim-ts-rainbow',
+    after = 'nvim-treesitter',
+    event = 'BufRead',
   }
   use {
     'nvim-treesitter/nvim-treesitter-context',
+    after = 'nvim-treesitter',
+    event = 'BufRead',
     config = function()
       require('treesitter-context').setup()
     end,
@@ -298,9 +333,15 @@ require('packer').startup(function(use)
       require('gomove').setup()
     end,
   }
-  use 'RRethy/nvim-treesitter-endwise'
+  use {
+    'RRethy/nvim-treesitter-endwise',
+    after = 'nvim-treesitter',
+    event = 'BufRead',
+  }
   use {
     'mizlan/iswap.nvim',
+    after = 'nvim-treesitter',
+    event = 'BufRead',
     config = function()
       require('plugincfg.iswap').config()
     end,
@@ -309,6 +350,7 @@ require('packer').startup(function(use)
   -- Formatting {{{1
   use {
     'cappyzawa/trim.nvim',
+    event = 'BufWritePre',
     config = function()
       require('trim').setup()
     end,
