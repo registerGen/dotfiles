@@ -11,6 +11,7 @@ opt.foldlevel = 100000
 opt.foldmethod = 'expr'
 opt.ignorecase = true
 opt.laststatus = 3
+opt.lazyredraw = true
 opt.mouse = 'a'
 opt.number = true
 opt.relativenumber = true
@@ -37,6 +38,7 @@ local disabled_builtins = {
   'logipat',
   'man',
   'matchit',
+  'netrw',
   'netrwFileHandlers',
   'netrwPlugin',
   'netrwSettings',
