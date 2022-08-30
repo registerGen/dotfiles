@@ -74,6 +74,12 @@ require('packer').startup(function(use)
       require('plugincfg.null_ls').config()
     end,
   }
+  use {
+    'lvimuser/lsp-inlayhints.nvim',
+    config = function()
+      require('lsp-inlayhints').setup()
+    end,
+  }
 
   -- Completion {{{1
   use {
