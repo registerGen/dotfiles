@@ -237,10 +237,7 @@ require('packer').startup(function(use)
   }
 
   -- Git {{{1
-  use {
-    'tpope/vim-fugitive',
-    cmd = 'G',
-  }
+  use 'tpope/vim-fugitive'
   use {
     'lewis6991/gitsigns.nvim',
     event = 'BufRead',
