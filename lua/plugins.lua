@@ -187,7 +187,7 @@ require('packer').startup(function(use)
   use {
     'akinsho/bufferline.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
-    event = 'BufReadPre',
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       require('plugincfg.bufferline').config()
     end,
@@ -197,7 +197,7 @@ require('packer').startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
-    event = 'BufReadPre',
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       require('plugincfg.lualine').config()
     end,
