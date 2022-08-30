@@ -18,6 +18,9 @@ vim.api.nvim_create_autocmd('InsertLeave', {
     u.nmap('f', function() vim.lsp.buf.format { async = true } end, { desc = 'Format' })
     u.nmap('D', function() vim.diagnostic.open_float { focus = false, scope = 'l' } end, { desc = 'Show line diagnostics' })
     u.nmap('<C-D>', function() vim.diagnostic.open_float { focus = false, scope = 'b' } end, { desc = 'Show buffer diagnostics' })
+    u.set_map_prefix ''
+    u.nmap('[d', function() vim.diagnostic.goto_prev() end, { desc = 'Previous diagnostic' })
+    u.nmap(']d', function() vim.diagnostic.goto_next() end, { desc = 'Next diagnostic' })
   end,
 })
 
