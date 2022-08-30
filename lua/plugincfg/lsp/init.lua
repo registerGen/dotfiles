@@ -13,7 +13,7 @@ M.server_config = {
   },
   cssls = {},
   html = {},
-  jedi_language_server = {},
+  pyright = {},
   sumneko_lua = require('lua-dev').setup {
     lspconfig = {
       settings = {
