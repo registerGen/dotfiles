@@ -367,7 +367,7 @@ require('packer').startup(function(use)
       -- TODO: Remove this when #305 is merged
       local wk_view = require 'which-key.view'
       wk_view.hide = function()
-        vim.api.nvim_echo({ { "" } }, false, {})
+        vim.api.nvim_echo({ { '' } }, false, {})
         vim.cmd 'redraw'
         wk_view.hide_cursor()
         if wk_view.buf and vim.api.nvim_buf_is_valid(wk_view.buf) then
