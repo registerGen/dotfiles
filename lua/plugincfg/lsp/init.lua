@@ -18,6 +18,9 @@ M.server_config = {
     lspconfig = {
       settings = {
         Lua = {
+          runtime = {
+            version = 'LuaJIT',
+          },
           completion = {
             showWord = 'Disable',
             workSpaceWord = false,
