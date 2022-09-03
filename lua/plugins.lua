@@ -39,7 +39,7 @@ require('packer').startup(function(use)
   }
   use {
     'neovim/nvim-lspconfig',
-    event = 'BufReadPre',
+    event = { 'BufReadPre', 'BufNewFile' },
     after = 'cmp-nvim-lsp',
     config = function()
       require('plugincfg.lsp').config()
@@ -61,7 +61,7 @@ require('packer').startup(function(use)
   }
   use {
     'stevearc/aerial.nvim',
-    event = 'BufReadPre',
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       require('plugincfg.aerial').config()
     end,
