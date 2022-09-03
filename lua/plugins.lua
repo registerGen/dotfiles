@@ -179,7 +179,7 @@ require('packer').startup(function(use)
   use 'antoinemadec/FixCursorHold.nvim'
 
   -- Neovim Lua Development {{{1
-  use '~/dev/lua-dev.nvim'
+  use 'folke/lua-dev.nvim'
   use {
     'nvim-lua/plenary.nvim',
     module = 'plenary',
