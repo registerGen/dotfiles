@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd('InsertLeave', {
 
 -- code runner
 u.set_map_prefix ''
-u.nmap('<C-M-N>', '<cmd>RunCode<CR>', { desc = 'Run code' })
+u.nmap('<C-M-N>', '<cmd>RunFile<CR>', { desc = 'Run code' })
 
 -- vsnip
 vim.api.nvim_set_keymap('i', '<C-j>', 'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'', { expr = true })
