@@ -7,6 +7,7 @@ opt.completeopt = { 'menu', 'menuone', 'noselect' }
 opt.conceallevel = 2
 opt.cursorline = true
 opt.expandtab = true
+opt.foldlevel = 10000
 opt.ignorecase = true
 opt.laststatus = 3
 opt.lazyredraw = true

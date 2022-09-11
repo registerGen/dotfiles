@@ -34,6 +34,18 @@ vim.api.nvim_set_keymap('s', '<C-j>', 'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-
 vim.api.nvim_set_keymap('i', '<C-k>', 'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-k>\'', { expr = true })
 vim.api.nvim_set_keymap('s', '<C-k>', 'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-k>\'', { expr = true })
 
--- iswap.nvim
+-- iswap
 u.set_map_prefix '<leader>s'
 u.nmap('', '<cmd>ISwap<CR>', { desc = 'Swap nodes' })
+
+-- ufo
+vim.api.nvim_create_autocmd('CursorHold', {
+  group = vim.api.nvim_create_augroup('UfoKeymaps', { clear = true }),
+  callback = function()
+    u.set_map_prefix ''
+    u.nmap('zR', function() require('ufo').openAllFolds() end, {})
+    u.nmap('zM', function() require('ufo').closeAllFolds() end, {})
+    u.nmap('zr', function() require('ufo').openFoldsExceptKinds() end, {})
+    u.nmap('zm', function() require('ufo').closeFoldsWith() end, {})
+  end,
+})
