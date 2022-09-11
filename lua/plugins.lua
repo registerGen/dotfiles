@@ -99,16 +99,6 @@ require('packer').startup(function(use)
   }
   use 'onsails/lspkind-nvim'
 
-  -- Markdown {{{1
-  use {
-    'iamcco/markdown-preview.nvim',
-    run = 'cd app && yarn install',
-    ft = 'markdown',
-    config = function()
-      require('plugincfg.markdown_preview').config()
-    end,
-  }
-
   -- Syntax {{{1
   use {
     'nvim-treesitter/nvim-treesitter',
