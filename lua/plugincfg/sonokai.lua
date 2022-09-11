@@ -17,7 +17,6 @@ M.config = function()
         vim.fn['sonokai#get_palette'](configuration.style, configuration.colors_override)
       vim.fn['sonokai#highlight']('TSParameter', palette.orange, palette.none, 'italic')
       vim.fn['sonokai#highlight']('TSParameterReference', palette.orange, palette.none, 'italic')
-      vim.fn['sonokai#highlight']('CmpItemAbbrDeprecated', palette.grey, palette.none)
 
       -- For wilder.nvim
       vim.cmd [[hi! link WilderDefault Pmenu]]
