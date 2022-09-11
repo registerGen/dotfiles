@@ -174,7 +174,7 @@ require('packer').startup(function(use)
     after = 'nvim-lspconfig',
     config = function()
       require('plugincfg.ufo').config()
-    end
+    end,
   }
 
   -- Neovim Lua Development {{{1
