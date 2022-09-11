@@ -167,6 +167,15 @@ require('packer').startup(function(use)
   }
   use 'stevearc/dressing.nvim'
   use 'antoinemadec/FixCursorHold.nvim'
+  use {
+    'kevinhwang91/nvim-ufo',
+    requires = 'kevinhwang91/promise-async',
+    event = 'CursorHold',
+    after = 'nvim-lspconfig',
+    config = function()
+      require('plugincfg.ufo').config()
+    end
+  }
 
   -- Neovim Lua Development {{{1
   use 'folke/lua-dev.nvim'
