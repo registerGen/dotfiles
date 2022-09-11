@@ -361,4 +361,4 @@ require('packer').startup(function(use)
   -- }}}1
 end)
 
--- vim:fdm=marker:fdl=0
+-- vim:fdm=marker:
