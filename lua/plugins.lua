@@ -179,14 +179,6 @@ require('packer').startup(function(use)
 
   -- Neovim Lua Development {{{1
   use 'folke/lua-dev.nvim'
-  use {
-    'nvim-lua/plenary.nvim',
-    module = 'plenary',
-  }
-  use {
-    'kyazdani42/nvim-web-devicons',
-    module = 'nvim-web-devicons',
-  }
 
   -- Tabline {{{1
   use {
