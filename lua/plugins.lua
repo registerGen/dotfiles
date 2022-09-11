@@ -84,7 +84,7 @@ require('packer').startup(function(use)
   -- Completion {{{1
   use {
     'hrsh7th/nvim-cmp',
-    event = { 'InsertEnter', 'CmdlineEnter' },
+    event = 'InsertEnter',
     config = function()
       require('plugincfg.cmp').config()
     end,
@@ -93,8 +93,6 @@ require('packer').startup(function(use)
     'hrsh7th/cmp-nvim-lsp',
     { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
     { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
-    { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
-    { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
     { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
   }
   use 'onsails/lspkind-nvim'
@@ -345,6 +343,16 @@ require('packer').startup(function(use)
     event = 'BufWritePre',
     config = function()
       require('trim').setup()
+    end,
+  }
+
+  -- Command line {{{1
+  use {
+    'gelguy/wilder.nvim',
+    run = ':UpdateRemotePlugins',
+    event = 'CmdlineEnter',
+    config = function()
+      require('plugincfg.wilder').config()
     end,
   }
 

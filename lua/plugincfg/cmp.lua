@@ -36,22 +36,6 @@ M.config = function()
       },
     },
   }
-
-  for _, v in ipairs { '/', '?' } do
-    cmp.setup.cmdline(v, {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = 'buffer' },
-      },
-    })
-  end
-
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources {
-      { name = 'cmdline' },
-    },
-  })
 end
 
 return M

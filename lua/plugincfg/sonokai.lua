@@ -18,9 +18,15 @@ M.config = function()
       vim.fn['sonokai#highlight']('TSParameter', palette.orange, palette.none, 'italic')
       vim.fn['sonokai#highlight']('TSParameterReference', palette.orange, palette.none, 'italic')
       vim.fn['sonokai#highlight']('CmpItemAbbrDeprecated', palette.grey, palette.none)
+
+      -- For wilder.nvim
+      vim.cmd [[hi! link WilderDefault Pmenu]]
+      vim.cmd [[hi! link WilderSelected PmenuSel]]
+      vim.cmd [[hi! link WilderAccent CmpItemAbbrMatch]]
+      vim.fn['sonokai#highlight']('WilderSelectedAccent', palette.bg0, palette.bg_blue, 'bold')
     end,
   })
-  vim.cmd 'colors sonokai'
+  vim.cmd.colors 'sonokai'
 end
 
 return M
