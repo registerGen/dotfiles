@@ -170,8 +170,6 @@ require('packer').startup(function(use)
   use {
     'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async',
-    event = 'CursorHold',
-    after = 'nvim-lspconfig',
     config = function()
       require('plugincfg.ufo').config()
     end,
