@@ -4,7 +4,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- LSP
-vim.api.nvim_create_autocmd('InsertLeave', {
+vim.api.nvim_create_autocmd('CursorHold', {
   group = vim.api.nvim_create_augroup('LspKeymaps', { clear = true }),
   callback = function()
     local preview = require 'goto-preview'

@@ -54,7 +54,7 @@ require('packer').startup(function(use)
   }
   use {
     'rmagatti/goto-preview',
-    event = 'InsertLeave',
+    event = 'CursorHold',
     config = function()
       require('goto-preview').setup()
     end,
@@ -103,7 +103,7 @@ require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    event = 'BufRead',
+    event = { 'BufRead', 'BufNewFile' },
     config = function()
       require('plugincfg.treesitter').config()
     end,

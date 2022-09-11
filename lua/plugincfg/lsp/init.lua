@@ -35,6 +35,9 @@ M.server_config = {
 }
 
 M.config = function()
+  vim.api.nvim_create_autocmd('BufNewFile', {
+    command = 'LspStart',
+  })
   for server, config in pairs(M.server_config) do
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.foldingRange = {
