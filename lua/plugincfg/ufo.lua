@@ -30,9 +30,6 @@ end
 
 M.config = function()
   require('ufo').setup {
-    provider_selector = function()
-      return { 'lsp', 'treesitter' }
-    end,
     fold_virt_text_handler = handler,
   }
 end
