@@ -349,6 +349,9 @@ require('packer').startup(function(use)
   -- Command line {{{1
   use {
     'gelguy/wilder.nvim',
+    requires = {
+      { 'romgrk/fzy-lua-native', run = 'make' },
+    },
     run = ':UpdateRemotePlugins',
     event = 'CmdlineEnter',
     config = function()

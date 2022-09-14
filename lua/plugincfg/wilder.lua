@@ -8,11 +8,19 @@ M.config = function()
 
   wilder.set_option('pipeline', {
     wilder.branch(
+      wilder.python_file_finder_pipeline {
+        file_command = { 'fd', '-tf' },
+        dir_command = { 'fd', '-td' },
+        filters = { 'fuzzy_filter', 'difflib_sorter' },
+      },
       wilder.cmdline_pipeline {
+        language = 'python',
         fuzzy = 1,
       },
       wilder.python_search_pipeline {
-        pattern = 'fuzzy',
+        pattern = wilder.python_fuzzy_pattern(),
+        sorter = wilder.python_difflib_sorter(),
+        engine = 're',
       }
     ),
   })
@@ -21,11 +29,12 @@ M.config = function()
     'renderer',
     wilder.popupmenu_renderer(wilder.popupmenu_palette_theme {
       border = 'rounded',
-      max_height = '50%',
+      max_height = '60%',
       min_height = 0,
       prompt_position = 'top',
       reverse = 0,
-      highlighter = wilder.basic_highlighter(),
+      pumblend = 15,
+      highlighter = wilder.lua_fzy_highlighter(),
       highlights = {
         default = 'WilderDefualt',
         selected = 'WilderSelected',

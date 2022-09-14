@@ -13,7 +13,6 @@ M.config = function()
       { name = 'nvim_lsp' },
       { name = 'nvim_lsp_signature_help' },
       { name = 'vsnip' },
-      { name = 'path' },
     },
     mapping = cmp.mapping.preset.insert {
       ['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(3)),
