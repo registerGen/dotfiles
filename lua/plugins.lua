@@ -168,6 +168,7 @@ require('packer').startup(function(use)
   use {
     'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async',
+    event = 'BufRead',
     config = function()
       require('plugincfg.ufo').config()
     end,
