@@ -26,12 +26,14 @@ require('packer').startup(function(use)
   use {
     {
       'williamboman/mason.nvim',
+      event = { 'BufReadPre', 'BufNewFile' },
       config = function()
         require('plugincfg.mason').config()
       end,
     },
     {
       'williamboman/mason-lspconfig.nvim',
+      event = { 'BufReadPre', 'BufNewFile' },
       config = function()
         require('plugincfg.mason_lspconfig').config()
       end,
