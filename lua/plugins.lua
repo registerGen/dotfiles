@@ -76,6 +76,7 @@ require('packer').startup(function(use)
   }
   use {
     'lvimuser/lsp-inlayhints.nvim',
+    event = 'BufRead',
     config = function()
       require('lsp-inlayhints').setup()
     end,
@@ -278,6 +279,7 @@ require('packer').startup(function(use)
   -- Scrollbar {{{1
   use {
     'lewis6991/satellite.nvim',
+    event = 'BufRead',
     config = function()
       require('satellite').setup()
     end,
@@ -314,12 +316,14 @@ require('packer').startup(function(use)
   }
   use {
     'mg979/vim-visual-multi',
+    event = 'CursorHold',
     config = function()
       vim.g.VM_leader = '<leader>v'
     end,
   }
   use {
     'booperlv/nvim-gomove',
+    event = 'CursorHold',
     config = function()
       require('gomove').setup()
     end,
@@ -363,6 +367,7 @@ require('packer').startup(function(use)
   -- Keybinding {{{1
   use {
     'folke/which-key.nvim',
+    event = 'BufRead',
     config = function()
       require('which-key').setup()
     end,
