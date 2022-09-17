@@ -2,7 +2,6 @@ local M = {}
 
 M.config = function()
   require('notify').setup {
-    stages = 'fade',
     icons = {
       WARN = '',
     },
