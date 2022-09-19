@@ -10,7 +10,7 @@ M.config = function()
     wilder.branch(
       wilder.python_file_finder_pipeline {
         file_command = function(_, arg)
-          if string.find(arg, '.') ~= nil then
+          if arg:byte(1) == ('.'):byte(1) then
             return { 'fd', '-tf', '-H' }
           else
             return { 'fd', '-tf' }
