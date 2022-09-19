@@ -9,7 +9,13 @@ M.config = function()
   wilder.set_option('pipeline', {
     wilder.branch(
       wilder.python_file_finder_pipeline {
-        file_command = { 'fd', '-tf' },
+        file_command = function(ctx, arg)
+          if string.find(arg, '.') ~= nil then
+            return { 'fd', '-tf', '-H' }
+          else
+            return { 'fd', '-tf' }
+          end
+        end,
         dir_command = { 'fd', '-td' },
         filters = { 'fuzzy_filter', 'difflib_sorter' },
       },
