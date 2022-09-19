@@ -9,7 +9,7 @@ M.config = function()
   wilder.set_option('pipeline', {
     wilder.branch(
       wilder.python_file_finder_pipeline {
-        file_command = function(ctx, arg)
+        file_command = function(_, arg)
           if string.find(arg, '.') ~= nil then
             return { 'fd', '-tf', '-H' }
           else
