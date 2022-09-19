@@ -171,7 +171,6 @@ require('packer').startup(function(use)
     end,
   }
   use 'stevearc/dressing.nvim'
-  use 'antoinemadec/FixCursorHold.nvim'
   use {
     'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async',
