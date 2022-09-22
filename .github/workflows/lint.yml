@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Lint with StyLua
-        uses: JohnnyMorganz/stylua-action@1.0.0
+        uses: JohnnyMorganz/stylua-action@v1.1.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           args: --check .
