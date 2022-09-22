@@ -27,6 +27,7 @@ require('packer').startup(function(use)
     {
       'williamboman/mason.nvim',
       event = { 'BufReadPre', 'BufNewFile' },
+      cmd = { 'Mason' },
       config = function()
         require('plugincfg.mason').config()
       end,
