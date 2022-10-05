@@ -94,7 +94,7 @@ require('packer').startup(function(use)
     end,
   }
   use {
-    'hrsh7th/cmp-nvim-lsp',
+    { 'hrsh7th/cmp-nvim-lsp', event = { 'BufReadPre', 'BufNewFile' } },
     { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
     { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
   }
@@ -166,8 +166,20 @@ require('packer').startup(function(use)
   -- Utility {{{1
   use {
     'rcarriga/nvim-notify',
+    event = 'BufRead',
     config = function()
       require('plugincfg.notify').config()
+    end,
+  }
+  use {
+    'folke/noice.nvim',
+    requires = {
+      'MunifTanjim/nui.nvim',
+      'rcarriga/nvim-notify',
+    },
+    event = 'BufRead',
+    config = function()
+      require('plugincfg.noice').config()
     end,
   }
   use 'stevearc/dressing.nvim'
@@ -287,6 +299,7 @@ require('packer').startup(function(use)
   use {
     'CRAG666/code_runner.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
+    event = 'CursorHold',
     config = function()
       require('plugincfg.code_runner').config()
     end,
@@ -364,18 +377,6 @@ require('packer').startup(function(use)
     event = 'BufWritePre',
     config = function()
       require('trim').setup()
-    end,
-  }
-
-  -- Command line {{{1
-  use {
-    'folke/noice.nvim',
-    requires = {
-      'MunifTanjim/nui.nvim',
-      'rcarriga/nvim-notify',
-    },
-    config = function()
-      require('plugincfg.noice').config()
     end,
   }
 
