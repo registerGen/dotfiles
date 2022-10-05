@@ -280,7 +280,7 @@ require('packer').startup(function(use)
     requires = { 'ggandor/leap.nvim' },
     config = function()
       require('plugincfg.flit').config()
-    end
+    end,
   }
 
   -- Code Runner {{{1
@@ -369,14 +369,13 @@ require('packer').startup(function(use)
 
   -- Command line {{{1
   use {
-    'gelguy/wilder.nvim',
+    'folke/noice.nvim',
     requires = {
-      { 'romgrk/fzy-lua-native', run = 'make' },
+      'MunifTanjim/nui.nvim',
+      'rcarriga/nvim-notify',
     },
-    run = ':UpdateRemotePlugins',
-    event = 'CmdlineEnter',
     config = function()
-      require('plugincfg.wilder').config()
+      require('plugincfg.noice').config()
     end,
   }
 
