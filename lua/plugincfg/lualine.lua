@@ -59,7 +59,8 @@ M.config = function()
         },
       },
       lualine_x = { 'filesize', 'encoding', 'fileformat', 'filetype' },
-      lualine_z = { 'location', '%{strftime(\'%X\')}' },
+      lualine_y = { 'progress', { 'location', icon = '' } },
+      lualine_z = { { '%{strftime(\'%X\')}', icon = '' } },
     },
     winbar = {
       lualine_b = { { 'filetype', icon_only = true }, { 'filename', path = 3 } },
