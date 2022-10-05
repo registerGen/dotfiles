@@ -30,7 +30,7 @@ M.config = function()
     },
     winbar = {
       lualine_b = { { 'filetype', icon_only = true }, { 'filename', path = 3 } },
-      lualine_c = { { 'aerial', sep = ' ❯ ' } },
+      lualine_c = { { 'aerial', sep = ' → ' } },
     },
     inactive_winbar = {
       lualine_b = { { 'filetype', icon_only = true }, { 'filename', path = 3 } },
