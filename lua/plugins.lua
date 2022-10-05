@@ -208,6 +208,9 @@ require('packer').startup(function(use)
   use {
     'dstein64/vim-startuptime',
     cmd = 'StartupTime',
+    config = function()
+      vim.g.startuptime_tries = 20
+    end,
   }
   use {
     'glepnir/dashboard-nvim',
