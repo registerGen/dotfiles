@@ -15,8 +15,8 @@ M.config = function()
       { name = 'vsnip' },
     },
     mapping = cmp.mapping.preset.insert {
-      ['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(3)),
-      ['<C-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-3)),
+      ['<C-j>'] = cmp.mapping.scroll_docs(3),
+      ['<C-k>'] = cmp.mapping.scroll_docs(-3),
       ['<Tab>'] = cmp.mapping.confirm { select = true },
     },
     formatting = {
