@@ -174,7 +174,7 @@ require('packer').startup(function(use)
   use 'stevearc/dressing.nvim'
   use {
     'kevinhwang91/nvim-ufo',
-    requires = 'kevinhwang91/promise-async',
+    requires = { 'kevinhwang91/promise-async' },
     event = 'BufRead',
     config = function()
       require('plugincfg.ufo').config()
@@ -279,7 +279,7 @@ require('packer').startup(function(use)
   -- Code Runner {{{1
   use {
     'CRAG666/code_runner.nvim',
-    requires = 'nvim-lua/plenary.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('plugincfg.code_runner').config()
     end,
