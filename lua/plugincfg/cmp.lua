@@ -34,6 +34,9 @@ M.config = function()
         border = 'rounded',
       },
     },
+    experimental = {
+      ghost_text = true,
+    },
   }
 end
 
