@@ -14,6 +14,9 @@ M.config = function()
     },
     views = {
       cmdline_popup = {
+        position = {
+          row = '30%',
+        },
         win_options = {
           winhighlight = { NormalFloat = 'NormalFloat', FloatBorder = 'FloatBorder' },
         },
