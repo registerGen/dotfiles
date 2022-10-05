@@ -274,6 +274,14 @@ require('packer').startup(function(use)
       require('leap').set_default_keymaps()
     end,
   }
+  use {
+    'ggandor/flit.nvim',
+    keys = { 'f', 'F', 't', 'T' },
+    requires = { 'ggandor/leap.nvim' },
+    config = function()
+      require('plugincfg.flit').config()
+    end
+  }
 
   -- Code Runner {{{1
   use {
