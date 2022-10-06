@@ -25,16 +25,6 @@ M.config = function()
           },
         },
       },
-      lualine_c = {
-        'filename',
-        {
-          '%{getcmdline()}',
-          color = { fg = palette.yellow[1] },
-          cond = function()
-            return vim.api.nvim_get_mode().mode == 'c'
-          end,
-        },
-      },
       lualine_x = { 'filesize', 'encoding', 'fileformat', 'filetype' },
       lualine_y = { 'progress', { 'location', icon = '' } },
       lualine_z = { { '%{strftime(\'%X\')}', icon = '' } },
