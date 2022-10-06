@@ -6,7 +6,6 @@ M.config = function()
       WARN = '',
     },
   }
-  vim.notify = require 'notify'
 end
 
 return M
