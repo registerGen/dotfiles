@@ -1,5 +1,9 @@
 local M = {}
 
+local function in_cmd_mode()
+  return vim.api.nvim_get_mode().mode == 'c'
+end
+
 M.config = function()
   local configuration = vim.fn['sonokai#get_configuration']()
   local palette = vim.fn['sonokai#get_palette'](configuration.style, configuration.colors_override)
@@ -9,9 +13,20 @@ M.config = function()
       globalstatus = true,
     },
     sections = {
+      lualine_a = { 'mode' },
       lualine_b = {
-        'branch',
-        'diff',
+        {
+          'branch',
+          cond = function()
+            return not in_cmd_mode()
+          end,
+        },
+        {
+          'diff',
+          cond = function()
+            return not in_cmd_mode()
+          end,
+        },
         {
           'diagnostics',
           sources = { 'nvim_diagnostic' },
@@ -23,15 +38,23 @@ M.config = function()
             info = { fg = palette.blue[1] },
             hint = { fg = palette.green[1] },
           },
+          cond = function()
+            return not in_cmd_mode()
+          end,
         },
       },
       lualine_c = {
-        'filename',
+        {
+          'filename',
+          cond = function()
+            return not in_cmd_mode()
+          end,
+        },
         {
           '%{getcmdline()}',
           color = { fg = palette.yellow[1] },
           cond = function()
-            return vim.api.nvim_get_mode().mode == 'c'
+            return in_cmd_mode()
           end,
         },
       },
