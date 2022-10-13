@@ -37,6 +37,9 @@ M.config = function()
         },
       },
     },
+    notify = {
+      enabled = false,
+    },
   }
 end
 
