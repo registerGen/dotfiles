@@ -193,7 +193,7 @@ require('packer').startup(function(use)
   }
 
   -- Neovim Lua Development {{{1
-  use 'folke/lua-dev.nvim'
+  use 'folke/neodev.nvim'
 
   -- Tabline {{{1
   use {
