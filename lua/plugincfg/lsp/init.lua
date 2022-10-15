@@ -14,17 +14,15 @@ M.server_config = {
   cssls = {},
   html = {},
   pyright = {},
-  sumneko_lua = require('lua-dev').setup {
-    lspconfig = {
-      settings = {
-        Lua = {
-          runtime = {
-            version = 'LuaJIT',
-          },
-          completion = {
-            showWord = 'Disable',
-            workSpaceWord = false,
-          },
+  sumneko_lua = {
+    settings = {
+      Lua = {
+        runtime = {
+          version = 'LuaJIT',
+        },
+        completion = {
+          showWord = 'Disable',
+          workSpaceWord = false,
         },
       },
     },
@@ -38,6 +36,7 @@ M.config = function()
   vim.api.nvim_create_autocmd('BufNewFile', {
     command = 'LspStart',
   })
+  require('neodev').setup()
   for server, config in pairs(M.server_config) do
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.foldingRange = {
