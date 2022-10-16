@@ -43,7 +43,7 @@ require('packer').startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     event = { 'BufReadPre', 'BufNewFile' },
-    after = 'cmp-nvim-lsp',
+    after = { 'cmp-nvim-lsp', 'neodev.nvim' },
     config = function()
       require('plugincfg.lsp').config()
     end,
@@ -193,7 +193,10 @@ require('packer').startup(function(use)
   }
 
   -- Neovim Lua Development {{{1
-  use 'folke/neodev.nvim'
+  use {
+    'folke/neodev.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+  }
 
   -- Tabline {{{1
   use {
