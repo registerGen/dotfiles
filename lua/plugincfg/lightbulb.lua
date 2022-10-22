@@ -12,6 +12,8 @@ M.config = function()
       require('nvim-lightbulb').update_lightbulb()
     end,
   })
+
+  vim.fn.sign_define('LightBulbSign', { text = '💡', texthl = 'DiagnosticSignInformation' })
 end
 
 return M
