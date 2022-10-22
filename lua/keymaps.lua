@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd('CursorHold', {
     u.nmap('r',      function() preview.goto_preview_references() end,                        { desc = 'Go to references' })
     u.nmap('K',      function() vim.lsp.buf.hover() end,                                      { desc = 'Hover documentation' })
     u.nmap('c',      function() vim.lsp.buf.code_action() end,                                { desc = 'Code action' })
-    u.nmap('n',      function() vim.lsp.buf.rename() end,                                     { desc = 'Rename' })
+    u.nmap('n',      function() return ':IncRename ' .. vim.fn.expand '<cword>' end,          { desc = 'Rename', expr = true })
     u.nmap('f',      function() vim.lsp.buf.format { async = true } end,                      { desc = 'Format' })
     u.nmap('D',      function() vim.diagnostic.open_float { focus = false, scope = 'l' } end, { desc = 'Show line diagnostics' })
     u.nmap('<C-D>',  function() vim.diagnostic.open_float { focus = false, scope = 'b' } end, { desc = 'Show buffer diagnostics' })

@@ -84,6 +84,13 @@ require('packer').startup(function(use)
       require('lsp-inlayhints').setup()
     end,
   }
+  use {
+    'smjonas/inc-rename.nvim',
+    event = 'CursorHold',
+    config = function()
+      require('inc_rename').setup()
+    end,
+  }
 
   -- Completion {{{1
   use {
