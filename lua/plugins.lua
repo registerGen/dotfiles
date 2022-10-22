@@ -177,7 +177,7 @@ require('packer').startup(function(use)
       'MunifTanjim/nui.nvim',
       'rcarriga/nvim-notify',
     },
-    event = 'BufRead',
+    event = { 'BufRead', 'CmdlineEnter' },
     config = function()
       require('plugincfg.noice').config()
     end,
