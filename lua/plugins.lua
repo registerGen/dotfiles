@@ -260,14 +260,7 @@ require('packer').startup(function(use)
     'lewis6991/gitsigns.nvim',
     event = 'BufRead',
     config = function()
-      require('gitsigns').setup()
-    end,
-  }
-  use {
-    'APZelos/blamer.nvim',
-    event = 'CursorHold',
-    config = function()
-      require('plugincfg.blamer').config()
+      require('plugincfg.gitsigns').config()
     end,
   }
 
