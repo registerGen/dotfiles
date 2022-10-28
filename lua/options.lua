@@ -1,4 +1,4 @@
-local opt = vim.opt
+local opt, opt_local = vim.opt, vim.opt_local
 
 opt.background = 'dark'
 opt.backup = false
@@ -26,6 +26,14 @@ opt.termguicolors = true
 opt.timeoutlen = 500
 opt.updatetime = 500
 opt.wrap = false
+
+vim.api.nvim_create_autocmd('TermOpen', {
+  callback = function()
+    opt_local.number = false
+    opt_local.relativenumber = false
+    opt_local.signcolumn = 'no'
+  end,
+})
 
 vim.g.tex_flavor = 'latex'
 
