@@ -2,7 +2,6 @@ local M = {}
 
 local function on_attach(client, bufnr)
   require('plugincfg.lsp.ui').on_attach(client, bufnr)
-  require('aerial').on_attach(client, bufnr)
   require('lsp-inlayhints').on_attach(client, bufnr)
 end
 
