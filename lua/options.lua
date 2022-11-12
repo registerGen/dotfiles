@@ -73,7 +73,7 @@ end
 
 if vim.fn.exists 'g:neovide' ~= 0 then
   opt.cursorline = false
-  opt.guifont = 'CaskaydiaCovePL Nerd Font Mono:h14'
+  opt.guifont = 'CaskaydiaCove Nerd Font Mono:h14'
   vim.g.neovide_cursor_vfx_mode = 'railgun'
   vim.g.neovide_floating_blur_amount_x = 2.0
   vim.g.neovide_floating_blur_amount_y = 2.0
