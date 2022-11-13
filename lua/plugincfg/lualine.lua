@@ -1,5 +1,8 @@
 local M = {}
 
+local icons = require 'icons'
+local u = require 'utils'
+
 local function in_cmd_mode()
   return vim.api.nvim_get_mode().mode == 'c'
 end
@@ -26,11 +29,12 @@ M.config = function()
           cond = function()
             return not in_cmd_mode()
           end,
+          symbols = icons.git_diff,
         },
         {
           'diagnostics',
           sources = { 'nvim_diagnostic' },
-          symbols = { error = '', warn = '', info = '', hint = '' },
+          symbols = icons.diagnostic,
           update_in_insert = true,
           diagnostics_color = {
             error = { fg = palette.red[1] },
@@ -59,12 +63,12 @@ M.config = function()
         },
       },
       lualine_x = { 'filesize', 'encoding', 'fileformat', 'filetype' },
-      lualine_y = { 'progress', { 'location', icon = '' } },
-      lualine_z = { { '%{strftime(\'%X\')}', icon = '' } },
+      lualine_y = { 'progress', { 'location', icon = icons.misc.location } },
+      lualine_z = { { '%{strftime(\'%X\')}', icon = icons.misc.time } },
     },
     winbar = {
       lualine_b = { { 'filetype', icon_only = true }, { 'filename', path = 3 } },
-      lualine_c = { { 'aerial', sep = ' → ' } },
+      lualine_c = { { 'aerial', sep = u.pad(icons.arrow.right) } },
     },
     inactive_winbar = {
       lualine_b = { { 'filetype', icon_only = true }, { 'filename', path = 3 } },

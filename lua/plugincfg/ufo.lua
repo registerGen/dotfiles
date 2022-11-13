@@ -1,9 +1,12 @@
 local M = {}
 
+local icons = require 'icons'
+local u = require 'utils'
+
 local handler = function(virt_text, lnum, end_lnum, width, truncate)
   local new_virt_text = {}
-  local suffix1 = ' ⋯ '
-  local suffix2 = (' %d '):format(end_lnum - lnum)
+  local suffix1 = u.pad(icons.misc.ellipsis)
+  local suffix2 = (icons.arrow.bottom_left .. ' %d '):format(end_lnum - lnum)
   local suf_width = vim.fn.strdisplaywidth(suffix1 .. suffix2)
   local target_width = width - suf_width
   local cur_width = 0

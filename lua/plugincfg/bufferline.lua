@@ -1,5 +1,7 @@
 local M = {}
 
+local icons = require 'icons'
+
 M.config = function()
   require('bufferline').setup {
     options = {
@@ -8,19 +10,7 @@ M.config = function()
       diagnostics_indicator = function(_, _, diagnostics_dict, _)
         local result = ''
         for severity, count in pairs(diagnostics_dict) do
-          if severity == 'error' then
-            result = result .. ''
-          end
-          if severity == 'warning' then
-            result = result .. ''
-          end
-          if severity == 'info' then
-            result = result .. ''
-          end
-          if severity == 'hint' then
-            result = result .. ''
-          end
-          result = result .. count .. ' '
+          result = result .. icons.diagnostic[severity] .. count .. ' '
         end
         return result
       end,

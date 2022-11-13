@@ -1,14 +1,21 @@
 local M = {}
 
+local icons = require 'icons'
+
 M.on_attach = function(_, bufnr)
   vim.lsp.handlers['textDocument/publishDiagnostics'] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
       update_in_insert = true,
-      virtual_text = { spacing = 4, prefix = '●' },
+      virtual_text = { spacing = 4 },
       severity_sort = true,
     })
 
-  local signs = { Error = '', Warn = '', Info = '', Hint = '' }
+  local signs = {
+    Error = icons.diagnostic.error,
+    Warn = icons.diagnostic.warn,
+    Info = icons.diagnostic.info,
+    Hint = icons.diagnostic.hint,
+  }
   for type, icon in pairs(signs) do
     local hl = 'DiagnosticSign' .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
