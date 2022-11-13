@@ -23,6 +23,9 @@ M.server_config = {
           showWord = 'Disable',
           workSpaceWord = false,
         },
+        workspace = {
+          checkThirdParty = false,
+        },
       },
     },
   },
