@@ -22,9 +22,9 @@ return {
     bottom_right = '',
   },
   misc = {
-    time = '',
-    location = '',
     bulb = '',
     ellipsis = '⋯',
+    location = '',
+    time = '',
   },
 }
