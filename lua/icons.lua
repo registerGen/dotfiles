@@ -25,5 +25,6 @@ return {
     time = '',
     location = '',
     bulb = '',
+    ellipsis = '⋯',
   },
 }
