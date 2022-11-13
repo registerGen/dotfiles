@@ -59,7 +59,7 @@ require('packer').startup(function(use)
     'rmagatti/goto-preview',
     event = 'CursorHold',
     config = function()
-      require('goto-preview').setup()
+      require('plugincfg.goto_preview').config()
     end,
   }
   use {
