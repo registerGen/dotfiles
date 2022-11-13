@@ -315,6 +315,13 @@ require('packer').startup(function(use)
       require('satellite').setup()
     end,
   }
+  use {
+    'gorbit99/codewindow.nvim',
+    event = 'BufRead',
+    config = function()
+      require('plugincfg.codewindow').config()
+    end,
+  }
 
   -- Editing Support {{{1
   use {
