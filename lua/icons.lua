@@ -24,6 +24,7 @@ return {
   misc = {
     bulb = '',
     ellipsis = '⋯',
+    find = '',
     location = '',
     time = '',
   },
