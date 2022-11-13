@@ -4,7 +4,14 @@
 
 My dotfiles including
 
+- clangd
+- git
+- latexmk
+- neofetch
 - neovim
+- p10k
+- tmux
+- zsh
 
 ## License
 
