@@ -24,5 +24,6 @@ return {
   misc = {
     time = '',
     location = '',
+    bulb = '',
   },
 }

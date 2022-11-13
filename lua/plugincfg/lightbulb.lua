@@ -1,5 +1,7 @@
 local M = {}
 
+local icons = require 'icons'
+
 M.config = function()
   require('nvim-lightbulb').setup {
     sign = {
@@ -13,7 +15,10 @@ M.config = function()
     end,
   })
 
-  vim.fn.sign_define('LightBulbSign', { text = '💡', texthl = 'DiagnosticSignInformation' })
+  vim.fn.sign_define(
+    'LightBulbSign',
+    { text = icons.misc.bulb, texthl = 'DiagnosticSignInformation' }
+  )
 end
 
 return M
