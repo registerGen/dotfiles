@@ -1,8 +1,10 @@
-# nvimrc
+# dotfiles
 
 ![](https://github.com/registerGen/nvimrc/workflows/lint/badge.svg) ![](https://img.shields.io/github/repo-size/registerGen/nvimrc)
 
-My neovim config and snippets.
+My dotfiles including
+
+- neovim
 
 ## License
 
