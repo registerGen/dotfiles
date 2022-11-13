@@ -86,7 +86,7 @@ require('packer').startup(function(use)
   }
   use {
     'smjonas/inc-rename.nvim',
-    event = 'CursorHold',
+    cmd = 'IncRename',
     config = function()
       require('inc_rename').setup()
     end,
@@ -301,7 +301,7 @@ require('packer').startup(function(use)
   use {
     'CRAG666/code_runner.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
-    event = 'CursorHold',
+    cmd = 'RunFile',
     config = function()
       require('plugincfg.code_runner').config()
     end,
@@ -367,7 +367,7 @@ require('packer').startup(function(use)
   use {
     'mizlan/iswap.nvim',
     after = 'nvim-treesitter',
-    event = 'BufRead',
+    cmd = 'ISwap',
     config = function()
       require('plugincfg.iswap').config()
     end,
