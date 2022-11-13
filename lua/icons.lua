@@ -2,6 +2,7 @@ return {
   diagnostic = {
     error = '',
     warn = '',
+    warning = '',
     info = '',
     hint = '',
   },
@@ -19,5 +20,9 @@ return {
     top_right = '',
     bottom_left = '',
     bottom_right = '',
+  },
+  misc = {
+    time = '',
+    location = '',
   },
 }
