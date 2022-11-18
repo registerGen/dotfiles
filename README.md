@@ -6,6 +6,7 @@ My dotfiles including
 
 - clangd
 - git
+- gpg-agent
 - latexmk
 - neofetch
 - neovim
