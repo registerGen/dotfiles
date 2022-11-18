@@ -6,12 +6,9 @@ local function on_attach(client, bufnr)
 end
 
 M.server_config = {
-  bashls = {},
   clangd = {
     cmd = { 'clangd', '--offset-encoding=utf-16' },
   },
-  cssls = {},
-  html = {},
   pyright = {},
   sumneko_lua = {
     settings = {
@@ -30,7 +27,6 @@ M.server_config = {
     },
   },
   texlab = {},
-  tsserver = {},
   vimls = {},
 }
 

@@ -21,7 +21,6 @@ M.config = function()
         end,
       },
       null_ls.builtins.diagnostics.zsh,
-      null_ls.builtins.diagnostics.luacheck,
     },
   }
 end
