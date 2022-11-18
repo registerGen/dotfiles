@@ -16,8 +16,8 @@
 [user]
   email = registergen@163.com
   name = registerGen
-  signingkey = E9A531593C6DB9DF
-[http]
-  proxy = 127.0.0.1:38457
-[https]
-  proxy = 127.0.0.1:38457
+  signingkey = 55AD581C49B2D62A
+; [http]
+;   proxy = 127.0.0.1:38457
+; [https]
+;   proxy = 127.0.0.1:38457
