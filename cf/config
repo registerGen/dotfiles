@@ -1,0 +1,14 @@
+{
+  "template": null,
+  "default": 0,
+  "gen_after_parse": false,
+  "host": "https://codeforces.com",
+  "proxy": "",
+  "folder_name": {
+    "acmsguru": "acmsguru",
+    "contest": "contest",
+    "group": "group",
+    "gym": "gym",
+    "root": "cf"
+  }
+}
