@@ -4,10 +4,13 @@
 
 My dotfiles including
 
+- cf tool
 - clangd
 - git
+- github cli
 - gpg-agent
 - latexmk
+- lemonlime
 - neofetch
 - neovim
 - p10k
