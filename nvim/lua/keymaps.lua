@@ -43,9 +43,11 @@ vim.api.nvim_create_autocmd('BufRead', {
   group = vim.api.nvim_create_augroup('UfoKeymaps', { clear = true }),
   callback = function()
     u.set_map_prefix ''
-    u.nmap('zR', function() require('ufo').openAllFolds()         end, {})
-    u.nmap('zM', function() require('ufo').closeAllFolds()        end, {})
-    u.nmap('zr', function() require('ufo').openFoldsExceptKinds() end, {})
-    u.nmap('zm', function() require('ufo').closeFoldsWith()       end, {})
+    local ufo = require 'ufo'
+    u.nmap('zR', function() ufo.openAllFolds()               end, {})
+    u.nmap('zM', function() ufo.closeAllFolds()              end, {})
+    u.nmap('zr', function() ufo.openFoldsExceptKinds()       end, {})
+    u.nmap('zm', function() ufo.closeFoldsWith()             end, {})
+    u.nmap('zp', function() ufo.peekFoldedLinesUnderCursor() end, {})
   end,
 })
