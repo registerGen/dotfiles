@@ -161,7 +161,7 @@
       "%   \\item 因违反以上三点而出现的错误或问题，申述时一律不予受理。",
       "%   \\item 若无特殊说明，结果的比较方式为全文比较（过滤行末空格及文末回车）。",
       "%   \\item 程序可使用的栈空间内存限制与题目的内存限制一致。",
-      "%   \\item \\textsf{registerGen} 在本地评测时采用的机器配置为：AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx @2.10 GHz，内存 8GB。上述时限以此配置为准。",
+      "%   \\item \\textsf{registerGen} 在本地评测时采用的机器配置为：12th Gen Intel(R) Core(TM) i9-12900H 2.50 GHz，内存 32GB。上述时限以此配置为准。",
       "%   \\item 只提供 Linux 格式附加样例文件。",
       "%   \\item 评测在 qfoj 下进行，各语言的编译器版本以此为准。",
       "% \\end{enumerate}"
@@ -250,7 +250,7 @@
       "%   \\item 因违反以上三点而出现的错误或问题，申述时一律不予受理。",
       "%   \\item 若无特殊说明，结果的比较方式为全文比较（过滤行末空格及文末回车）。",
       "%   \\item 程序可使用的栈空间内存限制与题目的内存限制一致。",
-      "%   \\item \\textsf{registerGen} 在本地评测时采用的机器配置为：AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx @2.10 GHz，内存 8GB。上述时限以此配置为准。",
+      "%   \\item \\textsf{registerGen} 在本地评测时采用的机器配置为：12th Gen Intel(R) Core(TM) i9-12900H 2.50 GHz，内存 32GB。上述时限以此配置为准。",
       "%   \\item 只提供 Linux 格式附加样例文件。",
       "%   \\item 评测在 qfoj 下进行，各语言的编译器版本以此为准。",
       "% \\end{enumerate}",
