@@ -12,11 +12,8 @@ M.config = function()
     group = vim.api.nvim_create_augroup('Sonokai', { clear = true }),
     pattern = 'sonokai',
     callback = function()
-      local configuration = vim.fn['sonokai#get_configuration']()
-      local palette =
-        vim.fn['sonokai#get_palette'](configuration.style, configuration.colors_override)
-      vim.fn['sonokai#highlight']('TSParameter', palette.orange, palette.none, 'italic')
-      vim.fn['sonokai#highlight']('TSParameterReference', palette.orange, palette.none, 'italic')
+      vim.api.nvim_set_hl(0, 'TSParameter', { link = 'OrangeItalic', default = false })
+      vim.api.nvim_set_hl(0, 'TSParameterReference', { link = 'OrangeItalic', default = false })
     end,
   })
   vim.cmd.colors 'sonokai'
