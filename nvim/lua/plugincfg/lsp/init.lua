@@ -39,7 +39,10 @@ M.config = function()
     }
     require('lspconfig')[server].setup(vim.tbl_deep_extend('force', {}, {
       capabilities = capabilities,
-      on_attach = on_attach,
+      on_attach = function(client, bufnr)
+        require('plugincfg.lsp.ui').on_attach(client, bufnr)
+        require('lsp-inlayhints').on_attach(client, bufnr)
+      end,
     }, config))
   end
 end
