@@ -9,6 +9,7 @@ M.config = function()
         .. '/scripts/run_cpp.sh $fileName $fileNameWithoutExt',
       python = 'cd $dir && python $fileName',
       tex = 'cd $dir && latexmk $fileName && latexmk -c',
+      sh = 'cd $dir && chmod u+x $fileName && ./$fileName',
     },
   }
 end
