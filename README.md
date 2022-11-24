@@ -17,6 +17,19 @@ My dotfiles including
 - [p10k](https://github.com/romkatv/powerlevel10k)
 - [zsh](https://www.zsh.org)
 
+# Prerequisites
+
+- cf
+    - xdg-open (`sudo apt install xdg-utils`)
+- git (should be installed via PPA)
+- gpg
+    - gpg4win
+- neovim (nightly)
+    - language servers: bashls, clangd, pyright, sumneko_lua, texlab, vimls
+    - npm (to install some language servers and tools)
+- zsh
+    - oh my zsh
+
 ## License
 
 MIT.
