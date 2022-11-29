@@ -4,7 +4,7 @@
 interactive_indicator="// interactive"
 interactive_flag=0
 
-CXX=clang++
+CXX="clang++"
 CXXFLAGS="-Wall -Wextra -Wconversion -Wshadow -lm -O2 -std=c++14 -DREGISTERGEN"
 
 while read line; do
