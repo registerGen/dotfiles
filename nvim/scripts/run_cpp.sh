@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: run_cpp.sh <src_file> <exe_file>
+# Usage: run_cpp.sh <src_file> <exe_file> <tmpdir>
 
 interactive_indicator="// interactive"
 interactive_flag=0
@@ -23,8 +23,8 @@ fi
 if [ $interactive_flag -eq 1 ]; then
   ./$2
 else
-  out_file=/tmp/$1_out
-  err_file=/tmp/$1_err
+  out_file="/$3/$1_out"
+  err_file="/$3/$1_err"
   ./$2 1> $out_file 2> $err_file
   echo -e "\033[1;4;34mstdout:\033[0m"
   cat $out_file

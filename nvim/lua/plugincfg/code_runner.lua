@@ -6,7 +6,8 @@ M.config = function()
     filetype = {
       cpp = 'cd $dir && '
         .. vim.fn.stdpath 'config'
-        .. '/scripts/run_cpp.sh $fileName $fileNameWithoutExt',
+        .. '/scripts/run_cpp.sh $fileName $fileNameWithoutExt '
+        .. vim.fn.fnamemodify(vim.fn.tempname(), ':h'),
       python = 'cd $dir && python $fileName',
       tex = 'cd $dir && latexmk $fileName && latexmk -c',
       sh = 'cd $dir && chmod u+x $fileName && ./$fileName',
