@@ -7,6 +7,7 @@ vim.g.maplocalleader = ' '
 vim.api.nvim_create_autocmd('CursorHold', {
   group = vim.api.nvim_create_augroup('LspKeymaps', { clear = true }),
   callback = function()
+    require('packer').loader 'goto-preview'
     local preview = require 'goto-preview'
     u.set_map_prefix '<leader>l'
     u.nmap('d',      function() preview.goto_preview_definition() end,                        { desc = 'Go to definition' })
