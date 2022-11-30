@@ -1,4 +1,3 @@
-require 'impatient'
-require 'keymaps'
+pcall(require, 'impatient')
 require 'options'
 require 'plugins'

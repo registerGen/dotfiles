@@ -1,5 +1,7 @@
 local M = {}
 
+local u = require 'utils'
+
 M.config = function()
   require('code_runner').setup {
     startinsert = true,
@@ -13,6 +15,9 @@ M.config = function()
       sh = 'cd $dir && chmod u+x $fileName && ./$fileName',
     },
   }
+
+  u.set_map_prefix ''
+  u.nmap('<C-M-N>', '<cmd>RunFile<CR>', { desc = 'Run code' })
 end
 
 return M

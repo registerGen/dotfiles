@@ -163,7 +163,7 @@ require('packer').startup(function(use)
     'hrsh7th/vim-vsnip',
     event = 'InsertEnter',
     config = function()
-      vim.g.vsnip_snippet_dir = vim.fn.stdpath 'config' .. '/vsnip'
+      require('plugincfg.vsnip').config()
     end,
   }
 
