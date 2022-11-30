@@ -208,10 +208,16 @@ require('packer').startup(function(use)
       require('plugincfg.noice').config()
     end,
   }
-  use 'stevearc/dressing.nvim'
+  use {
+    'stevearc/dressing.nvim',
+    event = 'BufRead',
+  }
   use {
     'kevinhwang91/nvim-ufo',
-    requires = { 'kevinhwang91/promise-async' },
+    requires = { {
+      'kevinhwang91/promise-async',
+      module = 'promise',
+    } },
     event = 'BufRead',
     config = function()
       require('plugincfg.ufo').config()
