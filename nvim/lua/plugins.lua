@@ -327,7 +327,7 @@ require('packer').startup(function(use)
   use {
     'CRAG666/code_runner.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
-    cmd = 'RunFile',
+    event = 'CursorHold',
     config = function()
       require('plugincfg.code_runner').config()
     end,
