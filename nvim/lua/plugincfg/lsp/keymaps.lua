@@ -3,14 +3,14 @@ local M = {}
 local u = require 'utils'
 
 M.apply_keymaps = function()
-  require('packer').loader 'goto-preview'
-  local preview = require 'goto-preview'
+  require('packer').loader 'glance.nvim'
 
   -- stylua: ignore start
   u.set_map_prefix '<leader>l'
-  u.nmap('d',      function() preview.goto_preview_definition() end,                        { desc = 'Go to definition' })
-  u.nmap('i',      function() preview.goto_preview_implementation() end,                    { desc = 'Go to implementation' })
-  u.nmap('r',      function() preview.goto_preview_references() end,                        { desc = 'Go to references' })
+  u.nmap('d',      '<cmd>Glance definitions<CR>',                                           { desc = 'Go to definitions' })
+  u.nmap('i',      '<cmd>Glance implementations<CR>',                                       { desc = 'Go to implementations' })
+  u.nmap('r',      '<cmd>Glance references<CR>',                                            { desc = 'Go to references' })
+  u.nmap('t',      '<cmd>Glance type_definitions<CR>',                                      { desc = 'Go to type definitions' })
   u.nmap('K',      function() vim.lsp.buf.hover() end,                                      { desc = 'Hover documentation' })
   u.nmap('c',      function() vim.lsp.buf.code_action() end,                                { desc = 'Code action' })
   u.nmap('n',      function() return ':IncRename ' .. vim.fn.expand '<cword>' end,          { desc = 'Rename', expr = true })
