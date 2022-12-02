@@ -115,7 +115,7 @@ require('packer').startup(function(use)
   -- Completion {{{1
   use {
     'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+    event = { 'BufRead', 'BufNewFile' },
     config = function()
       require('plugincfg.cmp').config()
     end,
