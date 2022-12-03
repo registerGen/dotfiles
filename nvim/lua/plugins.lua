@@ -63,7 +63,7 @@ require('packer').startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     event = { 'BufReadPre', 'BufNewFile' },
-    after = { 'cmp-nvim-lsp', 'neodev.nvim', 'null-ls.nvim' },
+    after = { 'cmp-nvim-lsp', 'neodev.nvim', 'mason.nvim' },
     config = function()
       require('plugincfg.lsp').config()
     end,
