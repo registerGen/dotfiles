@@ -84,7 +84,7 @@ require('packer').startup(function(use)
   }
   use {
     'stevearc/aerial.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { 'BufReadPre', 'BufNewFile', 'CursorHold' },
     config = function()
       require('plugincfg.aerial').config()
     end,
@@ -115,7 +115,7 @@ require('packer').startup(function(use)
   -- Completion {{{1
   use {
     'hrsh7th/nvim-cmp',
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = 'InsertEnter',
     config = function()
       require('plugincfg.cmp').config()
     end,
@@ -174,6 +174,7 @@ require('packer').startup(function(use)
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
+    after = { 'aerial.nvim', 'nvim-notify' },
     event = 'CursorHold',
     cmd = 'Telescope',
     config = function()
@@ -193,7 +194,7 @@ require('packer').startup(function(use)
   -- Utility {{{1
   use {
     'rcarriga/nvim-notify',
-    event = 'BufRead',
+    event = { 'BufRead', 'CursorHold' },
     config = function()
       require('plugincfg.notify').config()
     end,
@@ -265,7 +266,7 @@ require('packer').startup(function(use)
       require('plugincfg.dashboard').config()
     end,
   }
-  use 'lewis6991/impatient.nvim'
+  -- use 'lewis6991/impatient.nvim'
 
   -- Indent {{{1
   use {
