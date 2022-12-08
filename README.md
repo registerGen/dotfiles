@@ -26,7 +26,10 @@ My dotfiles including
     - gpg4win
 - neovim (nightly)
     - language servers: bashls, clangd, pyright, sumneko_lua, texlab, vimls
+    - linters, formatters, etc: shellcheck, stylua
     - npm (to install some language servers and tools)
+    - win32yank
+    - fd, ripgrep (via apt)
 - zsh
     - oh my zsh
 
