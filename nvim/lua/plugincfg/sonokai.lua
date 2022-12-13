@@ -14,6 +14,7 @@ M.config = function()
     callback = function()
       vim.api.nvim_set_hl(0, 'TSParameter', { link = 'OrangeItalic', default = false })
       vim.api.nvim_set_hl(0, 'TSParameterReference', { link = 'OrangeItalic', default = false })
+      vim.api.nvim_set_hl(0, 'NoicePopupmenuMatch', { link = 'CmpItemAbbrMatch', default = false })
     end,
   })
   vim.cmd.colors 'sonokai'
