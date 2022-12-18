@@ -182,15 +182,6 @@ require('packer').startup(function(use)
     end,
   }
 
-  -- Color {{{1
-  use {
-    'NvChad/nvim-colorizer.lua',
-    event = 'CursorHold',
-    config = function()
-      require('plugincfg.colorizer').config()
-    end,
-  }
-
   -- Utility {{{1
   use {
     'rcarriga/nvim-notify',
