@@ -275,7 +275,7 @@ require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
     event = 'CursorHold',
     config = function()
-      require('plugincfg.nvim_tree').config()
+      require('plugincfg.tree').config()
     end,
   }
 
