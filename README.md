@@ -15,6 +15,7 @@ My dotfiles including
 - [neofetch](https://github.com/dylanaraps/neofetch)
 - [nvim](https://neovim.io)
 - [p10k](https://github.com/romkatv/powerlevel10k)
+- [wt](https://github.com/microsoft/terminal)
 - [zsh](https://www.zsh.org)
 
 # Prerequisites
