@@ -304,7 +304,7 @@ require('packer').startup(function(use)
   -- Motion {{{1
   use {
     'ggandor/leap.nvim',
-    keys = { 's', 'S' },
+    keys = { 's', 'S', 'f', 'F', 't', 'T' },
     requires = { 'tpope/vim-repeat' },
     config = function()
       require('leap').set_default_keymaps()
@@ -314,6 +314,7 @@ require('packer').startup(function(use)
     'ggandor/flit.nvim',
     keys = { 'f', 'F', 't', 'T' },
     requires = { 'ggandor/leap.nvim' },
+    after = 'leap.nvim',
     config = function()
       require('plugincfg.flit').config()
     end,
