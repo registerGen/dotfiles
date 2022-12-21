@@ -68,15 +68,6 @@
       "\\newcommand{\\ShortTitle}{}",
       "\\newcommand{\\Subtitle}{}",
       "\\newcommand{\\file}[1]{\\textbf{\\textit{#1}}}",
-      "\\makeatletter",
-      "\\newcommand{\\thickhline}{",
-      "  \\noalign {\\ifnum 0=`}\\fi \\hrule height 1.2pt",
-      "  \\futurelet \\reserved@a \\@xhline",
-      "}",
-      "\\newcommand{\\tthickhline}{",
-      "  \\noalign {\\ifnum 0=`}\\fi \\hrule height 1.5pt",
-      "  \\futurelet \\reserved@a \\@xhline",
-      "}",
       "\\setmonofont{Consolas}"
     ],
     "description": "OI paper - heading"
