@@ -355,6 +355,8 @@
       "",
       "见下发文件中的 \\file{$2/$2$1.in} 与 \\file{$2/$2$1.ans}。",
       "",
+      "该样例与测试点 $$ 满足的限制相同。",
+      "",
       "\\vspace{1\\baselineskip}"
     ],
     "description": "OI paper - big sample"
