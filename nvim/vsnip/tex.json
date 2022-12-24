@@ -68,7 +68,10 @@
       "\\newcommand{\\ShortTitle}{}",
       "\\newcommand{\\Subtitle}{}",
       "\\newcommand{\\file}[1]{\\textbf{\\textit{#1}}}",
-      "\\setmonofont{Consolas}"
+      "\\setmonofont{Consolas}",
+      "",
+      "\\newcommand{\\bhline}{\\Xhline{5\\arrayrulewidth}}",
+      "\\newcommand{\\mhline}{\\Xhline{3\\arrayrulewidth}}"
     ],
     "description": "OI paper - heading"
   },
