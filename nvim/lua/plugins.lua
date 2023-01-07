@@ -192,11 +192,12 @@ require('packer').startup(function(use)
   }
   use {
     'folke/noice.nvim',
+    opt = true,
     requires = {
       'MunifTanjim/nui.nvim',
       'rcarriga/nvim-notify',
     },
-    event = { 'BufRead', 'CmdlineEnter' },
+    -- event = { 'BufRead', 'CmdlineEnter' },
     config = function()
       require('plugincfg.noice').config()
     end,
