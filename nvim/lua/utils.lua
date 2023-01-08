@@ -18,8 +18,4 @@ M.nmap = create_map_func 'n'
 M.imap = create_map_func 'i'
 M.smap = create_map_func 's'
 
-M.pad = function(content)
-  return ' ' .. content .. ' '
-end
-
 return M
