@@ -32,46 +32,8 @@ vim.api.nvim_create_autocmd('TermOpen', {
   callback = function()
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
-    opt_local.signcolumn = 'no'
+    vim.opt_local.signcolumn = 'no'
   end,
 })
 
 vim.g.tex_flavor = 'latex'
-
-local disabled_builtins = {
-  '2html_plugin',
-  'getscript',
-  'getscriptPlugin',
-  'gzip',
-  'logipat',
-  'man',
-  'matchit',
-  'matchparen',
-  'netrw',
-  'netrwFileHandlers',
-  'netrwPlugin',
-  'netrwSettings',
-  'paste',
-  'rrhelper',
-  'spellfile_plugin',
-  'tar',
-  'tarPlugin',
-  'tutor',
-  'vimball',
-  'vimballPlugin',
-  'zip',
-  'zipPlugin',
-}
-
-for _, plugin in ipairs(disabled_builtins) do
-  vim.g['loaded_' .. plugin] = 1
-end
-
-if vim.fn.exists 'g:neovide' ~= 0 then
-  opt.cursorline = false
-  opt.guifont = 'CaskaydiaCove Nerd Font Mono:h14'
-  vim.g.neovide_cursor_vfx_mode = 'railgun'
-  vim.g.neovide_floating_blur_amount_x = 2.0
-  vim.g.neovide_floating_blur_amount_y = 2.0
-  vim.g.neovide_transparency = 0.7
-end
