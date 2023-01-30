@@ -192,12 +192,11 @@ require('packer').startup(function(use)
   }
   use {
     'folke/noice.nvim',
-    opt = true,
     requires = {
       'MunifTanjim/nui.nvim',
       'rcarriga/nvim-notify',
     },
-    -- event = { 'BufRead', 'CmdlineEnter' },
+    event = { 'BufRead', 'CmdlineEnter' },
     config = function()
       require('plugincfg.noice').config()
     end,
@@ -272,7 +271,7 @@ require('packer').startup(function(use)
 
   -- File Explorer {{{1
   use {
-    'kyazdani42/nvim-tree.lua',
+    'nvim-tree/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
     event = 'CursorHold',
     config = function()
