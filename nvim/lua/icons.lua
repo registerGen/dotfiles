@@ -2,6 +2,7 @@ return {
   diagnostic = {
     error = '',
     warn = '',
+    warning = '',
     info = '',
     hint = '',
   },

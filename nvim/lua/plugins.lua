@@ -252,9 +252,9 @@ require('packer').startup(function(use)
     end,
   }
   use {
-    'glepnir/dashboard-nvim',
+    'goolord/alpha-nvim',
     config = function()
-      require('plugincfg.dashboard').config()
+      require('plugincfg.alpha').config()
     end,
   }
   -- use 'lewis6991/impatient.nvim'
