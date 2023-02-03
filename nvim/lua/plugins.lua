@@ -124,11 +124,6 @@ require('packer').startup(function(use)
     { 'hrsh7th/cmp-nvim-lsp', event = { 'BufReadPre', 'BufNewFile' } },
     { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
   }
-  use {
-    'onsails/lspkind-nvim',
-    event = 'InsertEnter',
-    after = 'nvim-cmp',
-  }
 
   -- Syntax {{{1
   use {

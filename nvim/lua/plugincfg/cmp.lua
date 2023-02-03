@@ -19,14 +19,13 @@ M.config = function()
       ['<Tab>'] = cmp.mapping.confirm { select = true },
     },
     formatting = {
-      format = require('lspkind').cmp_format {
-        mode = 'symbol_text',
-        maxwidth = 50,
-        before = function(entry, item)
-          item.menu = '[' .. entry.source.name .. ']'
-          return item
-        end,
-      },
+      format = function(_, item)
+        local icons = require('icons').kinds
+        if icons[item.kind] then
+          item.kind = icons[item.kind] .. item.kind
+        end
+        return item
+      end,
     },
     window = {
       documentation = {
