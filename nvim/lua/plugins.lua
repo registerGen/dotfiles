@@ -216,6 +216,13 @@ require('packer').startup(function(use)
       require('plugincfg.ufo').config()
     end,
   }
+  use {
+    'luukvbaal/statuscol.nvim',
+    event = 'BufRead',
+    config = function()
+      require('plugincfg.statuscol').config()
+    end,
+  }
 
   -- Neovim Lua Development {{{1
   use {
