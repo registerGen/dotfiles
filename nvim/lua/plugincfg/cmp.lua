@@ -1,5 +1,7 @@
 local M = {}
 
+local icons = require 'icons'
+
 M.config = function()
   local cmp = require 'cmp'
 
@@ -20,10 +22,14 @@ M.config = function()
     },
     formatting = {
       format = function(_, item)
-        local icons = require('icons').kinds
-        if icons[item.kind] then
-          item.kind = icons[item.kind] .. item.kind
+        if item.abbr:len() >= 50 then
+          item.abbr = item.abbr:sub(1, 50) .. icons.misc.ellipsis
         end
+
+        if icons.kinds[item.kind] then
+          item.kind = icons.kinds[item.kind] .. ' ' .. item.kind
+        end
+
         return item
       end,
     },
