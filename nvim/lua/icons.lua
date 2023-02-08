@@ -22,8 +22,8 @@ return {
     bottom_right = '',
   },
   fold = {
-    open = '',
-    close = '',
+    close = '',
+    open = '',
   },
   misc = {
     bulb = '',
