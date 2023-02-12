@@ -3,7 +3,7 @@ local M = {}
 M.config = function()
   require('statuscol').setup {
     foldfunc = 'builtin',
-    order = 'SNFs',
+    order = 'SNsFs',
     setopt = true,
   }
 end
