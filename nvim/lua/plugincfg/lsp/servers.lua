@@ -4,7 +4,7 @@ return {
     cmd = { 'clangd', '--offset-encoding=utf-16' },
   },
   pyright = {},
-  sumneko_lua = {
+  lua_ls = {
     settings = {
       Lua = {
         runtime = {
