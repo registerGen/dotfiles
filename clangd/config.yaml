@@ -1,2 +1,2 @@
 CompileFlags:
-  Add: [-std=c++14, -O2, -lm, -Wall, -Wextra, -Wconversion, -Wshadow]
+  Add: [-std=c++14, -O2, -lm, -Wall, -Wextra, -Wconversion, -Wshadow, -DREGISTERGEN]
