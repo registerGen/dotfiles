@@ -218,6 +218,12 @@ require('packer').startup(function(use)
       require('plugincfg.statuscol').config()
     end,
   }
+  use {
+    'glacambre/firenvim',
+    run = function()
+      vim.fn['firenvim#install'](0)
+    end,
+  }
 
   -- Neovim Lua Development {{{1
   use {
