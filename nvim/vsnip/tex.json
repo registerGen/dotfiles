@@ -1,6 +1,6 @@
 {
   "heading": {
-    "prefix": ["heading"],
+    "prefix": ["preamble"],
     "body": [
       "\\documentclass[UTF8,a4paper,fontset=windows]{ctexart}",
       "\\usepackage{CJKfntef}",
@@ -72,7 +72,7 @@
       "\\newcommand{\\bhline}{\\Xhline{5\\arrayrulewidth}}",
       "\\newcommand{\\mhline}{\\Xhline{3\\arrayrulewidth}}"
     ],
-    "description": "OI paper - heading"
+    "description": "OI paper - preamble"
   },
   "abstract3": {
     "prefix": ["abstract3"],
