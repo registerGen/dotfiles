@@ -448,7 +448,7 @@
       "\\usetheme[compress]{Berlin}",
       "\\usecolortheme{spruce}",
       "\\usefonttheme[stillsansseriflarge,stillsansserifsmall]{serif}",
-      "\\setbeamertemplate{page number in head/foot}{\\insertframenumber/\\inserttotalframenumber}",
+      "\\setbeamertemplate{page number in head/foot}{\\insertframenumber\\ /\\ \\inserttotalframenumber}",
       "\\setCJKsansfont{SimHei}",
       "\\setmonofont{Consolas}",
       "",
