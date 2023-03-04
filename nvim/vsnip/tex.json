@@ -2,7 +2,7 @@
   "heading": {
     "prefix": ["preamble"],
     "body": [
-      "\\documentclass[UTF8,a4paper,fontset=windows]{ctexart}",
+      "\\documentclass[12pt,a4paper,fontset=windows]{ctexart}",
       "\\usepackage{CJKfntef}",
       "\\usepackage{algorithm,algorithmicx,algpseudocode}",
       "\\usepackage{amsmath,amssymb}",
