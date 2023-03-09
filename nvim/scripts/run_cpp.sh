@@ -7,13 +7,13 @@ interactive_flag=0
 CXX="clang++"
 CXXFLAGS="-Wall -Wextra -Wconversion -Wshadow -lm -O2 -std=c++14 -DREGISTERGEN"
 
-while read line; do
+while read -r line; do
   if [ "$line" == "$interactive_indicator" ]; then
     interactive_flag=1
   fi
-done < $1
+done < "$1"
 
-if ! $CXX $CXXFLAGS -o $2 $1; then
+if ! $CXX $CXXFLAGS -o "$2" "$1"; then
   echo -e "\033[1;4;31mCompilation failed\033[0m"
   exit
 else
@@ -21,16 +21,16 @@ else
 fi
 
 if [ $interactive_flag -eq 1 ]; then
-  ./$2
+  ./"$2"
 else
   out_file="/$3/$1_out"
   err_file="/$3/$1_err"
-  ./$2 1> $out_file 2> $err_file
+  ./"$2" 1> "$out_file" 2> "$err_file"
   echo -e "\033[1;4;34mstdout:\033[0m"
-  cat $out_file
+  cat "$out_file"
   echo
   echo -e "\033[1;4;34mstderr:\033[0m"
-  cat $err_file
+  cat "$err_file"
   echo
-  rm $out_file $err_file
+  rm "$out_file" "$err_file"
 fi
