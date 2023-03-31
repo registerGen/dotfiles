@@ -10,6 +10,7 @@ M.config = function()
     },
     setopt = true,
   }
+  vim.opt.signcolumn = 'yes'
 end
 
 return M
