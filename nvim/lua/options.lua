@@ -9,10 +9,13 @@ opt.completeopt = { 'menu', 'menuone', 'noselect' }
 opt.conceallevel = 2
 opt.cursorline = true
 opt.expandtab = true
-opt.fillchars = 'eob: ,fold: ,foldopen:'
-  .. icons.fold.open
-  .. ',foldsep: ,foldclose:'
-  .. icons.fold.close
+opt.fillchars = {
+  eob = ' ',
+  fold = ' ',
+  foldclose = icons.fold.close,
+  foldopen = icons.fold.open,
+  foldsep = ' ',
+}
 opt.foldcolumn = '1'
 opt.foldlevel = 10000
 opt.ignorecase = true
