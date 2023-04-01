@@ -376,11 +376,16 @@ require('packer').startup(function(use)
     event = 'BufRead',
   }
   use {
-    'nvim-treesitter/nvim-treesitter-context',
+    'akinsho/nvim-treesitter-context',
     after = 'nvim-treesitter',
     event = 'BufRead',
+    branch = 'feat/allow-formatting-lnums',
     config = function()
-      require('treesitter-context').setup()
+      require('treesitter-context').setup {
+        line_numbers = function(lnum, width)
+          return ('  %' .. (width - 4) .. 'd '):format(lnum)
+        end,
+      }
     end,
   }
   use {
