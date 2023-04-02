@@ -380,6 +380,7 @@ require('packer').startup(function(use)
     after = 'nvim-treesitter',
     event = 'BufRead',
     branch = 'feat/allow-formatting-lnums',
+    commit = 'f4e6812747b9cd1c49d7034c94e57ca6210ce7e6',
     config = function()
       require('treesitter-context').setup {
         line_numbers = function(lnum, width)
