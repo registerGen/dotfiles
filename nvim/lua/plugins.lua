@@ -327,6 +327,13 @@ require('packer').startup(function(use)
       require('plugincfg.flit').config()
     end,
   }
+  use {
+    'chrisgrieser/nvim-spider',
+    keys = { 'w', 'e', 'b', 'ge' },
+    config = function()
+      require('plugincfg.spider').config()
+    end,
+  }
 
   -- Code Runner {{{1
   use {
