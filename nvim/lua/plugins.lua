@@ -79,7 +79,7 @@ require('packer').startup(function(use)
     'DNLHC/glance.nvim',
     event = 'CursorHold',
     config = function()
-      require('glance').setup()
+      require('plugincfg.glance').config()
     end,
   }
   use {
