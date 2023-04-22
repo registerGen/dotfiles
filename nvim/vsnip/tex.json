@@ -451,6 +451,8 @@
       "\\usecolortheme{qhfz}",
       "\\usefonttheme[stillsansseriflarge,stillsansserifsmall]{serif}",
       "\\setbeamertemplate{page number in head/foot}{\\insertframenumber\\ /\\ \\inserttotalframenumber}",
+      "\\setbeamertemplate{caption}[numbered]",
+      "\\setbeamertemplate{theorems}[numbered]",
       "\\setCJKsansfont{SimHei}",
       "\\setmonofont{Consolas}",
       "",
