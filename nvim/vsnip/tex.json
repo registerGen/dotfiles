@@ -453,6 +453,7 @@
       "\\setbeamertemplate{page number in head/foot}{\\insertframenumber\\ /\\ \\inserttotalframenumber}",
       "\\setbeamertemplate{caption}[numbered]",
       "\\setbeamertemplate{theorems}[numbered]",
+      "\\setbeamertemplate{frametitle continuation}{}",
       "\\setCJKsansfont{SimHei}",
       "\\setmonofont{Consolas}",
       "",
