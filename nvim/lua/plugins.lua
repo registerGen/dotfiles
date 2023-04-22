@@ -107,6 +107,7 @@ require('packer').startup(function(use)
   use {
     'smjonas/inc-rename.nvim',
     cmd = 'IncRename',
+    event = 'InsertEnter',
     config = function()
       require('inc_rename').setup()
     end,
