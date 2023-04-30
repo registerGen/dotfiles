@@ -448,6 +448,7 @@
       "\\usepackage{listings}",
       "",
       "\\usetheme[compress]{Berlin}",
+      "\\useinnertheme[shadow=true]{rounded}",
       "\\usecolortheme{qhfz}",
       "\\usefonttheme[stillsansseriflarge,stillsansserifsmall]{serif}",
       "\\setbeamertemplate{page number in head/foot}{\\insertframenumber\\ /\\ \\inserttotalframenumber}",
