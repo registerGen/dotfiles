@@ -443,7 +443,7 @@
   "beamer": {
     "prefix": ["beamer"],
     "body": [
-      "\\documentclass[fontset=windows]{ctexbeamer}",
+      "\\documentclass{ctexbeamer}",
       "",
       "\\usepackage{listings}",
       "",
@@ -455,8 +455,6 @@
       "\\setbeamertemplate{caption}[numbered]",
       "\\setbeamertemplate{theorems}[numbered]",
       "\\setbeamertemplate{frametitle continuation}{}",
-      "\\setCJKsansfont{SimHei}",
-      "\\setmonofont{Consolas}",
       "",
       "\\definecolor{qhfzPurple}{RGB}{102,9,117}",
       "",
