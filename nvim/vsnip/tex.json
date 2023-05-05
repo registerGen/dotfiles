@@ -446,6 +446,7 @@
       "\\documentclass{ctexbeamer}",
       "",
       "\\usepackage{listings}",
+      "\\usepackage{parskip}",
       "",
       "\\usetheme[compress]{Berlin}",
       "\\useinnertheme[shadow=true]{rounded}",
@@ -480,14 +481,7 @@
       "  numbers=left,",
       "  frame=single,",
       "  breaklines=true",
-      "}",
-      "",
-      "\\setlength{\\parskip}{0.5\\baselineskip}",
-      "",
-      "\\title{}",
-      "\\author{}",
-      "\\institute{}",
-      "\\date{}"
+      "}"
     ],
     "description": "Beamer template"
   }
