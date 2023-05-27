@@ -100,6 +100,7 @@ require('packer').startup(function(use)
   use {
     'lvimuser/lsp-inlayhints.nvim',
     event = 'BufRead',
+    branch = 'anticonceal',
     config = function()
       require('lsp-inlayhints').setup()
     end,
