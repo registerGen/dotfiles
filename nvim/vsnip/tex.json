@@ -393,6 +393,24 @@
     ],
     "description": "OI paper - hint"
   },
+  "subtask": {
+    "prefix": ["subtask"],
+    "body": [
+      "\\noindent {\\fontsize{13pt}{0}\\textbf{\\quad【子任务】}} \\indent",
+      "\\phantomsection",
+      "\\addcontentsline{toc}{subsection}{子任务}",
+      "\\vspace{0.5\\baselineskip}",
+      "",
+      "对于所有子任务，。",
+      "",
+      "每个子任务的具体限制见下表：",
+      "",
+      "",
+      "",
+      "\\vspace{1\\baselineskip}"
+    ],
+    "description": "OI paper - subtasks"
+  },
   "section": {
     "prefix": ["section"],
     "body": [
