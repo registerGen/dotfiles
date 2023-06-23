@@ -1,2 +1,3 @@
 $pdf_mode = 5;
+$xelatex = 'xelatex -shell-escape';
 $clean_ext = "bbl nav out snm vrb dvi";
