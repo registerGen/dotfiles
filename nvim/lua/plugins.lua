@@ -98,14 +98,6 @@ require('packer').startup(function(use)
     end,
   }
   use {
-    'lvimuser/lsp-inlayhints.nvim',
-    event = 'BufRead',
-    branch = 'anticonceal',
-    config = function()
-      require('lsp-inlayhints').setup()
-    end,
-  }
-  use {
     'smjonas/inc-rename.nvim',
     cmd = 'IncRename',
     event = 'InsertEnter',

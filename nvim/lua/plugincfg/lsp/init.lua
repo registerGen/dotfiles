@@ -16,7 +16,7 @@ M.config = function()
       on_attach = function(client, bufnr)
         require('plugincfg.lsp.ui').on_attach(client, bufnr)
         require('plugincfg.lsp.keymaps').apply_keymaps()
-        require('lsp-inlayhints').on_attach(client, bufnr)
+        vim.lsp.buf.inlay_hint(bufnr, true)
       end,
     }, config))
   end
