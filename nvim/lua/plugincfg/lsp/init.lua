@@ -18,7 +18,7 @@ M.config = function()
         require('plugincfg.lsp.keymaps').apply_keymaps()
 
         if client.server_capabilities.inlayHintProvider then
-          vim.lsp.buf.inlay_hint(bufnr, true)
+          vim.lsp.inlay_hint(bufnr, true)
         end
       end,
     }, config))
