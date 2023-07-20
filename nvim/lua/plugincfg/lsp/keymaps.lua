@@ -1,9 +1,9 @@
 local M = {}
 
-local u = require 'utils'
+local u = require "utils"
 
 M.apply_keymaps = function()
-  require('packer').loader 'glance.nvim'
+  require("packer").loader "glance.nvim"
 
   -- stylua: ignore start
   u.set_map_prefix '<leader>l'

@@ -1,12 +1,12 @@
 local M = {}
 
-local icons = require 'icons'
-local u = require 'utils'
+local icons = require "icons"
+local u = require "utils"
 
 local handler = function(virt_text, lnum, end_lnum, width, truncate)
   local new_virt_text = {}
   local suffix1 = u.pad(icons.misc.ellipsis)
-  local suffix2 = (icons.arrow.bottom_left .. ' %d '):format(end_lnum - lnum)
+  local suffix2 = (icons.arrow.bottom_left .. " %d "):format(end_lnum - lnum)
   local suf_width = vim.fn.strdisplaywidth(suffix1 .. suffix2)
   local target_width = width - suf_width
   local cur_width = 0
@@ -22,20 +22,20 @@ local handler = function(virt_text, lnum, end_lnum, width, truncate)
       table.insert(new_virt_text, { chunk_text, hlgroup })
       chunk_width = vim.fn.strdisplaywidth(chunk_text)
       if cur_width + chunk_width < target_width then
-        suffix1 = suffix1 .. (' '):rep(target_width - cur_width - chunk_width)
+        suffix1 = suffix1 .. (" "):rep(target_width - cur_width - chunk_width)
       end
       break
     end
     cur_width = cur_width + chunk_width
   end
 
-  table.insert(new_virt_text, { suffix1, 'UfoFoldedEllipsis' })
-  table.insert(new_virt_text, { suffix2, 'MoreMsg' })
+  table.insert(new_virt_text, { suffix1, "UfoFoldedEllipsis" })
+  table.insert(new_virt_text, { suffix2, "MoreMsg" })
   return new_virt_text
 end
 
 M.config = function()
-  local ufo = require 'ufo'
+  local ufo = require "ufo"
   ufo.setup {
     fold_virt_text_handler = handler,
   }

@@ -1,69 +1,69 @@
 local M = {}
 
-local icons = require 'icons'
+local icons = require "icons"
 
 local function derive_colors()
-  local colors = require 'bufferline.colors'
+  local colors = require "bufferline.colors"
   local hex = colors.get_color
   local shade = colors.shade_color
 
   local comment_fg = hex {
-    name = 'Comment',
-    attribute = 'fg',
-    fallback = { name = 'Normal', attribute = 'fg' },
+    name = "Comment",
+    attribute = "fg",
+    fallback = { name = "Normal", attribute = "fg" },
   }
 
-  local normal_fg = hex { name = 'Normal', attribute = 'fg' }
-  local normal_bg = hex { name = 'Normal', attribute = 'bg' }
-  local string_fg = hex { name = 'String', attribute = 'fg' }
+  local normal_fg = hex { name = "Normal", attribute = "fg" }
+  local normal_bg = hex { name = "Normal", attribute = "bg" }
+  local string_fg = hex { name = "String", attribute = "fg" }
 
-  local error_hl = 'Red'
-  local warning_hl = 'Yellow'
-  local info_hl = 'Blue'
-  local hint_hl = 'Green'
+  local error_hl = "Red"
+  local warning_hl = "Yellow"
+  local info_hl = "Blue"
+  local hint_hl = "Green"
 
   local error_fg = hex {
     name = error_hl,
-    attribute = 'fg',
-    fallback = { name = 'Error', attribute = 'fg' },
+    attribute = "fg",
+    fallback = { name = "Error", attribute = "fg" },
   }
 
   local warning_fg = hex {
     name = warning_hl,
-    attribute = 'fg',
-    fallback = { name = 'WarningMsg', attribute = 'fg' },
+    attribute = "fg",
+    fallback = { name = "WarningMsg", attribute = "fg" },
   }
 
   local info_fg = hex {
     name = info_hl,
-    attribute = 'fg',
-    fallback = { name = 'Normal', attribute = 'fg' },
+    attribute = "fg",
+    fallback = { name = "Normal", attribute = "fg" },
   }
 
   local hint_fg = hex {
     name = hint_hl,
-    attribute = 'fg',
-    fallback = { name = 'Directory', attribute = 'fg' },
+    attribute = "fg",
+    fallback = { name = "Directory", attribute = "fg" },
   }
 
   local tabline_sel_bg = hex {
-    name = 'TabLineSel',
-    attribute = 'bg',
+    name = "TabLineSel",
+    attribute = "bg",
     not_match = normal_bg,
     fallback = {
-      name = 'TabLineSel',
-      attribute = 'fg',
+      name = "TabLineSel",
+      attribute = "fg",
       not_match = normal_bg,
-      fallback = { name = 'WildMenu', attribute = 'fg' },
+      fallback = { name = "WildMenu", attribute = "fg" },
     },
   }
 
   local win_separator_fg = hex {
-    name = 'WinSeparator',
-    attribute = 'fg',
+    name = "WinSeparator",
+    attribute = "fg",
     fallback = {
-      name = 'VertSplit',
-      attribute = 'fg',
+      name = "VertSplit",
+      attribute = "fg",
     },
   }
 
@@ -87,9 +87,9 @@ local function derive_colors()
   local warning_diagnostic_fg = shade(warning_fg, diagnostic_shading)
   local error_diagnostic_fg = shade(error_fg, diagnostic_shading)
 
-  local config = require('bufferline.config').get()
-  local indicator_style = vim.tbl_get(config, 'user', 'options', 'indicator', 'style')
-  local has_underline_indicator = indicator_style == 'underline'
+  local config = require("bufferline.config").get()
+  local indicator_style = vim.tbl_get(config, "user", "options", "indicator", "style")
+  local has_underline_indicator = indicator_style == "underline"
 
   local underline_sp = has_underline_indicator and tabline_sel_bg or nil
 
@@ -415,23 +415,23 @@ local function derive_colors()
 end
 
 M.config = function()
-  require('bufferline').setup {
+  require("bufferline").setup {
     options = {
-      diagnostics = 'nvim_lsp',
+      diagnostics = "nvim_lsp",
       diagnostics_update_in_insert = true,
       diagnostics_indicator = function(_, _, diagnostics_dict, _)
-        local result = ''
+        local result = ""
         for severity, count in pairs(diagnostics_dict) do
-          result = result .. icons.diagnostic[severity] .. count .. ' '
+          result = result .. icons.diagnostic[severity] .. count .. " "
         end
         return result
       end,
       offsets = {
         {
-          filetype = 'NvimTree',
-          text = 'File Explorer',
-          highlight = 'Directory',
-          text_align = 'left',
+          filetype = "NvimTree",
+          text = "File Explorer",
+          highlight = "Directory",
+          text_align = "left",
         },
       },
     },

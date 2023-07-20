@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-  local null_ls = require 'null-ls'
+  local null_ls = require "null-ls"
   null_ls.setup {
     sources = {
       null_ls.builtins.formatting.stylua,
@@ -9,11 +9,11 @@ M.config = function()
         condition = function(_)
           local bufname = vim.api.nvim_buf_get_name(0)
           local exclude_dirs = {}
-          if vim.fn.isdirectory(bufname .. '/.git') == 1 then
+          if vim.fn.isdirectory(bufname .. "/.git") == 1 then
             return not vim.tbl_contains(exclude_dirs, bufname)
           end
           for dir in vim.fs.parents(bufname) do
-            if vim.fn.isdirectory(dir .. '/.git') == 1 then
+            if vim.fn.isdirectory(dir .. "/.git") == 1 then
               return not vim.tbl_contains(exclude_dirs, dir)
             end
           end

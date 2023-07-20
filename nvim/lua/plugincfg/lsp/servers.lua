@@ -1,17 +1,17 @@
 return {
   bashls = {},
   clangd = {
-    cmd = { 'clangd', '--offset-encoding=utf-16' },
+    cmd = { "clangd", "--offset-encoding=utf-16" },
   },
   pyright = {},
   lua_ls = {
     settings = {
       Lua = {
         runtime = {
-          version = 'LuaJIT',
+          version = "LuaJIT",
         },
         completion = {
-          showWord = 'Disable',
+          showWord = "Disable",
           workSpaceWord = false,
         },
         workspace = {

@@ -1,10 +1,10 @@
 local M = {}
 
-local icons = require 'icons'
+local icons = require "icons"
 
 M.config = function()
-  require('goto-preview').setup {
-    border = { icons.arrow.top_left, '─', '╮', '│', '╯', '─', '╰', '│' },
+  require("goto-preview").setup {
+    border = { icons.arrow.top_left, "─", "╮", "│", "╯", "─", "╰", "│" },
   }
 end
 

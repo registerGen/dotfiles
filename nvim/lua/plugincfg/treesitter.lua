@@ -1,13 +1,13 @@
 local M = {}
 
 M.config = function()
-  for _, config in pairs(require('nvim-treesitter.parsers').get_parser_configs()) do
+  for _, config in pairs(require("nvim-treesitter.parsers").get_parser_configs()) do
     config.install_info.url =
-      config.install_info.url:gsub('https://github.com/', 'https://ghproxy.com/github.com/')
+      config.install_info.url:gsub("https://github.com/", "https://ghproxy.com/github.com/")
   end
 
-  require('nvim-treesitter.configs').setup {
-    ensure_installed = 'all',
+  require("nvim-treesitter.configs").setup {
+    ensure_installed = "all",
     auto_install = true,
     highlight = {
       enable = true,
@@ -16,10 +16,10 @@ M.config = function()
     incremental_selection = {
       enable = true,
       keymaps = {
-        init_selection = 'gnn',
-        node_incremental = 'grn',
-        scope_incremental = 'grc',
-        node_decremental = 'grm',
+        init_selection = "gnn",
+        node_incremental = "grn",
+        scope_incremental = "grc",
+        node_decremental = "grm",
       },
     },
     textobjects = {
@@ -27,14 +27,14 @@ M.config = function()
         enable = true,
         lookahead = true,
         keymaps = {
-          ['af'] = '@function.outer',
-          ['if'] = '@function.inner',
-          ['as'] = '@class.outer',
-          ['is'] = '@class.inner',
-          ['ac'] = '@conditional.outer',
-          ['ic'] = '@conditional.inner',
-          ['al'] = '@loop.outer',
-          ['il'] = '@loop.inner',
+          ["af"] = "@function.outer",
+          ["if"] = "@function.inner",
+          ["as"] = "@class.outer",
+          ["is"] = "@class.inner",
+          ["ac"] = "@conditional.outer",
+          ["ic"] = "@conditional.inner",
+          ["al"] = "@loop.outer",
+          ["il"] = "@loop.inner",
         },
       },
       swap = {
@@ -44,20 +44,20 @@ M.config = function()
         enable = true,
         set_jumps = true,
         goto_next_start = {
-          [']m'] = '@function.outer',
-          [']]'] = '@class.outer',
+          ["]m"] = "@function.outer",
+          ["]]"] = "@class.outer",
         },
         goto_next_end = {
-          [']M'] = '@function.outer',
-          [']['] = '@class.outer',
+          ["]M"] = "@function.outer",
+          ["]["] = "@class.outer",
         },
         goto_previous_start = {
-          ['[m'] = '@function.outer',
-          ['[['] = '@class.outer',
+          ["[m"] = "@function.outer",
+          ["[["] = "@class.outer",
         },
         goto_previous_end = {
-          ['[M'] = '@function.outer',
-          ['[]'] = '@class.outer',
+          ["[M"] = "@function.outer",
+          ["[]"] = "@class.outer",
         },
       },
     },
