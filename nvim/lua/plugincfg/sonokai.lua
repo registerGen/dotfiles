@@ -17,7 +17,7 @@ M.config = function()
       vim.api.nvim_set_hl(0, "NoicePopupmenuMatch", { link = "CmpItemAbbrMatch", default = false })
     end,
   })
-  vim.cmd.colors "sonokai"
+  vim.cmd.colors("sonokai")
 end
 
 return M

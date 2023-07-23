@@ -1,6 +1,6 @@
 local opt, opt_local = vim.opt, vim.opt_local
 
-local icons = require "icons"
+local icons = require("icons")
 
 opt.background = "dark"
 opt.backup = false
@@ -79,7 +79,7 @@ for _, plugin in ipairs(disabled_builtins) do
   vim.g["loaded_" .. plugin] = 1
 end
 
-if vim.fn.exists "g:neovide" ~= 0 then
+if vim.fn.exists("g:neovide") ~= 0 then
   opt.cursorline = false
   opt.guifont = "CaskaydiaCove Nerd Font Mono:h14"
   vim.g.neovide_cursor_vfx_mode = "railgun"

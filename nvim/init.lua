@@ -1,3 +1,3 @@
 vim.loader.enable()
-require "options"
-require "plugins"
+require("options")
+require("plugins")

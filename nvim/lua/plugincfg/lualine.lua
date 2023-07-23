@@ -1,7 +1,7 @@
 local M = {}
 
-local icons = require "icons"
-local u = require "utils"
+local icons = require("icons")
+local u = require("utils")
 
 local function in_cmd_mode()
   return vim.api.nvim_get_mode().mode == "c"
@@ -11,7 +11,7 @@ M.config = function()
   local configuration = vim.fn["sonokai#get_configuration"]()
   local palette = vim.fn["sonokai#get_palette"](configuration.style, configuration.colors_override)
 
-  require("lualine").setup {
+  require("lualine").setup({
     options = {
       globalstatus = true,
     },
@@ -74,7 +74,7 @@ M.config = function()
       lualine_b = { { "filetype", icon_only = true }, { "filename", path = 3 } },
     },
     extensions = { "nvim-tree", "fugitive", "aerial" },
-  }
+  })
 end
 
 return M

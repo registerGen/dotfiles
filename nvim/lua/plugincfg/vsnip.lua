@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-  vim.g.vsnip_snippet_dir = vim.fn.stdpath "config" .. "/vsnip"
+  vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/vsnip"
 
   local map = vim.api.nvim_set_keymap
   map("i", "<C-j>", [[vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>']], { expr = true })

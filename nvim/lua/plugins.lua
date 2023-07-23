@@ -1,16 +1,16 @@
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system {
+    fn.system({
       "git",
       "clone",
       "--depth",
       "1",
       "https://ghproxy.com/github.com/wbthomason/packer.nvim",
       install_path,
-    }
-    vim.cmd.packadd "packer.nvim"
+    })
+    vim.cmd.packadd("packer.nvim")
     return true
   end
   return false
@@ -18,32 +18,32 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-require("packer").init {
+require("packer").init({
   display = {
     open_fn = function()
-      return require("packer.util").float { border = "rounded" }
+      return require("packer.util").float({ border = "rounded" })
     end,
     prompt_border = "rounded",
   },
   git = {
     default_url_format = "https://ghproxy.com/https://github.com/%s",
   },
-}
+})
 
 require("packer").startup(function(use)
   -- Plugin Manager {{{1
-  use "wbthomason/packer.nvim"
+  use("wbthomason/packer.nvim")
 
   -- Colorscheme {{{1
-  use {
+  use({
     "sainnhe/sonokai",
     config = function()
       require("plugincfg.sonokai").config()
     end,
-  }
+  })
 
   -- LSP {{{1
-  use {
+  use({
     {
       "williamboman/mason.nvim",
       event = { "BufReadPre", "BufNewFile" },
@@ -59,105 +59,105 @@ require("packer").startup(function(use)
         require("plugincfg.mason_lspconfig").config()
       end,
     },
-  }
-  use {
+  })
+  use({
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     after = { "cmp-nvim-lsp", "neodev.nvim", "mason.nvim" },
     config = function()
       require("plugincfg.lsp").config()
     end,
-  }
-  use {
+  })
+  use({
     "kosayoda/nvim-lightbulb",
     event = "CursorHold",
     config = function()
       require("plugincfg.lightbulb").config()
     end,
-  }
-  use {
+  })
+  use({
     "DNLHC/glance.nvim",
     event = "CursorHold",
     config = function()
       require("plugincfg.glance").config()
     end,
-  }
-  use {
+  })
+  use({
     "stevearc/aerial.nvim",
     event = { "BufReadPre", "BufNewFile", "CursorHold" },
     config = function()
       require("plugincfg.aerial").config()
     end,
-  }
-  use {
+  })
+  use({
     "jose-elias-alvarez/null-ls.nvim",
     requires = { "nvim-lua/plenary.nvim" },
     event = "BufRead",
     config = function()
       require("plugincfg.null_ls").config()
     end,
-  }
-  use {
+  })
+  use({
     "smjonas/inc-rename.nvim",
     cmd = "IncRename",
     event = "InsertEnter",
     config = function()
       require("inc_rename").setup()
     end,
-  }
+  })
 
   -- Completion {{{1
-  use {
+  use({
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     config = function()
       require("plugincfg.cmp").config()
     end,
-  }
-  use {
+  })
+  use({
     { "hrsh7th/cmp-nvim-lsp", event = { "BufReadPre", "BufNewFile" } },
     { "hrsh7th/cmp-vsnip", after = "nvim-cmp" },
-  }
+  })
 
   -- Syntax {{{1
-  use {
+  use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     event = { "BufRead", "BufNewFile" },
     config = function()
       require("plugincfg.treesitter").config()
     end,
-  }
-  use {
+  })
+  use({
     "nvim-treesitter/nvim-treesitter-textobjects",
     after = "nvim-treesitter",
     event = "BufRead",
-  }
-  use {
+  })
+  use({
     "nvim-treesitter/playground",
     after = "nvim-treesitter",
     event = "BufRead",
-  }
-  use {
+  })
+  use({
     "m-demare/hlargs.nvim",
     after = "nvim-treesitter",
     event = "BufRead",
     config = function()
       require("plugincfg.hlargs").config()
     end,
-  }
+  })
 
   -- Snippet {{{1
-  use {
+  use({
     "hrsh7th/vim-vsnip",
     event = "InsertEnter",
     config = function()
       require("plugincfg.vsnip").config()
     end,
-  }
+  })
 
   -- Fuzzy Finder {{{1
-  use {
+  use({
     "nvim-telescope/telescope.nvim",
     requires = {
       "nvim-lua/plenary.nvim",
@@ -169,17 +169,17 @@ require("packer").startup(function(use)
     config = function()
       require("plugincfg.telescope").config()
     end,
-  }
+  })
 
   -- Utility {{{1
-  use {
+  use({
     "rcarriga/nvim-notify",
     event = { "BufRead", "CursorHold" },
     config = function()
       require("plugincfg.notify").config()
     end,
-  }
-  use {
+  })
+  use({
     "folke/noice.nvim",
     requires = {
       "MunifTanjim/nui.nvim",
@@ -189,12 +189,12 @@ require("packer").startup(function(use)
     config = function()
       require("plugincfg.noice").config()
     end,
-  }
-  use {
+  })
+  use({
     "stevearc/dressing.nvim",
     event = "BufRead",
-  }
-  use {
+  })
+  use({
     "kevinhwang91/nvim-ufo",
     requires = { {
       "kevinhwang91/promise-async",
@@ -204,116 +204,116 @@ require("packer").startup(function(use)
     config = function()
       require("plugincfg.ufo").config()
     end,
-  }
-  use {
+  })
+  use({
     "luukvbaal/statuscol.nvim",
     event = "BufRead",
     config = function()
       require("plugincfg.statuscol").config()
     end,
-  }
-  use {
+  })
+  use({
     "glacambre/firenvim",
     opt = true,
     run = function()
       vim.fn["firenvim#install"](0)
     end,
-  }
+  })
 
   -- Neovim Lua Development {{{1
-  use {
+  use({
     "folke/neodev.nvim",
     event = { "BufReadPre", "BufNewFile" },
-  }
+  })
 
   -- Tabline {{{1
-  use {
+  use({
     "akinsho/bufferline.nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("plugincfg.bufferline").config()
     end,
-  }
+  })
 
   -- Statusline {{{1
-  use {
+  use({
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("plugincfg.lualine").config()
     end,
-  }
+  })
 
   -- Startup {{{1
-  use {
+  use({
     "dstein64/vim-startuptime",
     cmd = "StartupTime",
     config = function()
       vim.g.startuptime_tries = 20
     end,
-  }
-  use {
+  })
+  use({
     "goolord/alpha-nvim",
     config = function()
       require("plugincfg.alpha").config()
     end,
-  }
+  })
   -- use 'lewis6991/impatient.nvim'
 
   -- Indent {{{1
-  use {
+  use({
     "lukas-reineke/indent-blankline.nvim",
     after = "nvim-treesitter",
     event = "BufRead",
     config = function()
       require("plugincfg.indent_blankline").config()
     end,
-  }
+  })
 
   -- File Explorer {{{1
-  use {
+  use({
     "nvim-tree/nvim-tree.lua",
     requires = { "kyazdani42/nvim-web-devicons" },
     event = "CursorHold",
     config = function()
       require("plugincfg.tree").config()
     end,
-  }
+  })
 
   -- Git {{{1
-  use {
+  use({
     "tpope/vim-fugitive",
     cmd = "G",
-  }
-  use {
+  })
+  use({
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
     config = function()
       require("plugincfg.gitsigns").config()
     end,
-  }
+  })
 
   -- Comment {{{1
-  use {
+  use({
     "numToStr/Comment.nvim",
     keys = { "gc", "gcc", "gbc" },
     config = function()
       require("Comment").setup()
     end,
-  }
+  })
 
   -- Motion {{{1
-  use {
+  use({
     "ggandor/leap.nvim",
     keys = { "s", "S", "f", "F", "t", "T" },
     requires = { "tpope/vim-repeat" },
     config = function()
       require("leap").set_default_keymaps()
     end,
-  }
-  use {
+  })
+  use({
     "ggandor/flit.nvim",
     keys = { "f", "F", "t", "T" },
     requires = { "ggandor/leap.nvim" },
@@ -321,124 +321,124 @@ require("packer").startup(function(use)
     config = function()
       require("plugincfg.flit").config()
     end,
-  }
-  use {
+  })
+  use({
     "chrisgrieser/nvim-spider",
     keys = { "w", "e", "b", "ge" },
     config = function()
       require("plugincfg.spider").config()
     end,
-  }
+  })
 
   -- Code Runner {{{1
-  use {
+  use({
     "CRAG666/code_runner.nvim",
     requires = { "nvim-lua/plenary.nvim" },
     event = "CursorHold",
     config = function()
       require("plugincfg.code_runner").config()
     end,
-  }
+  })
 
   -- Scrollbar {{{1
-  use {
+  use({
     "lewis6991/satellite.nvim",
     event = "BufRead",
     config = function()
       require("satellite").setup()
     end,
-  }
-  use {
+  })
+  use({
     "gorbit99/codewindow.nvim",
     event = "BufRead",
     config = function()
       require("plugincfg.codewindow").config()
     end,
-  }
+  })
 
   -- Editing Support {{{1
-  use {
+  use({
     "windwp/nvim-autopairs",
     event = "InsertCharPre",
     config = function()
       require("nvim-autopairs").setup()
     end,
-  }
-  use {
+  })
+  use({
     "windwp/nvim-ts-autotag",
     after = "nvim-treesitter",
     event = "BufRead",
     config = function()
       require("nvim-ts-autotag").setup()
     end,
-  }
-  use {
+  })
+  use({
     "mrjones2014/nvim-ts-rainbow",
     after = "nvim-treesitter",
     event = "BufRead",
-  }
-  use {
+  })
+  use({
     "nvim-treesitter/nvim-treesitter-context",
     after = "nvim-treesitter",
     event = "BufRead",
     config = function()
       require("treesitter-context").setup()
     end,
-  }
-  use {
+  })
+  use({
     "mg979/vim-visual-multi",
     event = "CursorHold",
     config = function()
       vim.g.VM_leader = "<leader>v"
     end,
-  }
-  use {
+  })
+  use({
     "booperlv/nvim-gomove",
     event = "CursorHold",
     config = function()
       require("gomove").setup()
     end,
-  }
-  use {
+  })
+  use({
     "RRethy/nvim-treesitter-endwise",
     after = "nvim-treesitter",
     event = "BufRead",
-  }
-  use {
+  })
+  use({
     "mizlan/iswap.nvim",
     after = "nvim-treesitter",
     cmd = "ISwap",
     config = function()
       require("plugincfg.iswap").config()
     end,
-  }
+  })
 
   -- Formatting {{{1
-  use {
+  use({
     "cappyzawa/trim.nvim",
     event = "BufWritePre",
     config = function()
       require("trim").setup()
     end,
-  }
+  })
 
   -- Keybinding {{{1
-  use {
+  use({
     "folke/which-key.nvim",
     event = "BufRead",
     config = function()
       require("which-key").setup()
     end,
-  }
+  })
 
   -- }}}1
 
-  use {
+  use({
     "~/projects/clock.nvim",
     config = function()
       require("clock").setup()
-    end
-  }
+    end,
+  })
 
   if packer_bootstrap then
     require("packer").sync()

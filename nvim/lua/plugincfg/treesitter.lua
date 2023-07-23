@@ -6,7 +6,7 @@ M.config = function()
       config.install_info.url:gsub("https://github.com/", "https://ghproxy.com/github.com/")
   end
 
-  require("nvim-treesitter.configs").setup {
+  require("nvim-treesitter.configs").setup({
     ensure_installed = "all",
     auto_install = true,
     highlight = {
@@ -75,7 +75,7 @@ M.config = function()
     endwise = {
       enable = true,
     },
-  }
+  })
 end
 
 return M

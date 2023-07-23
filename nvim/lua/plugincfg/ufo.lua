@@ -1,7 +1,7 @@
 local M = {}
 
-local icons = require "icons"
-local u = require "utils"
+local icons = require("icons")
+local u = require("utils")
 
 local handler = function(virt_text, lnum, end_lnum, width, truncate)
   local new_virt_text = {}
@@ -35,10 +35,10 @@ local handler = function(virt_text, lnum, end_lnum, width, truncate)
 end
 
 M.config = function()
-  local ufo = require "ufo"
-  ufo.setup {
+  local ufo = require("ufo")
+  ufo.setup({
     fold_virt_text_handler = handler,
-  }
+  })
 
   -- stylua: ignore start
   u.set_map_prefix ''

@@ -1,11 +1,11 @@
 local M = {}
 
 M.config = function()
-  local null_ls = require "null-ls"
-  null_ls.setup {
+  local null_ls = require("null-ls")
+  null_ls.setup({
     sources = {
       null_ls.builtins.formatting.stylua,
-      null_ls.builtins.code_actions.gitsigns.with {
+      null_ls.builtins.code_actions.gitsigns.with({
         condition = function(_)
           local bufname = vim.api.nvim_buf_get_name(0)
           local exclude_dirs = {}
@@ -19,10 +19,10 @@ M.config = function()
           end
           return false
         end,
-      },
+      }),
       null_ls.builtins.diagnostics.zsh,
     },
-  }
+  })
 end
 
 return M

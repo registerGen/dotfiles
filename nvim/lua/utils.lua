@@ -17,8 +17,8 @@ local function create_map_func(mode)
   end
 end
 
-M.nmap = create_map_func "n"
-M.noxmap = create_map_func { "n", "o", "x" }
+M.nmap = create_map_func("n")
+M.noxmap = create_map_func({ "n", "o", "x" })
 
 M.pad = function(content)
   return " " .. content .. " "

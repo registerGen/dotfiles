@@ -1,16 +1,16 @@
 local M = {}
 
-local gs = require "gitsigns"
-local u = require "utils"
+local gs = require("gitsigns")
+local u = require("utils")
 
 M.config = function()
-  gs.setup {
+  gs.setup({
     signcolumn = true,
     numhl = true,
     current_line_blame = true,
-  }
+  })
 
-  u.set_map_prefix ""
+  u.set_map_prefix("")
   u.nmap("]h", function()
     if vim.wo.diff then
       return "]h"

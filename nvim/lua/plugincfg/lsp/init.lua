@@ -3,7 +3,7 @@ local M = {}
 M.config = function()
   require("neodev").setup()
 
-  for server, config in pairs(require "plugincfg.lsp.servers") do
+  for server, config in pairs(require("plugincfg.lsp.servers")) do
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     capabilities.textDocument.foldingRange = {
@@ -31,7 +31,7 @@ M.config = function()
     end,
   })
 
-  vim.cmd "LspStart"
+  vim.cmd("LspStart")
 end
 
 return M

@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-  require("nvim-tree").setup {
+  require("nvim-tree").setup({
     diagnostics = {
       enable = true,
     },
@@ -11,7 +11,7 @@ M.config = function()
         enable = true,
       },
     },
-  }
+  })
 end
 
 return M

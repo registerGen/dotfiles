@@ -1,9 +1,9 @@
 local M = {}
 
-local icons = require "icons"
+local icons = require("icons")
 
 M.on_attach = function(_, bufnr)
-  vim.diagnostic.config {
+  vim.diagnostic.config({
     virtual_text = {
       spacing = 4,
     },
@@ -12,7 +12,7 @@ M.on_attach = function(_, bufnr)
     },
     update_in_insert = true,
     severity_sort = true,
-  }
+  })
 
   local signs = {
     Error = icons.diagnostic.error,

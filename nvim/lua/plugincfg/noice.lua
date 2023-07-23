@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-  require("noice").setup {
+  require("noice").setup({
     presets = {
       command_palette = true,
       inc_rename = true,
@@ -14,7 +14,7 @@ M.config = function()
         ["cmp.entry.get_documentation"] = true,
       },
     },
-  }
+  })
 end
 
 return M

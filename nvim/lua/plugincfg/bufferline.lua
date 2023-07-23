@@ -1,52 +1,52 @@
 local M = {}
 
-local icons = require "icons"
+local icons = require("icons")
 
 local function derive_colors()
-  local colors = require "bufferline.colors"
+  local colors = require("bufferline.colors")
   local hex = colors.get_color
   local shade = colors.shade_color
 
-  local comment_fg = hex {
+  local comment_fg = hex({
     name = "Comment",
     attribute = "fg",
     fallback = { name = "Normal", attribute = "fg" },
-  }
+  })
 
-  local normal_fg = hex { name = "Normal", attribute = "fg" }
-  local normal_bg = hex { name = "Normal", attribute = "bg" }
-  local string_fg = hex { name = "String", attribute = "fg" }
+  local normal_fg = hex({ name = "Normal", attribute = "fg" })
+  local normal_bg = hex({ name = "Normal", attribute = "bg" })
+  local string_fg = hex({ name = "String", attribute = "fg" })
 
   local error_hl = "Red"
   local warning_hl = "Yellow"
   local info_hl = "Blue"
   local hint_hl = "Green"
 
-  local error_fg = hex {
+  local error_fg = hex({
     name = error_hl,
     attribute = "fg",
     fallback = { name = "Error", attribute = "fg" },
-  }
+  })
 
-  local warning_fg = hex {
+  local warning_fg = hex({
     name = warning_hl,
     attribute = "fg",
     fallback = { name = "WarningMsg", attribute = "fg" },
-  }
+  })
 
-  local info_fg = hex {
+  local info_fg = hex({
     name = info_hl,
     attribute = "fg",
     fallback = { name = "Normal", attribute = "fg" },
-  }
+  })
 
-  local hint_fg = hex {
+  local hint_fg = hex({
     name = hint_hl,
     attribute = "fg",
     fallback = { name = "Directory", attribute = "fg" },
-  }
+  })
 
-  local tabline_sel_bg = hex {
+  local tabline_sel_bg = hex({
     name = "TabLineSel",
     attribute = "bg",
     not_match = normal_bg,
@@ -56,16 +56,16 @@ local function derive_colors()
       not_match = normal_bg,
       fallback = { name = "WildMenu", attribute = "fg" },
     },
-  }
+  })
 
-  local win_separator_fg = hex {
+  local win_separator_fg = hex({
     name = "WinSeparator",
     attribute = "fg",
     fallback = {
       name = "VertSplit",
       attribute = "fg",
     },
-  }
+  })
 
   -- If the colorscheme is bright we shouldn't do as much shading
   -- as this makes light color schemes harder to read
@@ -415,7 +415,7 @@ local function derive_colors()
 end
 
 M.config = function()
-  require("bufferline").setup {
+  require("bufferline").setup({
     options = {
       diagnostics = "nvim_lsp",
       diagnostics_update_in_insert = true,
@@ -436,7 +436,7 @@ M.config = function()
       },
     },
     highlights = derive_colors(),
-  }
+  })
 end
 
 return M
