@@ -28,6 +28,7 @@ opt.shiftwidth = 2
 opt.showmode = false
 opt.signcolumn = "yes"
 opt.smartcase = true
+opt.spell = true
 opt.splitbelow = true
 opt.splitright = true
 opt.swapfile = false
