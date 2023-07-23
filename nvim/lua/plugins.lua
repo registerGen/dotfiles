@@ -433,6 +433,13 @@ require("packer").startup(function(use)
 
   -- }}}1
 
+  use {
+    "~/projects/clock.nvim",
+    config = function()
+      require("clock").setup()
+    end
+  }
+
   if packer_bootstrap then
     require("packer").sync()
   end
