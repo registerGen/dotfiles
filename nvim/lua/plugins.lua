@@ -115,7 +115,7 @@ require("packer").startup(function(use)
     end,
   })
   use({
-    { "hrsh7th/cmp-nvim-lsp", event = { "BufReadPre", "BufNewFile" } },
+    { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-vsnip", after = "nvim-cmp" },
   })
 
