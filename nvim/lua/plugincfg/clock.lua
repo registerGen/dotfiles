@@ -15,7 +15,7 @@ M.config = function()
   require("clock").setup({
     hl_group = function(_, _, position)
       return hl_group[position]
-    end
+    end,
   })
 end
 
