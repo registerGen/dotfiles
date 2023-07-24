@@ -219,6 +219,13 @@ require("packer").startup(function(use)
       vim.fn["firenvim#install"](0)
     end,
   })
+  use({
+    "~/projects/clock.nvim",
+    event = "BufRead",
+    config = function()
+      require("plugincfg.clock").config()
+    end,
+  })
 
   -- Neovim Lua Development {{{1
   use({
@@ -432,13 +439,6 @@ require("packer").startup(function(use)
   })
 
   -- }}}1
-
-  use({
-    "~/projects/clock.nvim",
-    config = function()
-      require("clock").setup()
-    end,
-  })
 
   if packer_bootstrap then
     require("packer").sync()
