@@ -261,12 +261,6 @@ require("packer").startup(function(use)
       vim.g.startuptime_tries = 20
     end,
   })
-  use({
-    "goolord/alpha-nvim",
-    config = function()
-      require("plugincfg.alpha").config()
-    end,
-  })
   -- use 'lewis6991/impatient.nvim'
 
   -- Indent {{{1
