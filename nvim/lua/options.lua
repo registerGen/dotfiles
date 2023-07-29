@@ -46,6 +46,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
     opt_local.number = false
     opt_local.relativenumber = false
     opt_local.signcolumn = "no"
+    opt_local.spell = false
   end,
 })
 
