@@ -15,9 +15,9 @@ for i = 1, 6, 1 do
   for j = 1, 6, 1 do
     local group_name = "Clock" .. tostring(i) .. tostring(j)
     local R, G, B
-    R = math.floor(r[i] * (7 - j) / 6 + r[i + 1] * (j - 1) / 6)
-    G = math.floor(g[i] * (7 - j) / 6 + g[i + 1] * (j - 1) / 6)
-    B = math.floor(b[i] * (7 - j) / 6 + b[i + 1] * (j - 1) / 6)
+    R = math.floor(r[i] * (7 - j) / 6 + r[i + 1] * (j - 1) / 6 + 0.5)
+    G = math.floor(g[i] * (7 - j) / 6 + g[i + 1] * (j - 1) / 6 + 0.5)
+    B = math.floor(b[i] * (7 - j) / 6 + b[i + 1] * (j - 1) / 6 + 0.5)
     local value = string.format("#%X%X%X", R, G, B)
     api.nvim_set_hl(0, group_name, { fg = value })
   end
