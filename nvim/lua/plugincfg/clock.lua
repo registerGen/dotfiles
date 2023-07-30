@@ -27,7 +27,7 @@ M.config = function()
   require("clock").setup({
     hl_group_pixel = function(c, _, position, _, pixel_col)
       if c == ":" then
-        return "Grey"
+        return position == 3 and "Yellow" or "Blue"
       end
 
       if position >= 7 then
