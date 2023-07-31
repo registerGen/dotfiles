@@ -30,6 +30,7 @@ M.config = function()
   require("clock").setup({
     float = {
       border = "none",
+      col_offset = 2,
       padding = { 0, 0, 0, 0 },
     },
     hl_group_pixel = function(c, _, position, _, pixel_col)
