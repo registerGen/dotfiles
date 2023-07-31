@@ -38,7 +38,6 @@ timer:start(update_time, update_time, function()
     end
     tmp[1] = colors[54]
     colors = tmp
-    tmp = nil
 
     for i = 1, 54, 1 do
       api.nvim_set_hl(0, "Clock" .. tostring(i), { fg = colors[i], bg = "bg" })
@@ -107,7 +106,7 @@ M.config = function()
       return "Clock" .. tostring(hl_map[position * 10 + pixel_col])
     end,
     separator_hl = "Normal",
-    update_time = update_time
+    update_time = update_time,
   })
 end
 

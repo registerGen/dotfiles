@@ -223,7 +223,7 @@ require("packer").startup(function(use)
     "~/projects/clock.nvim",
     event = "BufRead",
     config = function()
-      require("plugincfg.clock_animation").config()
+      require("plugincfg.clock").config()
     end,
   })
 
