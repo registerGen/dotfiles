@@ -5,7 +5,7 @@ local uv = vim.loop
 
 local r, g, b, colors = {}, {}, {}, {}
 
-local fps = 10
+local fps = 5
 local update_time = math.floor(1000 / fps)
 
 for _, group_name in pairs({ "Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Red" }) do
