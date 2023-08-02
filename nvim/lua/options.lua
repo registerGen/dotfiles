@@ -49,6 +49,12 @@ vim.api.nvim_create_autocmd("TermOpen", {
     opt_local.spell = false
   end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "tex",
+  callback = function()
+    opt_local.spell = false
+  end,
+})
 
 vim.g.tex_flavor = "latex"
 
