@@ -2,10 +2,10 @@
   "heading": {
     "prefix": ["preamble"],
     "body": [
-      "\\documentclass[12pt,a4paper,fontset=windows]{ctexart}",
+      "\\documentclass[12pt,a4paper,fontset=fandol]{ctexart}",
       "\\usepackage{CJKfntef}",
       "\\usepackage{algorithm,algorithmicx,algpseudocode}",
-      "\\usepackage{amsmath,amssymb}",
+      "\\usepackage{amsmath,amssymb,bm}",
       "\\usepackage{array}",
       "% \\usepackage{draftwatermark}",
       "\\usepackage{fancyhdr}",
@@ -67,10 +67,17 @@
       "\\newcommand{\\ShortTitle}{}",
       "\\newcommand{\\Subtitle}{}",
       "\\newcommand{\\file}[1]{\\textbf{\\textit{#1}}}",
+      "",
+      "\\setCJKmainfont[",
+      "  BoldFont=FandolHei-Regular.otf,",
+      "  ItalicFont=FandolKai-Regular.otf",
+      "]{FandolSong-Regular.otf},",
       "\\setmonofont{Consolas}",
       "",
       "\\newcommand{\\bhline}{\\Xhline{5\\arrayrulewidth}}",
-      "\\newcommand{\\mhline}{\\Xhline{3\\arrayrulewidth}}"
+      "\\newcommand{\\mhline}{\\Xhline{3\\arrayrulewidth}}",
+      "",
+      "\\newcommand{\\OIunderdot}[1]{\\textbf{\\CJKunderdot[format=\\color{red}]{#1}}}"
     ],
     "description": "OI paper - preamble"
   },
