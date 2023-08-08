@@ -468,7 +468,7 @@
   "beamer": {
     "prefix": ["beamer"],
     "body": [
-      "\\documentclass{ctexbeamer}",
+      "\\documentclass[fontset=fandol]{ctexbeamer}",
       "",
       "\\usepackage{listings}",
       "\\usepackage{parskip}",
@@ -481,6 +481,10 @@
       "\\setbeamertemplate{caption}[numbered]",
       "\\setbeamertemplate{theorems}[numbered]",
       "\\setbeamertemplate{frametitle continuation}{}",
+      "\\setCJKmainfont[",
+      "  BoldFont=FandolHei-Regular.otf,",
+      "  ItalicFont=FandolKai-Regular.otf",
+      "]{FandolKai-Regular.otf}",
       "",
       "\\definecolor{qhfzPurple}{RGB}{102,9,117}",
       "",
