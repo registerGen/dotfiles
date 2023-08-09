@@ -18,7 +18,7 @@ opt.fillchars = {
 }
 opt.foldcolumn = "1"
 opt.foldlevel = 10000
-opt.guifont = "Delugia:h14"
+opt.guifont = "Caskaydia Cove NFP:h14"
 opt.ignorecase = true
 opt.laststatus = 3
 opt.lazyredraw = false
