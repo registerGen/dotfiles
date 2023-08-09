@@ -484,7 +484,7 @@
       "",
       "\\setCJKmainfont[",
       "  BoldFont=FandolHei-Regular.otf,",
-      "  ItalicFont=FandolKai-Regular.otf",
+      "  ItalicFont=FandolFang-Regular.otf",
       "]{FandolKai-Regular.otf}",
       "\\setmonofont{Cascadia Code SemiLight}",
       "",
