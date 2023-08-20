@@ -15,7 +15,7 @@ M.config = function()
       vim.api.nvim_set_hl(0, "TSParameter", { link = "OrangeItalic", default = false })
       vim.api.nvim_set_hl(0, "TSParameterReference", { link = "OrangeItalic", default = false })
       vim.api.nvim_set_hl(0, "NoicePopupmenuMatch", { link = "CmpItemAbbrMatch", default = false })
-      vim.cmd [[
+      vim.cmd([[
         hi! link @lsp.type.class         TSClass
         hi! link @lsp.type.comment       TSComment
         hi! link @lsp.type.decorator     TSFunction
@@ -39,7 +39,7 @@ M.config = function()
         hi! link @lsp.type.type          TSType
         hi! link @lsp.type.typeParameter TSTypeDefinition
         hi! link @lsp.type.variable      TSVariable
-      ]]
+      ]])
     end,
   })
   vim.cmd.colors("sonokai")
