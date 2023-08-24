@@ -26,7 +26,7 @@ return {
     open = "",
   },
   misc = {
-    bulb = "",
+    bulb = "",
     ellipsis = "⋯",
     find = "",
     location = "",
