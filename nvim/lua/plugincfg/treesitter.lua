@@ -61,11 +61,6 @@ M.config = function()
         },
       },
     },
-    rainbow = {
-      enable = true,
-      extended_mode = true,
-      max_file_lines = nil,
-    },
     playground = {
       enable = true,
       disable = {},

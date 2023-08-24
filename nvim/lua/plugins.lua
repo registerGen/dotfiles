@@ -374,9 +374,12 @@ require("packer").startup(function(use)
     end,
   })
   use({
-    "mrjones2014/nvim-ts-rainbow",
+    "hiphish/rainbow-delimiters.nvim",
     after = "nvim-treesitter",
     event = "BufRead",
+    config = function()
+      require("plugincfg.rainbow_delimiters").config()
+    end
   })
   use({
     "nvim-treesitter/nvim-treesitter-context",
