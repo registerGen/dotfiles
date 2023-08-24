@@ -379,7 +379,7 @@ require("packer").startup(function(use)
     event = "BufRead",
     config = function()
       require("plugincfg.rainbow_delimiters").config()
-    end
+    end,
   })
   use({
     "nvim-treesitter/nvim-treesitter-context",
