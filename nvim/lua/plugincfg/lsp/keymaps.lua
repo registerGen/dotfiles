@@ -3,8 +3,6 @@ local M = {}
 local u = require("utils")
 
 M.apply_keymaps = function()
-  require("packer").loader("glance.nvim")
-
   -- stylua: ignore start
   u.set_map_prefix '<leader>l'
   u.nmap('d',      '<cmd>Glance definitions<CR>',                                           { desc = 'Go to definitions' })
