@@ -5,7 +5,7 @@ interactive_indicator="// interactive"
 interactive_flag=0
 
 CXX="clang++"
-CXXFLAGS="-Wall -Wextra -Wconversion -Wshadow -lm -O2 -std=c++14 -DREGISTERGEN"
+CXXFLAGS="-Wall -Wextra -Wconversion -lm -O2 -std=c++14 -DREGISTERGEN"
 
 while read -r line; do
   if [ "$line" == "$interactive_indicator" ]; then
