@@ -27,7 +27,7 @@ require("lazy").setup({
   {
     "williamboman/mason.nvim",
     cmd = { "Mason" },
-    build = "MasonUpdate",
+    build = ":MasonUpdate",
     config = function()
       require("plugincfg.mason").config()
     end,
