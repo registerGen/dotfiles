@@ -71,7 +71,7 @@
       "\\setCJKmainfont[",
       "  BoldFont=FandolHei-Regular.otf,",
       "  ItalicFont=FandolKai-Regular.otf",
-      "]{FandolSong-Regular.otf},",
+      "]{FandolSong-Regular.otf}",
       "\\setmonofont{Consolas}",
       "",
       "\\newcommand{\\bhline}{\\Xhline{5\\arrayrulewidth}}",
