@@ -1,21 +1,15 @@
 local M = {}
 
 M.config = function()
-  require("indent_blankline").setup({
-    char = "▏",
-    show_current_context = true,
-    show_current_context_start = true,
-    context_char = "▎",
-    filetype_exclude = {
-      "lspinfo",
-      "packer",
-      "checkhealth",
-      "help",
-      "lsp-installer",
-      "dashboard",
-      "",
+  require("ibl").setup({
+    indent = {
+      char = "▏",
+      smart_indent_cap = true,
     },
-    buftype_exclude = { "nofile", "terminal" },
+    scope = {
+      enabled = true,
+      char = "▎",
+    },
   })
 end
 
