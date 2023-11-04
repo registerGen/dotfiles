@@ -34,7 +34,7 @@ require("lazy").setup({
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    dependencies = { "mason-lspconfig.nvim" },
+    event = "LspAttach",
     config = function()
       require("plugincfg.mason_lspconfig").config()
     end,
