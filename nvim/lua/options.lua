@@ -5,6 +5,8 @@ local icons = require("icons")
 opt.background = "dark"
 opt.backup = false
 opt.cmdheight = 0
+opt.cinoptions:append("j1")
+opt.cinoptions:append("g0")
 opt.completeopt = { "menu", "menuone", "noselect" }
 opt.conceallevel = 2
 opt.cursorline = true
