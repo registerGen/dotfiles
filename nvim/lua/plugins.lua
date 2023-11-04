@@ -361,9 +361,6 @@ require("lazy").setup({
   ui = {
     size = { width = 0.9, height = 0.9 },
   },
-  git = {
-    url_format = "https://ghproxy.com/https://github.com/%s.git",
-  },
   checker = {
     enabled = true,
   },
