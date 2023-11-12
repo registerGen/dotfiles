@@ -44,7 +44,7 @@ M.config = function()
 
       -- Enable inlay hints if the server support this
       if caps.inlayHintProvider then
-        vim.lsp.inlay_hint(args.buf, true)
+        vim.lsp.inlay_hint.enable(args.buf)
       end
     end,
   })
