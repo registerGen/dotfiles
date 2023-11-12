@@ -1,7 +1,6 @@
 local M = {}
 
 local icons = require("icons")
-local u = require("utils")
 
 local function in_cmd_mode()
   return vim.api.nvim_get_mode().mode == "c"

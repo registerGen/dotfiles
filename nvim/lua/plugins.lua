@@ -203,7 +203,7 @@ require("lazy").setup({
     },
     config = function()
       require("plugincfg.dropbar").config()
-    end
+    end,
   },
 
   -- Tabline {{{1
