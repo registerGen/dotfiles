@@ -66,13 +66,6 @@ M.config = function()
       lualine_y = { "progress" },
       lualine_z = { { "location", icon = icons.misc.location } },
     },
-    winbar = {
-      lualine_b = { { "filetype", icon_only = true }, { "filename", path = 3 } },
-      lualine_c = { { "aerial", sep = u.pad(icons.arrow.right) } },
-    },
-    inactive_winbar = {
-      lualine_b = { { "filetype", icon_only = true }, { "filename", path = 3 } },
-    },
     extensions = { "nvim-tree", "fugitive", "aerial" },
   })
 end

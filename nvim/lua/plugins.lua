@@ -62,13 +62,6 @@ require("lazy").setup({
     end,
   },
   {
-    "stevearc/aerial.nvim",
-    event = "LspAttach",
-    config = function()
-      require("plugincfg.aerial").config()
-    end,
-  },
-  {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     event = { "BufReadPre", "BufNewFile" },
@@ -202,6 +195,15 @@ require("lazy").setup({
     config = function()
       require("plugincfg.clock").config()
     end,
+  },
+  {
+    "Bekaboo/dropbar.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+    },
+    config = function()
+      require("plugincfg.dropbar").config()
+    end
   },
 
   -- Tabline {{{1
