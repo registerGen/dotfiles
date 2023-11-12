@@ -27,7 +27,7 @@ return {
   },
   misc = {
     bulb = "",
-    ellipsis = "⋯",
+    ellipsis = "",
     find = "",
     location = "",
   },
@@ -51,7 +51,7 @@ return {
     Method = "",
     Module = "",
     Namespace = "",
-    Null = "󰟢",
+    Null = "",
     Number = "",
     Object = "",
     Operator = "",
