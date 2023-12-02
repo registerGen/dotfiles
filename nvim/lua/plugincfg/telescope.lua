@@ -11,7 +11,6 @@ M.config = function()
     },
   })
   telescope.load_extension("fzf")
-  telescope.load_extension("aerial")
   telescope.load_extension("notify")
 end
 
