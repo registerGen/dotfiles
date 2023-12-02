@@ -39,7 +39,7 @@
       "  numberstyle={",
       "    \\color{gray}",
       "    \\ttfamily",
-      "    \\normalsize",
+      "    \\footnotesize",
       "  },",
       "  commentstyle={",
       "    \\color[RGB]{0,255,0}",
