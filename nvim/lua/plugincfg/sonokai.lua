@@ -15,6 +15,7 @@ M.config = function()
       vim.api.nvim_set_hl(0, "TSParameter", { link = "OrangeItalic", default = false })
       vim.api.nvim_set_hl(0, "TSParameterReference", { link = "OrangeItalic", default = false })
       vim.api.nvim_set_hl(0, "NoicePopupmenuMatch", { link = "CmpItemAbbrMatch", default = false })
+      vim.api.nvim_set_hl(0, "WinBar", { bg = "NONE", default = false })
       vim.cmd([[
         hi! link @lsp.type.class         TSClass
         hi! link @lsp.type.comment       TSComment
