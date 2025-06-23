@@ -1,0 +1,28 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+    shell:
+      stdin: true
+      stdout: true
+
+- link:
+    ~/.gitconfig: git/gitconfig
+    ~/.gnupg/gpg-agent.conf: gpg/gpg-agent.conf
+    ~/.config/nvim: nvim
+    ~/.config/neovide: neovide
+    ~/.zshrc: zsh/zshrc
+    ~/.latexmkrc: latexmk/latexmkrc
+
+# - shell:
+#   - sudo add-apt-repository ppa:neovim-ppa/unstable
+#   - sudo add-apt-repository ppa:git-core/ppa
+#   - sudo apt -y update && sudo apt -y upgrade
+#   - sudo apt -y install g++ gh git luajit neovim npm python-is-python3 wslu zsh zsh-antigen
+#   - sudo npm -g i tree-sitter-cli
+#   - sudo echo "[network]\n  generateResolvConf = false" >> /etc/wsl.conf
+#   - chsh -s $(which zsh)
+#   - gh auth login
+#   - sudo ln -s /usr/local/texlive/YYYY/texmf-var/fonts/conf/texlive-fontconfig.conf 09-texlive-fonts.conf
+#   - sudo visudo # edit secure_path

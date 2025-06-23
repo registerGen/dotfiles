@@ -1,0 +1,20 @@
+[credential "https://github.com"]
+  helper =
+  helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+  helper =
+  helper = !/usr/bin/gh auth git-credential
+[core]
+  editor = nvim
+[commit]
+  gpgsign = true
+[tag]
+  gpgsign = true
+[user]
+  email = registergen@163.com
+  name = registerGen
+  signingkey = 42B88BBCE3F7C08B
+[http]
+	proxy = 172.18.0.1:10809
+[https]
+	proxy = 172.18.0.1:10809
