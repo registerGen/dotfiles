@@ -2,6 +2,7 @@ vim.loader.enable()
 
 vim.cmd.set("nu rnu et ts=2 sw=2 cul nowrap cole=2 sb spr nobk noswf fdc=1 fdl=999 fdls=999 ls=3 scl=yes:1")
 vim.o.fcs = table.concat({
+  "eob: ",
   "fold: ",
   "foldclose:" .. require("icons").misc.fold_closed,
   "foldopen:" .. require("icons").misc.fold_open,
@@ -27,6 +28,16 @@ if vim.fn.has("wsl") then
     },
   }
 end
+
+vim.g.neovide_title_background_color = string.format(
+  "%x",
+  vim.api.nvim_get_hl(0, {
+    id = vim.api.nvim_get_hl_id_by_name("Normal")
+  }).bg
+)
+vim.g.neovide_opacity = 0.95
+vim.g.neovide_normal_opacity = 0.95
+vim.g.neovide_cursor_vfx_mode = "railgun"
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then

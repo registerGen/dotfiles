@@ -1,0 +1,2 @@
+CompileFlags:
+  Add: [-Wall, -Wextra, -Wconversion, -DREGISTERGEN, -O2, -I, /home/registergen/software/testlib]

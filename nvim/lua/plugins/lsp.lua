@@ -68,9 +68,6 @@ return {
       icons = vim.tbl_extend("force", require("icons").kinds, {
         Collapsed = require("icons").misc.fold_closed
       }),
-      layout = {
-        default_direction = "prefer_left",
-      },
       show_guides = true,
     },
   },

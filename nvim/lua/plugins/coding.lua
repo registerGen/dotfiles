@@ -28,7 +28,7 @@ return {
     main = "ibl",
     opts = {
       indent = { char = "▏" },
-      scope = { char = "▎" },
+      scope = { char = "▎", show_end = false },
     },
   },
   {

@@ -8,12 +8,13 @@
       stdout: true
 
 - link:
+    ~/.config/clangd: clangd
     ~/.gitconfig: git/gitconfig
     ~/.gnupg/gpg-agent.conf: gpg/gpg-agent.conf
-    ~/.config/nvim: nvim
-    ~/.config/neovide: neovide
-    ~/.zshrc: zsh/zshrc
     ~/.latexmkrc: latexmk/latexmkrc
+    ~/.config/neovide: neovide
+    ~/.config/nvim: nvim
+    ~/.zshrc: zsh/zshrc
 
 # - shell:
 #   - sudo add-apt-repository ppa:neovim-ppa/unstable
