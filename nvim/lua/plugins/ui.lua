@@ -12,7 +12,7 @@ return {
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "lsp_status", { "diagnostics", symbols = require("icons").diagnostic } },
+        lualine_b = { "lsp_status", "diagnostics_modified" },
         lualine_c = { "filename", "searchcount" },
         lualine_x = { "filesize", "filetype" },
         lualine_y = { { "diff", symbols = require("icons").git_diff }, "branch" },

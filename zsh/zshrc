@@ -10,13 +10,11 @@ antigen bundle sindresorhus/pure@main
 antigen bundle skywind3000/z.lua
 antigen theme pure
 antigen apply
+export ZSH=~/.antigen/bundles/robbyrussell/oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # Vi mode
 bindkey -v
-
-# Neovide
-alias nv="neovide.exe"
 
 # PATH
 export PATH=$PATH:/usr/local/texlive/2025/bin/x86_64-linux

@@ -5,6 +5,7 @@ return {
     warning = "",
     info = "",
     hint = "",
+    ok = "",
   },
   git_diff = {
     added = "",

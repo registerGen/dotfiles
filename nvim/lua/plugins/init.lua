@@ -20,6 +20,7 @@ return {
       vim.cmd.colors("sonokai")
 
       vim.api.nvim_set_hl(0, "BlinkCmpLabelMatch", { fg = "None", bg = "None", bold = true, force = true })
+      vim.api.nvim_set_hl(0, "DiagnosticOk", { link = "DiagnosticHint", force = true })
       vim.api.nvim_set_hl(0, "TSParameter", { link = "OrangeItalic", force = true })
       vim.api.nvim_set_hl(0, "TSParameterReference", { link = "OrangeItalic", force = true })
     end,
