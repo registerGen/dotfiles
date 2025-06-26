@@ -7,3 +7,6 @@ size = 12.5
 
 [font.features]
 "Cascadia Code PL" = ["+calt", "+ss01", "+ss02"]
+
+[box-drawing]
+mode = "native"

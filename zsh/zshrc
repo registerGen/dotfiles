@@ -2,14 +2,15 @@ source /usr/share/zsh-antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle colored-man-pages
 antigen bundle command-not-found
+antigen bundle gh
 antigen bundle git
-antigen bundle vi-mode
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle sindresorhus/pure@main
 antigen bundle skywind3000/z.lua
 antigen theme pure
 antigen apply
+
 export ZSH=~/.antigen/bundles/robbyrussell/oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
@@ -20,6 +21,9 @@ bindkey -v
 export PATH=$PATH:/usr/local/texlive/2025/bin/x86_64-linux
 export MANPATH=$MANPATH:/usr/local/texlive/2025/texmf-dist/doc/man
 export INFOPATH=$INFOPATH:/usr/local/texlive/2025/texmf-dist/doc/info
+
+# EDITOR
+export EDITOR="nvim"
 
 # Proxy
 export hostip=$(ip route | grep default | awk '{print $3}')

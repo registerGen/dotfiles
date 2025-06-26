@@ -14,7 +14,7 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "lsp_status", "diagnostics_modified" },
         lualine_c = { "filename", "searchcount" },
-        lualine_x = { "filesize", "filetype" },
+        lualine_x = { "filesize", "filetype", "fileformat" },
         lualine_y = { { "diff", symbols = require("icons").git_diff }, "branch" },
         lualine_z = { "progress", "location" },
       },

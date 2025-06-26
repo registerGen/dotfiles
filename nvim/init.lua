@@ -29,6 +29,13 @@ if vim.fn.has("wsl") then
   }
 end
 
+vim.api.nvim_create_user_command("FollowSymlink", function()
+  local fname = vim.uv.fs_readlink(vim.fn.expand("%:p"))
+  if not fname then return end
+  vim.cmd.bwipeout()
+  vim.cmd.e(fname)
+end, {})
+
 vim.g.neovide_title_background_color = string.format(
   "%x",
   vim.api.nvim_get_hl(0, {
