@@ -4,7 +4,7 @@
 interactive_indicator="// interactive"
 interactive_flag=0
 
-CXX="clang-20"
+CXX="g++"
 CXXFLAGS="-DREGISTERGEN -O2"
 
 while read -r line; do

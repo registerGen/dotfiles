@@ -1,6 +1,17 @@
 vim.loader.enable()
 
-vim.cmd.set("nu rnu et ts=2 sw=2 cul nowrap cole=2 sb spr nobk noswf fdc=1 fdl=999 fdls=999 ls=3 scl=yes:1")
+vim.cmd([[
+set nu rnu
+set et ts=2 sw=2
+set cul
+set nowrap
+set cole=2
+set sb spr
+set nobk noswf
+set fdc=1 fdl=999 fdls=999
+set ls=3 scl=yes:1
+set cino+=:0,g0,j1,N-s,E-s:(0:U1
+]])
 vim.o.fcs = table.concat({
   "eob: ",
   "fold: ",
