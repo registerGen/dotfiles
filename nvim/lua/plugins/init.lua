@@ -1,9 +1,9 @@
 return {
   { "folke/lazy.nvim", priority = 10000 },
   { "nvim-tree/nvim-web-devicons", lazy = true },
-  { "nvim-lua/plenary.nvim", lazy = true },
   { "MunifTanjim/nui.nvim", lazy = true },
   { "kevinhwang91/promise-async", lazy = true },
+  { "tpope/vim-repeat", lazy = true },
 
   {
     "sainnhe/sonokai",
@@ -23,6 +23,11 @@ return {
       vim.api.nvim_set_hl(0, "DiagnosticOk", { link = "DiagnosticHint", force = true })
       vim.api.nvim_set_hl(0, "TSParameter", { link = "OrangeItalic", force = true })
       vim.api.nvim_set_hl(0, "TSParameterReference", { link = "OrangeItalic", force = true })
+
+      vim.g.neovide_title_background_color = string.format(
+        "%x",
+        vim.api.nvim_get_hl(0, { id = vim.api.nvim_get_hl_id_by_name("Normal") }).bg
+      )
     end,
   }
 }

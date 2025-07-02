@@ -14,6 +14,7 @@
     ~/.latexmkrc: latexmk/latexmkrc
     ~/.config/neovide: neovide
     ~/.config/nvim: nvim
+    ~/.zshenv: zsh/zshenv
     ~/.zshrc: zsh/zshrc
 
 # - shell:
@@ -27,3 +28,4 @@
 #   - gh auth login
 #   - sudo ln -s /usr/local/texlive/YYYY/texmf-var/fonts/conf/texlive-fontconfig.conf 09-texlive-fonts.conf
 #   - sudo visudo # edit secure_path
+#   - cargo install typst ripgrep fd-find

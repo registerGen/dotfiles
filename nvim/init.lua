@@ -47,12 +47,6 @@ vim.api.nvim_create_user_command("FollowSymlink", function()
   vim.cmd.e(fname)
 end, {})
 
-vim.g.neovide_title_background_color = string.format(
-  "%x",
-  vim.api.nvim_get_hl(0, {
-    id = vim.api.nvim_get_hl_id_by_name("Normal")
-  }).bg
-)
 vim.g.neovide_opacity = 0.95
 vim.g.neovide_normal_opacity = 0.95
 vim.g.neovide_cursor_vfx_mode = "railgun"
