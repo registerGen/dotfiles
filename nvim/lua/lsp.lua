@@ -1,5 +1,10 @@
 local icons = require("icons")
 
+-- Why doesn't Neovim map this?
+vim.keymap.set("n", "grd", function()
+  vim.lsp.buf.definition()
+end, { desc = "vim.lsp.buf.definition()" })
+
 vim.diagnostic.config({
   virtual_lines = true,
   severity_sort = true,

@@ -13,14 +13,6 @@ return {
         groups = { "Red", "Orange", "Yellow", "Green", "Blue", "Purple" },
         priority = math.floor((vim.hl.priorities.treesitter + vim.hl.priorities.semantic_tokens) / 2)
       },
-      mappings = {
-        pairs = {
-          -- NOTE: remove this when it's not buggy
-          ["_"] = {
-            { "_", when = function() return false end },
-          },
-        },
-      },
     },
   },
   {
