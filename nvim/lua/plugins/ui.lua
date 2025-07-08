@@ -113,4 +113,8 @@ return {
       vim.keymap.set("n", "zm", require("ufo").closeFoldsWith)
     end,
   },
+  {
+    "kevinhwang91/nvim-bqf",
+    opts = {},
+  },
 }
