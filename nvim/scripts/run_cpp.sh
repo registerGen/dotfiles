@@ -5,7 +5,7 @@ interactive_indicator="// interactive"
 interactive_flag=0
 
 CXX="g++"
-CXXFLAGS="-DREGISTERGEN -O2 -I /home/registergen/software/testlib -I /home/registergen/software/ac-library"
+CXXFLAGS="-DREGISTERGEN -O2 -I /home/registergen/oi/include/ac-library -I /home/registergen/oi/include/testlib"
 
 while read -r line; do
   if [ "$line" == "$interactive_indicator" ]; then
