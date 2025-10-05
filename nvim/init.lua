@@ -27,17 +27,7 @@ vim.o.fcs = table.concat({
 vim.g.tex_flavor = "latex"
 
 if vim.fn.has("wsl") then
-  vim.g.clipboard = {
-    name = "WSLClipboard",
-    copy = {
-      ["+"] = "clip.exe",
-      ["*"] = "clip.exe",
-    },
-    paste = {
-      ["+"] = "powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace(\"`r\", \"\"))",
-      ["*"] = "powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace(\"`r\", \"\"))",
-    },
-  }
+  vim.g.clipboard = "win32yank"
 end
 
 vim.api.nvim_create_user_command("FollowSymlink", function()
