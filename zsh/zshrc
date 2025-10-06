@@ -4,6 +4,7 @@ antigen bundle colored-man-pages
 antigen bundle command-not-found
 antigen bundle gh
 antigen bundle git
+antigen bundle git-lfs
 antigen bundle npm
 antigen bundle ubuntu
 antigen bundle sainnhe/zsh-completions

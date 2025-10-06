@@ -36,6 +36,7 @@ return {
       cmds = {
         external = {
           cpp = vim.fn.stdpath("config") .. "/scripts/run_cpp.sh $file $fileBase",
+          rust = "cargo run --bin $fileBase",
           tex = "latexmk $file && latexmk -c",
           typst = "typst compile $file",
         },
