@@ -20,15 +20,19 @@ vim.o.fcs = table.concat({
   "foldsep: ",
 }, ",")
 
--- if not vim.g.neovide then
+if not vim.g.neovide then
   require("vim._extui").enable({})
--- end
+end
 
 vim.g.tex_flavor = "latex"
 
 if vim.fn.has("wsl") then
   vim.g.clipboard = "win32yank"
 end
+
+vim.g.neovide_opacity = 0.95
+vim.g.neovide_normal_opacity = 0.95
+vim.g.neovide_cursor_vfx_mode = "railgun"
 
 vim.api.nvim_create_user_command("FollowSymlink", function()
   local fname = vim.uv.fs_readlink(vim.fn.expand("%:p"))
@@ -37,9 +41,8 @@ vim.api.nvim_create_user_command("FollowSymlink", function()
   vim.cmd.e(fname)
 end, {})
 
-vim.g.neovide_opacity = 0.95
-vim.g.neovide_normal_opacity = 0.95
-vim.g.neovide_cursor_vfx_mode = "railgun"
+vim.cmd.packadd("nohlsearch")
+vim.cmd.packadd("nvim.undotree")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
