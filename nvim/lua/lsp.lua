@@ -5,19 +5,23 @@ vim.keymap.set("n", "grd", function()
   vim.lsp.buf.definition()
 end, { desc = "vim.lsp.buf.definition()" })
 
+vim.keymap.set("n", "grf", function()
+  vim.lsp.buf.format()
+end, { desc = "vim.lsp.buf.format()" })
+
 vim.diagnostic.config({
   virtual_lines = true,
   severity_sort = true,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = icons.diagnostic.error,
-      [vim.diagnostic.severity.WARN] = icons.diagnostic.warn,
-      [vim.diagnostic.severity.INFO] = icons.diagnostic.info,
-      [vim.diagnostic.severity.HINT] = icons.diagnostic.hint,
+      [vim.diagnostic.severity.WARN]  = icons.diagnostic.warn,
+      [vim.diagnostic.severity.INFO]  = icons.diagnostic.info,
+      [vim.diagnostic.severity.HINT]  = icons.diagnostic.hint,
     },
     numhl = {
       [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+      [vim.diagnostic.severity.WARN]  = "DiagnosticSignWarn",
     }
   }
 })
