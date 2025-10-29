@@ -14,12 +14,12 @@
   email = registergen@163.com
   name = registerGen
   signingkey = 42B88BBCE3F7C08B
-[http]
-	proxy = 172.18.0.1:10809
-[https]
-	proxy = 172.18.0.1:10809
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[http]
+  proxy = 172.18.0.1:10809
+[https]
+  proxy = 172.18.0.1:10809
