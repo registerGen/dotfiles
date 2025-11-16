@@ -12,6 +12,7 @@ set fdc=1 fdl=999 fdls=999
 set ls=3 scl=yes:1
 set cino+=:0,g0,j1,N-s,E-s:(0:U1
 set spell
+autocmd TermOpen * setlocal nospell
 ]])
 vim.o.fcs = table.concat({
   "eob: ",
