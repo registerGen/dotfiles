@@ -4,6 +4,7 @@ return {
   { "MunifTanjim/nui.nvim", lazy = true },
   { "kevinhwang91/promise-async", lazy = true },
   { "tpope/vim-repeat", lazy = true },
+  { "nvim-lua/plenary.nvim", lazy = true },
 
   {
     "sainnhe/sonokai",

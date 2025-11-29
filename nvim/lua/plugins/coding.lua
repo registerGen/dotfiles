@@ -35,6 +35,7 @@ return {
       behavior = { startinsert = true },
       cmds = {
         external = {
+          c = vim.fn.stdpath("config") .. "/scripts/run_cpp.sh $file $fileBase",
           cpp = vim.fn.stdpath("config") .. "/scripts/run_cpp.sh $file $fileBase",
           rust = "cargo run --bin $fileBase",
           tex = "latexmk $file && latexmk -c",
