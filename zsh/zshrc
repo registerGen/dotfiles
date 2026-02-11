@@ -26,6 +26,8 @@ bindkey -v
 # Aliases
 alias nvi="neovide.exe"
 
+# PATH
+
 # Proxy
 export hostip=$(ip route | grep default | awk '{print $3}')
 export hostport=10809
