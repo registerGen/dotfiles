@@ -20,6 +20,7 @@
 # - shell:
 #   - sudo add-apt-repository ppa:neovim-ppa/unstable
 #   - sudo add-apt-repository ppa:git-core/ppa
+#   - curl -fsSL https://deb.nodesource.com | sudo -E bash -
 #   - sudo apt -y update && sudo apt -y upgrade
 #   - sudo apt -y install g++ gh git luajit neovim npm python-is-python3 wslu zsh zsh-antigen
 #   - sudo npm -g i tree-sitter-cli
