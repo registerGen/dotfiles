@@ -1,6 +1,7 @@
 vim.loader.enable()
 
 vim.cmd([[
+set guifont=Cascadia\ Code\ PL,CaskaydiaCove\ Nerd\ Font\ Mono:h12
 set nu rnu
 set et ts=2 sw=2
 set cul
