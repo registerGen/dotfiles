@@ -23,9 +23,7 @@ vim.o.fcs = table.concat({
   "foldsep: ",
 }, ",")
 
-if not vim.g.neovide then
-  require("vim._extui").enable({})
-end
+require("vim._extui").enable({})
 
 vim.g.tex_flavor = "latex"
 
