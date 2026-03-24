@@ -11,7 +11,6 @@ return {
     opts = {
       highlights = {
         groups = { "Red", "Orange", "Yellow", "Green", "Blue", "Purple" },
-        priority = math.floor((vim.hl.priorities.treesitter + vim.hl.priorities.semantic_tokens) / 2)
       },
     },
   },

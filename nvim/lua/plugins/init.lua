@@ -1,10 +1,10 @@
 return {
-  { "folke/lazy.nvim", priority = 10000 },
+  { "folke/lazy.nvim",             priority = 10000 },
   { "nvim-tree/nvim-web-devicons", lazy = true },
-  { "MunifTanjim/nui.nvim", lazy = true },
-  { "kevinhwang91/promise-async", lazy = true },
-  { "tpope/vim-repeat", lazy = true },
-  { "nvim-lua/plenary.nvim", lazy = true },
+  { "MunifTanjim/nui.nvim",        lazy = true },
+  { "kevinhwang91/promise-async",  lazy = true },
+  { "tpope/vim-repeat",            lazy = true },
+  { "nvim-lua/plenary.nvim",       lazy = true },
 
   {
     "sainnhe/sonokai",

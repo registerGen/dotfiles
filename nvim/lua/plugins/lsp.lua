@@ -51,8 +51,8 @@ return {
         enabled = true,
       },
       sources = {
-        default = { "copilot", "lsp", "lazydev", "snippets" },
-        -- default = { "lsp", "lazydev", "snippets" },
+        -- default = { "copilot", "lsp", "lazydev", "snippets" },
+        default = { "lsp", "lazydev", "snippets" },
         providers = {
           copilot = {
             name = "copilot",
