@@ -16,7 +16,6 @@ return {
     build = "cargo build --release",
     dependencies = {
       "xzbdmw/colorful-menu.nvim",
-      "fang2hou/blink-copilot",
       { "folke/lazydev.nvim", ft = "lua", opts = {} },
     },
     opts = {
@@ -51,7 +50,6 @@ return {
         enabled = true,
       },
       sources = {
-        -- default = { "copilot", "lsp", "lazydev", "snippets" },
         default = { "lsp", "lazydev", "snippets" },
         providers = {
           copilot = {

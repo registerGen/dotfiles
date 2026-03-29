@@ -30,14 +30,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
-    if client:supports_method("textDocument/inlayHint") then
-      vim.lsp.inlay_hint.enable(true, { bufnr = 0 })
-    end
-
-    if client:supports_method("textDocument/foldingRange") then
-      local win = vim.api.nvim_get_current_win()
-      vim.wo[win][0].foldmethod = "expr"
-      vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
+    if client:supports_method("textDocument/codeLens") then
+      vim.lsp.codelens.enable(true, { bufnr = 0 })
     end
 
     if client:supports_method("textDocument/documentColor") then
@@ -46,8 +40,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
       })
     end
 
-    if client:supports_method("textDocument/codeLens") then
-      vim.lsp.codelens.enable(true, { bufnr = 0 })
+    if client:supports_method("textDocument/foldingRange") then
+      local win = vim.api.nvim_get_current_win()
+      vim.wo[win][0].foldmethod = "expr"
+      vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
+    end
+
+    if client:supports_method("textDocument/inlayHint") then
+      vim.lsp.inlay_hint.enable(true, { bufnr = 0 })
+    end
+
+    if client:supports_method("textDocument/inlineCompletion") then
+      vim.lsp.inline_completion.enable(true, { bufnr = 0 })
     end
   end,
 })

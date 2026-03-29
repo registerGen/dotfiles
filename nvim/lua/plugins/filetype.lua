@@ -1,7 +1,7 @@
 return {
   {
     "let-def/texpresso.vim",
-    ft = "latex",
+    ft = { "tex", "latex" },
     config = function()
       require("texpresso").texpresso_path = "/home/registergen/software/texpresso/build/texpresso"
     end,
