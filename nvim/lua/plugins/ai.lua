@@ -19,7 +19,7 @@ return {
         auto_trigger = true,
         enabled = true,
         keymap = {
-          accept_and_goto = "<M-a>",
+          accept = "<M-a>",
         },
       }
     },

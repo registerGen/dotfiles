@@ -13,8 +13,11 @@ return {
   },
   {
     "Saghen/blink.cmp",
-    build = "cargo build --release",
+    build = function()
+      require("blink.cmp").build():wait(60000)
+    end,
     dependencies = {
+      "saghen/blink.lib",
       "xzbdmw/colorful-menu.nvim",
       { "folke/lazydev.nvim", ft = "lua", opts = {} },
     },
