@@ -7,7 +7,10 @@ return {
   },
   {
     "Saghen/blink.pairs",
-    build = "cargo build --release",
+    build = function()
+      require("blink.pairs").build():pwait(60000)
+    end,
+    dependencies = "Saghen/blink.lib",
     opts = {
       highlights = {
         groups = { "Red", "Orange", "Yellow", "Green", "Blue", "Purple" },
