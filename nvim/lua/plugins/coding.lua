@@ -8,7 +8,7 @@ return {
   {
     "Saghen/blink.pairs",
     build = function()
-      require("blink.pairs").build():pwait(60000)
+      require("blink.pairs").build():pwait()
     end,
     dependencies = "Saghen/blink.lib",
     opts = {

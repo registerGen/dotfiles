@@ -14,7 +14,7 @@ return {
   {
     "Saghen/blink.cmp",
     build = function()
-      require("blink.cmp").build():pwait(60000)
+      require("blink.cmp").build():pwait()
     end,
     dependencies = {
       "saghen/blink.lib",
