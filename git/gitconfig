@@ -8,16 +8,16 @@
   editor = nvim
 [commit]
   gpgsign = true
-[tag]
-  gpgsign = true
-[user]
-  email = registergen@163.com
-  name = registerGen
-  signingkey = 42B88BBCE3F7C08B
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[credential]
-	helper = store
+[init]
+  defaultBranch = main
+[tag]
+  gpgsign = true
+[user]
+  email = xcs25@mails.tsinghua.edu.cn
+  name = registerGen
+  signingkey = 151D4CA427CE12BD
