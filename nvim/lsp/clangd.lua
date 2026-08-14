@@ -1,3 +1,3 @@
 return {
-  cmd = { "clangd", "--background-index", "--clang-tidy", "--cross-file-rename" }
+  cmd = { "clangd", "--background-index", "--clang-tidy", "--cross-file-rename" },
 }

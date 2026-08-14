@@ -34,8 +34,12 @@ return {
             columns = { { "kind_icon" }, { "label", gap = 1 } },
             components = {
               label = {
-                text = function(ctx) return require("colorful-menu").blink_components_text(ctx) end,
-                highlight = function(ctx) return require("colorful-menu").blink_components_highlight(ctx) end,
+                text = function(ctx)
+                  return require("colorful-menu").blink_components_text(ctx)
+                end,
+                highlight = function(ctx)
+                  return require("colorful-menu").blink_components_highlight(ctx)
+                end,
               },
             },
           },
@@ -75,7 +79,7 @@ return {
     opts = {
       backends = { "lsp", "treesitter", "markdown", "asciidoc", "man" },
       icons = vim.tbl_extend("force", require("icons").kinds, {
-        Collapsed = require("icons").misc.fold_closed
+        Collapsed = require("icons").misc.fold_closed,
       }),
       show_guides = true,
     },
@@ -87,11 +91,12 @@ return {
         cpp = { "clang-format" },
         css = { "prettier" },
         html = { "prettier" },
+        haskell = { "ormolu" },
         javascript = { "prettier" },
         lua = { "stylua" },
         rust = { "rustfmt" },
         typescript = { "prettier" },
-      }
-    }
-  }
+      },
+    },
+  },
 }

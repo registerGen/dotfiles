@@ -37,7 +37,9 @@ vim.g.neovide_cursor_vfx_mode = "railgun"
 
 vim.api.nvim_create_user_command("FollowSymlink", function()
   local fname = vim.uv.fs_readlink(vim.fn.expand("%:p"))
-  if not fname then return end
+  if not fname then
+    return
+  end
   vim.cmd.bwipeout()
   vim.cmd.e(fname)
 end, {})

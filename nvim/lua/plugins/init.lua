@@ -1,10 +1,10 @@
 return {
-  { "folke/lazy.nvim",             priority = 10000 },
+  { "folke/lazy.nvim", priority = 10000 },
   { "nvim-tree/nvim-web-devicons", lazy = true },
-  { "MunifTanjim/nui.nvim",        lazy = true },
-  { "kevinhwang91/promise-async",  lazy = true },
-  { "tpope/vim-repeat",            lazy = true },
-  { "nvim-lua/plenary.nvim",       lazy = true },
+  { "MunifTanjim/nui.nvim", lazy = true },
+  { "kevinhwang91/promise-async", lazy = true },
+  { "tpope/vim-repeat", lazy = true },
+  { "nvim-lua/plenary.nvim", lazy = true },
 
   {
     "sainnhe/sonokai",
@@ -20,7 +20,11 @@ return {
 
       vim.cmd.colors("sonokai")
 
-      vim.api.nvim_set_hl(0, "BlinkCmpLabelMatch", { fg = "None", bg = "None", bold = true, force = true })
+      vim.api.nvim_set_hl(
+        0,
+        "BlinkCmpLabelMatch",
+        { fg = "None", bg = "None", bold = true, force = true }
+      )
       vim.api.nvim_set_hl(0, "TSParameter", { link = "OrangeItalic", force = true })
       vim.api.nvim_set_hl(0, "TSParameterReference", { link = "OrangeItalic", force = true })
 
@@ -29,5 +33,5 @@ return {
         vim.api.nvim_get_hl(0, { id = vim.api.nvim_get_hl_id_by_name("Normal") }).bg
       )
     end,
-  }
+  },
 }

@@ -21,17 +21,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-]]--
+]]
+--
 
 -- This is almost a copy-paste from
 -- https://github.com/nvim-lualine/lualine.nvim/tree/master/lua/lualine/components/diagnostics
 
 local api = vim.api
 local lualine_require = require("lualine_require")
-local modules = lualine_require.lazy_require {
+local modules = lualine_require.lazy_require({
   highlight = "lualine.highlight",
   utils = "lualine.utils.utils",
-}
+})
 local icons = require("icons")
 
 local M = lualine_require.require("lualine.component"):extend()
@@ -75,7 +76,8 @@ function M:update_status()
     }
     self.last_diagnostics_count[bufnr] = diagnostics_count
   else
-    diagnostics_count = self.last_diagnostics_count[bufnr] or { error = 0, warn = 0, info = 0, hint = 0 }
+    diagnostics_count = self.last_diagnostics_count[bufnr]
+      or { error = 0, warn = 0, info = 0, hint = 0 }
   end
 
   local colors, bgs = {}, {}
@@ -84,7 +86,13 @@ function M:update_status()
     bgs[name] = modules.utils.extract_highlight_colors(colors[name]:match("%%#(.-)#"), "bg")
   end
 
-  if diagnostics_count.error + diagnostics_count.warn + diagnostics_count.info + diagnostics_count.hint == 0 then
+  if
+    diagnostics_count.error
+      + diagnostics_count.warn
+      + diagnostics_count.info
+      + diagnostics_count.hint
+    == 0
+  then
     return colors.ok .. diagnostics_symbols.ok
   end
 
@@ -93,7 +101,10 @@ function M:update_status()
     if diagnostics_count[section] and diagnostics_count[section] > 0 then
       padding = previous_section and (bgs[previous_section] ~= bgs[section]) and " " or ""
       previous_section = section
-      table.insert(result, colors[section] .. padding .. diagnostics_symbols[section] .. diagnostics_count[section])
+      table.insert(
+        result,
+        colors[section] .. padding .. diagnostics_symbols[section] .. diagnostics_count[section]
+      )
     end
   end
 

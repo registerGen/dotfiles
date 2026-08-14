@@ -1,11 +1,5 @@
 return {
   {
-    "m4xshen/hardtime.nvim",
-    opts = {
-      disable_mouse = false,
-    },
-  },
-  {
     "Saghen/blink.pairs",
     build = function()
       require("blink.pairs").build():pwait()
@@ -29,7 +23,7 @@ return {
     "cappyzawa/trim.nvim",
     opts = {
       patterns = { [[%s/\(\n\n\)\n\+/\1/]] },
-    }
+    },
   },
   {
     "is0n/jaq-nvim",
@@ -37,9 +31,10 @@ return {
       behavior = { startinsert = true },
       cmds = {
         external = {
-          c = vim.fn.stdpath("config") .. "/scripts/run_cpp.sh $file $fileBase",
-          cpp = vim.fn.stdpath("config") .. "/scripts/run_cpp.sh $file $fileBase",
-          rust = "cargo run --bin $fileBase",
+          c = vim.fn.stdpath("config") .. "/scripts/run.sh $file $fileBase",
+          cpp = vim.fn.stdpath("config") .. "/scripts/run.sh $file $fileBase",
+          haskell = vim.fn.stdpath("config") .. "/scripts/run.sh $file $fileBase",
+          rust = vim.fn.stdpath("config") .. "/scripts/run.sh $file $fileBase",
           tex = "latexmk $file",
           typst = "typst compile $file",
         },
@@ -51,7 +46,7 @@ return {
     config = function(_, opts)
       require("jaq-nvim").setup(opts)
       vim.keymap.set("n", "<C-M-n>", "<cmd>Jaq<CR>")
-    end
+    end,
   },
   {
     url = "https://codeberg.org/andyg/leap.nvim",
@@ -61,6 +56,6 @@ return {
     end,
   },
   {
-    "nvim-treesitter/nvim-treesitter-context"
+    "nvim-treesitter/nvim-treesitter-context",
   },
 }

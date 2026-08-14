@@ -15,15 +15,15 @@ vim.diagnostic.config({
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = icons.diagnostic.error,
-      [vim.diagnostic.severity.WARN]  = icons.diagnostic.warn,
-      [vim.diagnostic.severity.INFO]  = icons.diagnostic.info,
-      [vim.diagnostic.severity.HINT]  = icons.diagnostic.hint,
+      [vim.diagnostic.severity.WARN] = icons.diagnostic.warn,
+      [vim.diagnostic.severity.INFO] = icons.diagnostic.info,
+      [vim.diagnostic.severity.HINT] = icons.diagnostic.hint,
     },
     numhl = {
       [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-      [vim.diagnostic.severity.WARN]  = "DiagnosticSignWarn",
-    }
-  }
+      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+    },
+  },
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {

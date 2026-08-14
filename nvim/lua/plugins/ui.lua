@@ -52,8 +52,8 @@ return {
       local builtin = require("statuscol.builtin")
       require("statuscol").setup({
         segments = {
-          { text = { "%s" },                       click = "v:lua.ScSa" },
-          { text = { builtin.lnumfunc },           click = "v:lua.ScLa" },
+          { text = { "%s" }, click = "v:lua.ScSa" },
+          { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
           { text = { " ", builtin.foldfunc, " " }, click = "v:lua.ScFa" },
         },
       })
@@ -128,5 +128,5 @@ return {
       vim.g.loaded_netrwPlugin = 1
     end,
     opts = {},
-  }
+  },
 }
