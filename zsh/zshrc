@@ -14,8 +14,8 @@ antigen bundle skywind3000/z.lua
 antigen theme pure
 antigen apply
 
-export ZSH=~/.antigen/bundles/robbyrussell/oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+export ZSH="$HOME/.antigen/bundles/robbyrussell/oh-my-zsh"
+source "$ZSH/oh-my-zsh.sh"
 
 # Completions
 autoload -U +X compinit && compinit
@@ -59,3 +59,13 @@ alias unproxy='
   sudo snap set system proxy.http=""
   sudo snap set system proxy.https=""
 '
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+
+[ -f "/home/registergen/.ghcup/env" ] && . "/home/registergen/.ghcup/env" # ghcup-env

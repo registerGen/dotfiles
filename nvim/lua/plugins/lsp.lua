@@ -80,4 +80,18 @@ return {
       show_guides = true,
     },
   },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        cpp = { "clang-format" },
+        css = { "prettier" },
+        html = { "prettier" },
+        javascript = { "prettier" },
+        lua = { "stylua" },
+        rust = { "rustfmt" },
+        typescript = { "prettier" },
+      }
+    }
+  }
 }

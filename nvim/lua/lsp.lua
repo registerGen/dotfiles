@@ -6,7 +6,7 @@ vim.keymap.set("n", "grd", function()
 end, { desc = "vim.lsp.buf.definition()" })
 
 vim.keymap.set("n", "grf", function()
-  vim.lsp.buf.format()
+  require("conform").format()
 end, { desc = "vim.lsp.buf.format()" })
 
 vim.diagnostic.config({
